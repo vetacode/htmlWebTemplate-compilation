@@ -1,0 +1,1434 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECORent – Rental Mobil Terpercaya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#DC2626',
+              'primary-dark': '#991B1B',
+              'primary-light': '#FEE2E2',
+            },
+            fontFamily: {
+              display: ['Bebas Neue', 'sans-serif'],
+              body: ['Poppins', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      * {
+        font-family: 'Poppins', sans-serif;
+      }
+      .font-display {
+        font-family: 'Bebas Neue', sans-serif;
+      }
+
+      /* Navbar */
+      #navbar {
+        transition: all 0.3s ease;
+      }
+      #navbar.scrolled {
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 2px 24px rgba(220, 38, 38, 0.1);
+      }
+
+      /* Hero */
+      .hero-bg {
+        background: linear-gradient(120deg, #1a0000 0%, #dc2626 60%, #fff 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-bg::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80')
+          center/cover no-repeat;
+        opacity: 0.18;
+        z-index: 0;
+      }
+      .hero-car-img {
+        filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.5));
+        animation: floatCar 3.5s ease-in-out infinite;
+      }
+      @keyframes floatCar {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-14px);
+        }
+      }
+
+      /* Diagonal divider */
+      .diagonal-bottom {
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      }
+      .diagonal-top {
+        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+      }
+
+      /* Cards */
+      .card-hover {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
+      }
+
+      /* Armada card */
+      .armada-card {
+        overflow: hidden;
+        border-radius: 16px;
+      }
+      .armada-card img {
+        transition: transform 0.4s ease;
+      }
+      .armada-card:hover img {
+        transform: scale(1.07);
+      }
+      .armada-overlay {
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.75) 0%,
+          transparent 60%
+        );
+      }
+
+      /* CTA pulse */
+      .cta-pulse {
+        animation: pulse-red 2s infinite;
+      }
+      @keyframes pulse-red {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 0 14px rgba(220, 38, 38, 0);
+        }
+      }
+
+      /* Rating stars */
+      .star {
+        color: #fbbf24;
+      }
+
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Mobile nav */
+      #mobile-menu {
+        transition:
+          max-height 0.35s ease,
+          opacity 0.3s ease;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+      #mobile-menu.open {
+        max-height: 500px;
+        opacity: 1;
+      }
+
+      /* Fade-in on scroll */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* WhatsApp sticky */
+      .wa-sticky {
+        animation: bounce-wa 2s ease infinite;
+      }
+      @keyframes bounce-wa {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-6px) scale(1.05);
+        }
+      }
+
+      /* Ribbon */
+      .ribbon {
+        position: absolute;
+        top: 16px;
+        right: -8px;
+        background: #dc2626;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 3px 14px;
+        border-radius: 3px 0 0 3px;
+        letter-spacing: 1px;
+      }
+      .ribbon::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -7px;
+        border-width: 7px 8px 0 0;
+        border-style: solid;
+        border-color: #991b1b transparent transparent transparent;
+      }
+
+      /* Ticker */
+      .ticker-wrap {
+        overflow: hidden;
+      }
+      .ticker {
+        display: flex;
+        animation: ticker 20s linear infinite;
+        white-space: nowrap;
+      }
+      .ticker:hover {
+        animation-play-state: paused;
+      }
+      @keyframes ticker {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900 overflow-x-hidden">
+    <!-- ========== NAVBAR ========== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-between h-16 md:h-20">
+          <!-- Logo -->
+          <a href="#hero" class="flex items-center gap-2 group">
+            <div
+              class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"
+            >
+              <i class="fa-solid fa-car text-white text-lg"></i>
+            </div>
+            <span
+              class="font-display text-2xl tracking-widest text-primary leading-none"
+              >ECO<span class="text-gray-900">Rent</span></span
+            >
+          </a>
+
+          <!-- Desktop Nav -->
+          <div class="hidden md:flex items-center gap-6 text-sm font-semibold">
+            <a
+              href="https://carisolusi.biz.id/home"
+              class="text-primary border-b-2 border-primary pb-0.5"
+              >Home</a
+            >
+            <a
+              href="https://carisolusi.biz.id/about"
+              class="hover:text-primary transition-colors"
+              >About</a
+            >
+            <a
+              href="https://carisolusi.biz.id/gallery"
+              class="hover:text-primary transition-colors"
+              >Gallery</a
+            >
+            <a
+              href="https://carisolusi.biz.id/service"
+              class="hover:text-primary transition-colors"
+              >Service</a
+            >
+            <a
+              href="https://carisolusi.biz.id/blog"
+              class="hover:text-primary transition-colors"
+              >Blog</a
+            >
+            <a
+              href="https://carisolusi.biz.id/contact"
+              class="hover:text-primary transition-colors"
+              >Contact</a
+            >
+            <a
+              href="https://wa.me/6281234567890?text=Halo%20ECORent%2C%20saya%20ingin%20booking%20mobil"
+              target="_blank"
+              class="bg-primary text-white px-5 py-2.5 rounded-full hover:bg-primary-dark transition-colors shadow-md flex items-center gap-2"
+            >
+              <i class="fa-brands fa-whatsapp"></i> Booking Sekarang
+            </a>
+          </div>
+
+          <!-- Hamburger -->
+          <button
+            id="menu-btn"
+            class="md:hidden text-gray-700 text-2xl p-2 focus:outline-none"
+          >
+            <i class="fa-solid fa-bars" id="menu-icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100">
+        <div class="px-4 py-4 flex flex-col gap-3 text-sm font-semibold">
+          <a href="https://carisolusi.biz.id/home" class="text-primary">Home</a>
+          <a href="https://carisolusi.biz.id/about" class="hover:text-primary"
+            >About</a
+          >
+          <a href="https://carisolusi.biz.id/gallery" class="hover:text-primary"
+            >Gallery</a
+          >
+          <a href="https://carisolusi.biz.id/service" class="hover:text-primary"
+            >Service</a
+          >
+          <a href="https://carisolusi.biz.id/blog" class="hover:text-primary"
+            >Blog</a
+          >
+          <a href="https://carisolusi.biz.id/contact" class="hover:text-primary"
+            >Contact</a
+          >
+          <a
+            href="https://wa.me/6281234567890"
+            target="_blank"
+            class="bg-primary text-white px-4 py-3 rounded-xl text-center flex items-center justify-center gap-2 mt-1"
+          >
+            <i class="fa-brands fa-whatsapp"></i> Booking via WhatsApp
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ========== TICKER ========== -->
+    <div
+      class="ticker-wrap bg-primary text-white text-xs font-semibold py-2 mt-16 md:mt-20"
+    >
+      <div class="ticker">
+        <span class="px-8"
+          >🚗 Armada Terlengkap &nbsp;•&nbsp; 🏅 500+ Customer Puas
+          &nbsp;•&nbsp; ✅ Harga Transparan &nbsp;•&nbsp; 🔑 Lepas Kunci &
+          Dengan Driver &nbsp;•&nbsp; 📞 Respon Cepat 24 Jam &nbsp;•&nbsp;</span
+        >
+        <span class="px-8"
+          >🚗 Armada Terlengkap &nbsp;•&nbsp; 🏅 500+ Customer Puas
+          &nbsp;•&nbsp; ✅ Harga Transparan &nbsp;•&nbsp; 🔑 Lepas Kunci &
+          Dengan Driver &nbsp;•&nbsp; 📞 Respon Cepat 24 Jam &nbsp;•&nbsp;</span
+        >
+        <span class="px-8"
+          >🚗 Armada Terlengkap &nbsp;•&nbsp; 🏅 500+ Customer Puas
+          &nbsp;•&nbsp; ✅ Harga Transparan &nbsp;•&nbsp; 🔑 Lepas Kunci &
+          Dengan Driver &nbsp;•&nbsp; 📞 Respon Cepat 24 Jam &nbsp;•&nbsp;</span
+        >
+      </div>
+    </div>
+
+    <!-- ========== 1. HERO SECTION ========== -->
+    <section
+      id="hero"
+      class="hero-bg diagonal-bottom pb-24 pt-12 md:pt-16 relative z-10"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="grid md:grid-cols-2 gap-10 items-center min-h-[500px]">
+          <!-- Text -->
+          <div class="text-white">
+            <div
+              class="inline-flex items-center gap-2 bg-white/15 border border-white/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-6"
+            >
+              <i class="fa-solid fa-shield-halved text-yellow-300"></i> Rental
+              Mobil #1 Terpercaya
+            </div>
+            <h1
+              class="font-display text-5xl sm:text-6xl md:text-7xl leading-none tracking-wide mb-5"
+            >
+              NIKMATI<br /><span class="text-yellow-300">PERJALANAN</span
+              ><br />TANPA BATAS
+            </h1>
+            <p
+              class="text-white/85 text-base md:text-lg leading-relaxed mb-8 max-w-md"
+            >
+              Sewa mobil harian & bulanan dengan harga transparan. Armada
+              bersih, terawat, dan siap antar jemput ke lokasi Anda. Booking
+              mudah lewat WhatsApp!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://wa.me/6281234567890?text=Halo%20ECORent%2C%20saya%20ingin%20booking%20mobil"
+                target="_blank"
+                class="cta-pulse bg-green-500 hover:bg-green-600 text-white font-bold px-7 py-4 rounded-2xl flex items-center justify-center gap-2.5 text-base shadow-xl transition-colors"
+              >
+                <i class="fa-brands fa-whatsapp text-xl"></i> Booking via
+                WhatsApp
+              </a>
+              <a
+                href="#armada"
+                class="bg-white/15 border border-white/40 hover:bg-white/25 text-white font-bold px-7 py-4 rounded-2xl flex items-center justify-center gap-2 text-base transition-all"
+              >
+                <i class="fa-solid fa-car-side"></i> Lihat Armada
+              </a>
+            </div>
+            <!-- Quick stats -->
+            <div class="flex gap-6 mt-10">
+              <div>
+                <div class="font-display text-3xl text-yellow-300">500+</div>
+                <div class="text-white/70 text-xs">Customer Puas</div>
+              </div>
+              <div class="border-l border-white/30 pl-6">
+                <div class="font-display text-3xl text-yellow-300">50+</div>
+                <div class="text-white/70 text-xs">Unit Armada</div>
+              </div>
+              <div class="border-l border-white/30 pl-6">
+                <div class="font-display text-3xl text-yellow-300">4.9⭐</div>
+                <div class="text-white/70 text-xs">Rating Google</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Car image -->
+          <div class="flex justify-center md:justify-end">
+            <img
+              src="https://images.unsplash.com/photo-1616455579100-2ceaa4eb2d37?auto=format&fit=crop&w=700&q=80"
+              alt="Mobil Rental ECORent"
+              class="hero-car-img w-full max-w-xs sm:max-w-sm md:max-w-lg rounded-3xl object-cover shadow-2xl border-4 border-white/20"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 2. TRUST / SOCIAL PROOF ========== -->
+    <section id="trust" class="bg-white py-16 px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12 fade-in">
+          <span
+            class="text-primary font-semibold text-sm uppercase tracking-widest"
+            >Social Proof</span
+          >
+          <h2 class="font-display text-4xl md:text-5xl text-gray-900 mt-1">
+            DIPERCAYA RIBUAN PELANGGAN
+          </h2>
+        </div>
+
+        <!-- Ratings Bar -->
+        <div
+          class="bg-gradient-to-br from-red-50 to-white border border-red-100 rounded-3xl p-6 md:p-10 mb-10 fade-in"
+        >
+          <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div>
+              <div class="text-5xl mb-2">⭐⭐⭐⭐⭐</div>
+              <div class="font-display text-5xl text-primary">4.9</div>
+              <div class="text-gray-500 text-sm mt-1">Rating di Google</div>
+            </div>
+            <div
+              class="border-y md:border-y-0 md:border-x border-red-100 py-6 md:py-0"
+            >
+              <i class="fa-solid fa-users text-4xl text-primary mb-2"></i>
+              <div class="font-display text-5xl text-primary">500+</div>
+              <div class="text-gray-500 text-sm mt-1">Customer Terlayani</div>
+            </div>
+            <div>
+              <i class="fa-solid fa-thumbs-up text-4xl text-primary mb-2"></i>
+              <div class="font-display text-5xl text-primary">98%</div>
+              <div class="text-gray-500 text-sm mt-1">Tingkat Kepuasan</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5 fade-in">
+          <!-- Testi 1 -->
+          <div
+            class="card-hover bg-white border border-gray-100 rounded-2xl p-5 shadow-sm"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <div
+                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold"
+              >
+                A
+              </div>
+              <div>
+                <div class="font-semibold text-sm">Andi Pratama</div>
+                <div class="text-yellow-400 text-xs">★★★★★</div>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              "Mobilnya bersih banget, respon admin cepet. Booking H-1 langsung
+              konfirmasi. Pasti sewa lagi!"
+            </p>
+            <div class="text-gray-400 text-xs mt-3">
+              <i class="fa-brands fa-google text-red-400"></i> via Google Review
+            </div>
+          </div>
+          <!-- Testi 2 -->
+          <div
+            class="card-hover bg-white border border-gray-100 rounded-2xl p-5 shadow-sm"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <div
+                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold"
+              >
+                S
+              </div>
+              <div>
+                <div class="font-semibold text-sm">Siti Rahma</div>
+                <div class="text-yellow-400 text-xs">★★★★★</div>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              "Harga sesuai di website, ga ada biaya tersembunyi. Drivernya
+              sopan & profesional. Recommended!"
+            </p>
+            <div class="text-gray-400 text-xs mt-3">
+              <i class="fa-brands fa-google text-red-400"></i> via Google Review
+            </div>
+          </div>
+          <!-- Testi 3 -->
+          <div
+            class="card-hover bg-white border border-gray-100 rounded-2xl p-5 shadow-sm"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <div
+                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold"
+              >
+                B
+              </div>
+              <div>
+                <div class="font-semibold text-sm">Budi Santoso</div>
+                <div class="text-yellow-400 text-xs">★★★★★</div>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              "Sewa bulanan buat keperluan kantor. Mobilnya nyaman, ber-AC, dan
+              selalu tepat waktu jemput."
+            </p>
+            <div class="text-gray-400 text-xs mt-3">
+              <i class="fa-brands fa-google text-red-400"></i> via Google Review
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3. LAYANAN ========== -->
+    <section id="layanan" class="bg-gray-50 py-16 px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12 fade-in">
+          <span
+            class="text-primary font-semibold text-sm uppercase tracking-widest"
+            >Paket Sewa</span
+          >
+          <h2 class="font-display text-4xl md:text-5xl text-gray-900 mt-1">
+            PILIHAN LAYANAN KAMI
+          </h2>
+          <p class="text-gray-500 mt-2 max-w-xl mx-auto text-sm">
+            Kami menyediakan berbagai paket rental yang fleksibel, sesuai
+            kebutuhan perjalanan Anda.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 fade-in">
+          <!-- Sewa Harian -->
+          <div
+            class="card-hover relative bg-white rounded-3xl p-7 shadow-md border border-gray-100 flex flex-col"
+          >
+            <div class="ribbon">POPULER</div>
+            <div
+              class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-5"
+            >
+              <i class="fa-solid fa-calendar-day text-primary text-2xl"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Sewa Harian</h3>
+            <p class="text-gray-500 text-sm mb-4 flex-grow">
+              Ideal untuk perjalanan wisata, acara keluarga, atau kebutuhan
+              mendadak. Mulai dari 12–24 jam.
+            </p>
+            <div class="font-display text-3xl text-primary mb-4">
+              Rp 300.000<span class="text-base text-gray-400 font-body"
+                >/hari</span
+              >
+            </div>
+            <a
+              href="https://wa.me/6281234567890?text=Saya%20ingin%20sewa%20harian"
+              target="_blank"
+              class="bg-primary text-white text-sm font-semibold py-3 rounded-xl text-center hover:bg-primary-dark transition-colors flex items-center justify-center gap-2"
+            >
+              <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
+            </a>
+          </div>
+
+          <!-- Sewa Bulanan -->
+          <div
+            class="card-hover bg-white rounded-3xl p-7 shadow-md border border-gray-100 flex flex-col"
+          >
+            <div
+              class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-5"
+            >
+              <i class="fa-solid fa-calendar-days text-primary text-2xl"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Sewa Bulanan</h3>
+            <p class="text-gray-500 text-sm mb-4 flex-grow">
+              Hemat lebih banyak dengan paket bulanan. Cocok untuk keperluan
+              bisnis & korporat jangka panjang.
+            </p>
+            <div class="font-display text-3xl text-primary mb-4">
+              Rp 5.000.000<span class="text-base text-gray-400 font-body"
+                >/bulan</span
+              >
+            </div>
+            <a
+              href="https://wa.me/6281234567890?text=Saya%20ingin%20sewa%20bulanan"
+              target="_blank"
+              class="bg-primary text-white text-sm font-semibold py-3 rounded-xl text-center hover:bg-primary-dark transition-colors flex items-center justify-center gap-2"
+            >
+              <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
+            </a>
+          </div>
+
+          <!-- Dengan Driver -->
+          <div
+            class="card-hover bg-white rounded-3xl p-7 shadow-md border border-gray-100 flex flex-col"
+          >
+            <div
+              class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-5"
+            >
+              <i class="fa-solid fa-id-badge text-primary text-2xl"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Dengan Driver / Lepas Kunci</h3>
+            <p class="text-gray-500 text-sm mb-4 flex-grow">
+              Pilih sendiri: bawa driver profesional atau lepas kunci untuk
+              privasi & kebebasan penuh.
+            </p>
+            <div class="font-display text-3xl text-primary mb-4">
+              Rp 350.000<span class="text-base text-gray-400 font-body"
+                >/hari</span
+              >
+            </div>
+            <a
+              href="https://wa.me/6281234567890?text=Saya%20ingin%20sewa%20dengan%20driver"
+              target="_blank"
+              class="bg-primary text-white text-sm font-semibold py-3 rounded-xl text-center hover:bg-primary-dark transition-colors flex items-center justify-center gap-2"
+            >
+              <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 4. KEUNGGULAN ========== -->
+    <section id="keunggulan" class="bg-white py-16 px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12 fade-in">
+          <span
+            class="text-primary font-semibold text-sm uppercase tracking-widest"
+            >Kenapa Kami?</span
+          >
+          <h2 class="font-display text-4xl md:text-5xl text-gray-900 mt-1">
+            KEUNGGULAN ECORent
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-5 fade-in">
+          <div
+            class="card-hover text-center p-6 rounded-2xl border border-gray-100 bg-white shadow-sm"
+          >
+            <div
+              class="w-14 h-14 bg-primary rounded-2xl mx-auto flex items-center justify-center mb-4"
+            >
+              <i class="fa-solid fa-bolt text-white text-2xl"></i>
+            </div>
+            <h4 class="font-bold mb-1">Respon Cepat</h4>
+            <p class="text-gray-500 text-sm">
+              Konfirmasi booking dalam hitungan menit, 24 jam siap melayani.
+            </p>
+          </div>
+          <div
+            class="card-hover text-center p-6 rounded-2xl border border-gray-100 bg-white shadow-sm"
+          >
+            <div
+              class="w-14 h-14 bg-primary rounded-2xl mx-auto flex items-center justify-center mb-4"
+            >
+              <i class="fa-solid fa-spray-can-sparkles text-white text-2xl"></i>
+            </div>
+            <h4 class="font-bold mb-1">Unit Bersih</h4>
+            <p class="text-gray-500 text-sm">
+              Setiap unit dibersihkan & diperiksa sebelum diserahkan ke penyewa.
+            </p>
+          </div>
+          <div
+            class="card-hover text-center p-6 rounded-2xl border border-gray-100 bg-white shadow-sm"
+          >
+            <div
+              class="w-14 h-14 bg-primary rounded-2xl mx-auto flex items-center justify-center mb-4"
+            >
+              <i class="fa-solid fa-tag text-white text-2xl"></i>
+            </div>
+            <h4 class="font-bold mb-1">Harga Transparan</h4>
+            <p class="text-gray-500 text-sm">
+              Tidak ada biaya tersembunyi. Harga yang tertera adalah harga
+              final.
+            </p>
+          </div>
+          <div
+            class="card-hover text-center p-6 rounded-2xl border border-gray-100 bg-white shadow-sm"
+          >
+            <div
+              class="w-14 h-14 bg-primary rounded-2xl mx-auto flex items-center justify-center mb-4"
+            >
+              <i class="fa-solid fa-shield-halved text-white text-2xl"></i>
+            </div>
+            <h4 class="font-bold mb-1">Asuransi Lengkap</h4>
+            <p class="text-gray-500 text-sm">
+              Semua armada diasuransikan untuk ketenangan pikiran Anda
+              berkendara.
+            </p>
+          </div>
+          <div
+            class="card-hover text-center p-6 rounded-2xl border border-gray-100 bg-white shadow-sm"
+          >
+            <div
+              class="w-14 h-14 bg-primary rounded-2xl mx-auto flex items-center justify-center mb-4"
+            >
+              <i class="fa-solid fa-headset text-white text-2xl"></i>
+            </div>
+            <h4 class="font-bold mb-1">Support 24 Jam</h4>
+            <p class="text-gray-500 text-sm">
+              Tim kami siap membantu kapanpun Anda butuhkan selama perjalanan.
+            </p>
+          </div>
+          <div
+            class="card-hover text-center p-6 rounded-2xl border border-gray-100 bg-white shadow-sm"
+          >
+            <div
+              class="w-14 h-14 bg-primary rounded-2xl mx-auto flex items-center justify-center mb-4"
+            >
+              <i class="fa-solid fa-location-dot text-white text-2xl"></i>
+            </div>
+            <h4 class="font-bold mb-1">Antar Jemput</h4>
+            <p class="text-gray-500 text-sm">
+              Gratis antar jemput ke lokasi Anda di area kota (syarat &
+              ketentuan berlaku).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5. ARMADA / GALLERY ========== -->
+    <section id="armada" class="bg-gray-50 py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 fade-in">
+          <span
+            class="text-primary font-semibold text-sm uppercase tracking-widest"
+            >Koleksi Kami</span
+          >
+          <h2 class="font-display text-4xl md:text-5xl text-gray-900 mt-1">
+            PILIHAN ARMADA
+          </h2>
+          <p class="text-gray-500 mt-2 text-sm">
+            Semua unit terawat, ber-AC, dan siap melaju kapanpun Anda butuhkan.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 fade-in"
+        >
+          <!-- Car 1 -->
+          <div
+            class="armada-card card-hover relative bg-white shadow-md group cursor-pointer"
+            onclick="
+              openModal(
+                'Toyota Avanza',
+                'Rp 300.000 / hari',
+                'https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=600&q=80',
+                '7 Kursi • Matic/Manual • AC Dingin • Audio System',
+              )
+            "
+          >
+            <div class="relative h-40 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=600&q=80"
+                alt="Toyota Avanza"
+                class="w-full h-full object-cover"
+              />
+              <div class="armada-overlay absolute inset-0"></div>
+              <div class="absolute bottom-3 left-3 text-white">
+                <div class="font-bold text-sm">Toyota Avanza</div>
+                <div class="text-yellow-300 text-xs font-semibold">
+                  Rp 300.000/hari
+                </div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="flex flex-wrap gap-1">
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >7 Kursi</span
+                >
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >AC</span
+                >
+                <span
+                  class="text-xs bg-green-50 text-green-600 rounded-full px-2 py-0.5 font-semibold"
+                  >Tersedia</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Car 2 -->
+          <div
+            class="armada-card card-hover relative bg-white shadow-md group cursor-pointer"
+            onclick="
+              openModal(
+                'Honda CR-V',
+                'Rp 500.000 / hari',
+                'https://images.unsplash.com/photo-1617469767019-4c10e9e1b36c?auto=format&fit=crop&w=600&q=80',
+                '5 Kursi • Matic • SUV Premium • Sunroof',
+              )
+            "
+          >
+            <div class="relative h-40 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1617469767019-4c10e9e1b36c?auto=format&fit=crop&w=600&q=80"
+                alt="Honda CR-V"
+                class="w-full h-full object-cover"
+              />
+              <div class="armada-overlay absolute inset-0"></div>
+              <div class="absolute bottom-3 left-3 text-white">
+                <div class="font-bold text-sm">Honda CR-V</div>
+                <div class="text-yellow-300 text-xs font-semibold">
+                  Rp 500.000/hari
+                </div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="flex flex-wrap gap-1">
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >5 Kursi</span
+                >
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >SUV</span
+                >
+                <span
+                  class="text-xs bg-green-50 text-green-600 rounded-full px-2 py-0.5 font-semibold"
+                  >Tersedia</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Car 3 -->
+          <div
+            class="armada-card card-hover relative bg-white shadow-md group cursor-pointer"
+            onclick="
+              openModal(
+                'Toyota Innova',
+                'Rp 400.000 / hari',
+                'https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=600&q=80',
+                '8 Kursi • Diesel/Bensin • Luas & Nyaman',
+              )
+            "
+          >
+            <div class="relative h-40 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=600&q=80"
+                alt="Toyota Innova"
+                class="w-full h-full object-cover"
+              />
+              <div class="armada-overlay absolute inset-0"></div>
+              <div class="absolute bottom-3 left-3 text-white">
+                <div class="font-bold text-sm">Toyota Innova</div>
+                <div class="text-yellow-300 text-xs font-semibold">
+                  Rp 400.000/hari
+                </div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="flex flex-wrap gap-1">
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >8 Kursi</span
+                >
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >MPV</span
+                >
+                <span
+                  class="text-xs bg-yellow-50 text-yellow-600 rounded-full px-2 py-0.5 font-semibold"
+                  >Terbatas</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Car 4 -->
+          <div
+            class="armada-card card-hover relative bg-white shadow-md group cursor-pointer"
+            onclick="
+              openModal(
+                'Mitsubishi Xpander',
+                'Rp 380.000 / hari',
+                'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600&q=80',
+                '7 Kursi • Matic • Modern & Stylish',
+              )
+            "
+          >
+            <div class="relative h-40 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600&q=80"
+                alt="Mitsubishi Xpander"
+                class="w-full h-full object-cover"
+              />
+              <div class="armada-overlay absolute inset-0"></div>
+              <div class="absolute bottom-3 left-3 text-white">
+                <div class="font-bold text-sm">Mitsubishi Xpander</div>
+                <div class="text-yellow-300 text-xs font-semibold">
+                  Rp 380.000/hari
+                </div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="flex flex-wrap gap-1">
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >7 Kursi</span
+                >
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >MPV</span
+                >
+                <span
+                  class="text-xs bg-green-50 text-green-600 rounded-full px-2 py-0.5 font-semibold"
+                  >Tersedia</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Car 5 -->
+          <div
+            class="armada-card card-hover relative bg-white shadow-md group cursor-pointer"
+            onclick="
+              openModal(
+                'Daihatsu Sigra',
+                'Rp 250.000 / hari',
+                'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80',
+                '7 Kursi • Irit BBM • Ekonomis',
+              )
+            "
+          >
+            <div class="relative h-40 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80"
+                alt="Daihatsu Sigra"
+                class="w-full h-full object-cover"
+              />
+              <div class="armada-overlay absolute inset-0"></div>
+              <div class="absolute bottom-3 left-3 text-white">
+                <div class="font-bold text-sm">Daihatsu Sigra</div>
+                <div class="text-yellow-300 text-xs font-semibold">
+                  Rp 250.000/hari
+                </div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="flex flex-wrap gap-1">
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >7 Kursi</span
+                >
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >Ekonomis</span
+                >
+                <span
+                  class="text-xs bg-green-50 text-green-600 rounded-full px-2 py-0.5 font-semibold"
+                  >Tersedia</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Car 6 -->
+          <div
+            class="armada-card card-hover relative bg-white shadow-md group cursor-pointer"
+            onclick="
+              openModal(
+                'Toyota Fortuner',
+                'Rp 700.000 / hari',
+                'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=600&q=80',
+                '7 Kursi • SUV Premium • 4WD',
+              )
+            "
+          >
+            <div class="relative h-40 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=600&q=80"
+                alt="Toyota Fortuner"
+                class="w-full h-full object-cover"
+              />
+              <div class="armada-overlay absolute inset-0"></div>
+              <div class="absolute bottom-3 left-3 text-white">
+                <div class="font-bold text-sm">Toyota Fortuner</div>
+                <div class="text-yellow-300 text-xs font-semibold">
+                  Rp 700.000/hari
+                </div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="flex flex-wrap gap-1">
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >7 Kursi</span
+                >
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >SUV</span
+                >
+                <span
+                  class="text-xs bg-yellow-50 text-yellow-600 rounded-full px-2 py-0.5 font-semibold"
+                  >Terbatas</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Car 7 -->
+          <div
+            class="armada-card card-hover relative bg-white shadow-md group cursor-pointer"
+            onclick="
+              openModal(
+                'Suzuki Ertiga',
+                'Rp 320.000 / hari',
+                'https://images.unsplash.com/photo-1471479917193-f00955256257?auto=format&fit=crop&w=600&q=80',
+                '7 Kursi • Nyaman • Hemat BBM',
+              )
+            "
+          >
+            <div class="relative h-40 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1471479917193-f00955256257?auto=format&fit=crop&w=600&q=80"
+                alt="Suzuki Ertiga"
+                class="w-full h-full object-cover"
+              />
+              <div class="armada-overlay absolute inset-0"></div>
+              <div class="absolute bottom-3 left-3 text-white">
+                <div class="font-bold text-sm">Suzuki Ertiga</div>
+                <div class="text-yellow-300 text-xs font-semibold">
+                  Rp 320.000/hari
+                </div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="flex flex-wrap gap-1">
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >7 Kursi</span
+                >
+                <span
+                  class="text-xs bg-red-50 text-primary rounded-full px-2 py-0.5"
+                  >MPV</span
+                >
+                <span
+                  class="text-xs bg-green-50 text-green-600 rounded-full px-2 py-0.5 font-semibold"
+                  >Tersedia</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- View All -->
+          <a
+            href="https://carisolusi.biz.id/gallery"
+            class="armada-card bg-primary text-white flex flex-col items-center justify-center p-6 cursor-pointer hover:bg-primary-dark transition-colors shadow-md min-h-[180px]"
+          >
+            <i class="fa-solid fa-images text-4xl mb-3"></i>
+            <div class="font-bold text-sm text-center">
+              Lihat Semua<br />Armada
+            </div>
+            <i class="fa-solid fa-arrow-right mt-3 text-lg"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 6. CTA SECTION ========== -->
+    <section
+      id="cta"
+      class="relative bg-primary diagonal-top py-24 px-4 overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 opacity-10"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80');
+          background-size: cover;
+        "
+      ></div>
+      <div class="max-w-3xl mx-auto text-center relative z-10 fade-in">
+        <div
+          class="inline-flex items-center gap-2 bg-white/15 border border-white/30 rounded-full px-4 py-1.5 text-sm font-semibold text-white mb-6"
+        >
+          <i class="fa-solid fa-fire text-yellow-300 animate-pulse"></i> Stok
+          Terbatas – Booking Sekarang!
+        </div>
+        <h2
+          class="font-display text-5xl md:text-6xl text-white leading-tight mb-4"
+        >
+          BOOKING SEKARANG<br /><span class="text-yellow-300"
+            >SEBELUM UNIT HABIS!</span
+          >
+        </h2>
+        <p class="text-white/80 text-base md:text-lg mb-10 max-w-xl mx-auto">
+          Jangan sampai kehabisan! Armada kami selalu penuh saat high season.
+          Amankan unit pilihan Anda hari ini juga lewat WhatsApp kami.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://wa.me/6281234567890?text=Halo%20ECORent%2C%20saya%20ingin%20booking%20sekarang!"
+            target="_blank"
+            class="cta-pulse bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-2xl flex items-center justify-center gap-3 text-lg shadow-xl transition-colors"
+          >
+            <i class="fa-brands fa-whatsapp text-2xl"></i> Booking via WhatsApp
+          </a>
+          <a
+            href="tel:+6281234567890"
+            class="bg-white text-primary font-bold px-8 py-4 rounded-2xl flex items-center justify-center gap-3 text-lg shadow-xl hover:bg-gray-50 transition-colors"
+          >
+            <i class="fa-solid fa-phone"></i> Hubungi Kami
+          </a>
+        </div>
+
+        <!-- Urgency badges -->
+        <div class="flex flex-wrap justify-center gap-4 mt-10">
+          <div
+            class="bg-white/15 border border-white/30 rounded-full px-4 py-2 text-white text-sm flex items-center gap-2"
+          >
+            <i class="fa-solid fa-check-circle text-green-300"></i> Tanpa DP
+            (Syarat berlaku)
+          </div>
+          <div
+            class="bg-white/15 border border-white/30 rounded-full px-4 py-2 text-white text-sm flex items-center gap-2"
+          >
+            <i class="fa-solid fa-clock text-yellow-300"></i> Konfirmasi < 5
+            menit
+          </div>
+          <div
+            class="bg-white/15 border border-white/30 rounded-full px-4 py-2 text-white text-sm flex items-center gap-2"
+          >
+            <i class="fa-solid fa-shield-halved text-blue-300"></i> 100% Aman &
+            Terpercaya
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 7. FOOTER ========== -->
+    <footer class="bg-gray-900 text-gray-400 pt-14 pb-8 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10">
+          <!-- Brand -->
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-2 mb-4">
+              <div
+                class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center"
+              >
+                <i class="fa-solid fa-car text-white text-lg"></i>
+              </div>
+              <span class="font-display text-2xl tracking-widest text-white"
+                >ECO<span class="text-primary">Rent</span></span
+              >
+            </div>
+            <p class="text-sm leading-relaxed max-w-xs mb-5">
+              Rental mobil terpercaya dengan armada lengkap, bersih, dan harga
+              transparan. Siap melayani kebutuhan perjalanan Anda 24 jam.
+            </p>
+            <div class="flex gap-3">
+              <a
+                href="#"
+                class="w-9 h-9 bg-gray-800 hover:bg-primary rounded-lg flex items-center justify-center transition-colors"
+              >
+                <i class="fa-brands fa-facebook-f text-sm"></i>
+              </a>
+              <a
+                href="#"
+                class="w-9 h-9 bg-gray-800 hover:bg-primary rounded-lg flex items-center justify-center transition-colors"
+              >
+                <i class="fa-brands fa-instagram text-sm"></i>
+              </a>
+              <a
+                href="#"
+                class="w-9 h-9 bg-gray-800 hover:bg-primary rounded-lg flex items-center justify-center transition-colors"
+              >
+                <i class="fa-brands fa-tiktok text-sm"></i>
+              </a>
+              <a
+                href="https://wa.me/6281234567890"
+                target="_blank"
+                class="w-9 h-9 bg-gray-800 hover:bg-green-600 rounded-lg flex items-center justify-center transition-colors"
+              >
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Halaman -->
+          <div>
+            <h4
+              class="text-white font-semibold mb-4 text-sm uppercase tracking-wider"
+            >
+              Halaman
+            </h4>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a
+                  href="https://carisolusi.biz.id/home"
+                  class="hover:text-primary transition-colors flex items-center gap-2"
+                  ><i class="fa-solid fa-chevron-right text-xs text-primary"></i
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://carisolusi.biz.id/about"
+                  class="hover:text-primary transition-colors flex items-center gap-2"
+                  ><i class="fa-solid fa-chevron-right text-xs text-primary"></i
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://carisolusi.biz.id/gallery"
+                  class="hover:text-primary transition-colors flex items-center gap-2"
+                  ><i class="fa-solid fa-chevron-right text-xs text-primary"></i
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://carisolusi.biz.id/service"
+                  class="hover:text-primary transition-colors flex items-center gap-2"
+                  ><i class="fa-solid fa-chevron-right text-xs text-primary"></i
+                  >Service</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://carisolusi.biz.id/blog"
+                  class="hover:text-primary transition-colors flex items-center gap-2"
+                  ><i class="fa-solid fa-chevron-right text-xs text-primary"></i
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://carisolusi.biz.id/contact"
+                  class="hover:text-primary transition-colors flex items-center gap-2"
+                  ><i class="fa-solid fa-chevron-right text-xs text-primary"></i
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Kontak -->
+          <div>
+            <h4
+              class="text-white font-semibold mb-4 text-sm uppercase tracking-wider"
+            >
+              Kontak
+            </h4>
+            <ul class="space-y-3 text-sm">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-location-dot text-primary mt-0.5"></i>
+                <span>Jl. Contoh No. 123, Kota Anda, Indonesia</span>
+              </li>
+              <li>
+                <a
+                  href="tel:+6281234567890"
+                  class="flex items-center gap-3 hover:text-primary transition-colors"
+                >
+                  <i class="fa-solid fa-phone text-primary"></i>
+                  <span>+62 812-3456-7890</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@ecorent.com"
+                  class="flex items-center gap-3 hover:text-primary transition-colors"
+                >
+                  <i class="fa-solid fa-envelope text-primary"></i>
+                  <span>info@ecorent.com</span>
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-clock text-primary"></i>
+                <span>Buka 24 Jam / 7 Hari</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs"
+        >
+          <span>© 2025 ECORent. Semua hak dilindungi.</span>
+          <span
+            >Dibuat dengan <i class="fa-solid fa-heart text-primary"></i> untuk
+            pelanggan setia kami</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========== WHATSAPP STICKY ========== -->
+    <a
+      href="https://wa.me/6281234567890?text=Halo%20ECORent%2C%20saya%20ingin%20info%20rental%20mobil"
+      target="_blank"
+      class="wa-sticky fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl transition-colors group"
+    >
+      <i class="fa-brands fa-whatsapp text-white text-3xl"></i>
+      <span
+        class="absolute right-16 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg"
+      >
+        Chat dengan Kami!
+      </span>
+    </a>
+
+    <!-- ========== ARMADA MODAL ========== -->
+    <div
+      id="modal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+      onclick="closeModal(event)"
+    >
+      <div
+        class="bg-white rounded-3xl max-w-sm w-full overflow-hidden shadow-2xl"
+      >
+        <div class="relative h-48">
+          <img
+            id="modal-img"
+            src=""
+            alt=""
+            class="w-full h-full object-cover"
+          />
+          <button
+            onclick="
+              document.getElementById('modal').classList.add('hidden');
+              document.getElementById('modal').classList.remove('flex');
+            "
+            class="absolute top-3 right-3 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center text-gray-700 hover:bg-red-100 hover:text-primary transition-colors shadow"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="p-6">
+          <h3 id="modal-name" class="font-bold text-xl mb-1"></h3>
+          <div
+            id="modal-price"
+            class="font-display text-2xl text-primary mb-3"
+          ></div>
+          <p id="modal-desc" class="text-gray-500 text-sm mb-5"></p>
+          <a
+            id="modal-wa"
+            href="#"
+            target="_blank"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors"
+          >
+            <i class="fa-brands fa-whatsapp text-xl"></i> Pesan Unit Ini
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== JS ========== -->
+    <script>
+      // Navbar scroll
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+      });
+
+      // Mobile menu
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      menuBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        menuIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+      });
+
+      // Close mobile menu on link click
+      mobileMenu.querySelectorAll('a').forEach((a) => {
+        a.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          menuIcon.className = 'fa-solid fa-bars';
+        });
+      });
+
+      // Fade in on scroll
+      const faders = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => entry.target.classList.add('visible'), i * 80);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      faders.forEach((el) => observer.observe(el));
+
+      // Armada Modal
+      function openModal(name, price, img, desc) {
+        document.getElementById('modal-name').textContent = name;
+        document.getElementById('modal-price').textContent = price;
+        document.getElementById('modal-img').src = img;
+        document.getElementById('modal-img').alt = name;
+        document.getElementById('modal-desc').textContent = desc;
+        document.getElementById('modal-wa').href =
+          `https://wa.me/6281234567890?text=Halo%20ECORent%2C%20saya%20ingin%20booking%20${encodeURIComponent(name)}`;
+        const modal = document.getElementById('modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      function closeModal(e) {
+        if (e.target === document.getElementById('modal')) {
+          document.getElementById('modal').classList.add('hidden');
+          document.getElementById('modal').classList.remove('flex');
+        }
+      }
+    </script>
+  </body>
+</html>
