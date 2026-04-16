@@ -1,0 +1,629 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hurin In - Skincare Herbal</title>
+
+<!-- Font & Icon -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  href="https://dongkrakusaha.com/gambarbebas/1526720260416-105630_hurin-icon.png"
+/>
+
+<style>
+  :root {
+    --pink: #f8cdd3;
+    --tosca: #7be0d6;
+    --gold: #f3d9a5;
+    --dark: #111;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: #111;
+    background: linear-gradient(135deg, #7be0d6, #f8cdd3, #f3d9a5);
+  }
+
+  /* HEADER */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999; /* Pastikan paling atas */
+    border-bottom: 1px solid #eee;
+  }
+
+  header h1 {
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    color: var(--tosca);
+  }
+
+  /* HAMBURGER */
+  .menu-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10000; /* Lebih tinggi dari header */
+  }
+
+  /* HERO */
+  .hero-wrapper {
+    margin-top: 100px;
+  }
+
+  .hero {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+      url('https://picsum.photos/1600/900?random=10') center/cover no-repeat;
+  }
+
+  .hero-content {
+    max-width: 700px;
+  }
+
+  .hero h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 80px 20px;
+  }
+
+  .section-alt {
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .section-soft {
+    background: rgba(247, 239, 229, 0.9);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  /* GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  /* ABOUT */
+  .about-section {
+    background: #ffffff;
+    padding: 80px 20px;
+    position: relative;
+    z-index: 1; /* Lebih rendah dari header */
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .about-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .about-text p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #333;
+  }
+
+  /* CARD */
+  .card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+  }
+
+  .product-card img,
+  .ingredient-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .product-card h3,
+  .ingredient-card h3 {
+    margin-top: 15px;
+  }
+
+  /* TESTIMONI */
+  .testimoni img {
+    width: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  /* BEFORE AFTER */
+  .before-after img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  /* BUTTON */
+  .btn {
+    background: #111;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    background: var(--tosca);
+    color: #111;
+  }
+
+  .cta-center {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #111;
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+  }
+
+  /* WHATSAPP FLOAT */
+  .wa-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    z-index: 1000;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    header {
+      padding: 15px 20px;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      flex-direction: column;
+      align-items: center;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      z-index: 9998;
+    }
+
+    nav.active {
+      max-height: 500px;
+    }
+
+    nav a {
+      margin: 15px 0;
+      font-size: 18px;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .about-image {
+      order: -1;
+    }
+
+    .hero {
+      height: auto;
+      padding: 60px 20px;
+    }
+
+    .hero h2 {
+      font-size: 28px;
+    }
+  }
+
+  .set-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    height: 70px;
+    width: auto;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+
+    if (menuToggle && navbar) {
+      menuToggle.addEventListener('click', function () {
+        navbar.classList.toggle('active');
+
+        // Ganti ikon bars menjadi X
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+      });
+
+      // Tutup menu setelah link diklik
+      document.querySelectorAll('#navbar a').forEach((link) => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        });
+      });
+    }
+  });
+</script>
+
+<!-- HEADER -->
+<header>
+  <div class="set-logo">
+    <img
+      src="https://dongkrakusaha.com/gambarbebas/1526720260416-103820_hurin-logo.webp"
+      alt="logo"
+      class="logo"
+    />
+  </div>
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+  <nav id="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#produk">Produk</a>
+    <a href="#ingredients">Ingredients</a>
+    <a href="#kelebihan">Kelebihan</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero-wrapper" id="home">
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Saatnya Kembali ke Versi Terbaik Dirimu</h2>
+      <p>
+        Jangan biarkan skincare yang salah merusak kulitmu lebih jauh. Saatnya
+        kembali ke yang aman, halal, dan sudah BPOM.
+      </p>
+      <div class="cta-center">
+        <a href="https://wa.me/6285893632563" class="btn"
+          >Konsultasi Sekarang</a
+        >
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="section about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Tentang Hurin In</h2>
+        <p>
+          Kecantikan alami dimulai dari perawatan yang tepat. Hurin In hadir
+          sebagai solusi bagi kamu yang ingin merawat kulit tanpa rasa khawatir.
+          Kami percaya bahwa kecantikan sejati cukup dikembalikan melalui
+          perawatan yang alami, aman, dan konsisten.
+        </p>
+        <p>
+          Dengan mengusung konsep kosmetik herbal, Hurin In diformulasikan untuk
+          semua usia, mulai dari remaja hingga lansia, bahkan aman digunakan
+          oleh ibu hamil dan menyusui. Produk kami berbahan herbal alami, halal,
+          dan telah terdaftar BPOM.
+        </p>
+      </div>
+      <div class="about-image">
+        <img
+          src="https://picsum.photos/800/450?random=10"
+          alt="About Hurin In"
+          class="img-responsive"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUK -->
+<section id="produk" class="section section-soft">
+  <div class="container">
+    <h2 class="section-title">Produk Hurin In</h2>
+    <div class="grid">
+      <div class="card product-card">
+        <img
+          src="https://togaya.biz.id/gambarbebas/20260407-095121_Day-Cream-Hurin3.webp"
+          alt="Day Cream"
+          class="img-responsive"
+        />
+        <h3>Day Cream</h3>
+        <p>Rp90.000</p>
+      </div>
+      <div class="card product-card">
+        <img
+          src="https://togaya.biz.id/gambarbebas/20260407-095121_Night-Cream-Hurin1.webp"
+          alt="Night Cream"
+          class="img-responsive"
+        />
+        <h3>Night Cream</h3>
+        <p>Rp90.000</p>
+      </div>
+      <div class="card product-card">
+        <img
+          src="https://togaya.biz.id/gambarbebas/20260407-095121_Foundation-Hurin1.webp"
+          alt="Foundation"
+          class="img-responsive"
+        />
+        <h3>Foundation SPF 26</h3>
+        <p>Rp90.000</p>
+      </div>
+      <div class="card product-card">
+        <img
+          src="https://togaya.biz.id/gambarbebas/20260407-095121_Sabun-Gambir-Hurin1.webp"
+          alt="Sabun Gambir"
+          class="img-responsive"
+        />
+        <h3>Sabun Gambir</h3>
+        <p>Rp50.000</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY INGREDIENTS -->
+<section id="ingredients" class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Kandungan Utama</h2>
+    <div class="grid">
+      <div class="card ingredient-card">
+        <img
+          src="https://picsum.photos/400/300?random=21"
+          alt="Delima"
+          class="img-responsive"
+        />
+        <h3>Delima</h3>
+      </div>
+      <div class="card ingredient-card">
+        <img
+          src="https://picsum.photos/400/300?random=22"
+          alt="Gamat Emas"
+          class="img-responsive"
+        />
+        <h3>Gamat Emas</h3>
+      </div>
+      <div class="card ingredient-card">
+        <img
+          src="https://picsum.photos/400/300?random=23"
+          alt="Mengkudu"
+          class="img-responsive"
+        />
+        <h3>Mengkudu</h3>
+      </div>
+      <div class="card ingredient-card">
+        <img
+          src="https://picsum.photos/400/300?random=24"
+          alt="Gambir"
+          class="img-responsive"
+        />
+        <h3>Gambir</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KELEBIHAN -->
+<section id="kelebihan" class="section section-soft">
+  <div class="container">
+    <h2 class="section-title">Mengapa Hurin In?</h2>
+    <div class="grid">
+      <div class="card" style="text-align: center">
+        <i
+          class="fas fa-leaf"
+          style="font-size: 40px; color: #7be0d6; margin-bottom: 15px"
+        ></i>
+        <h3>Mengandung Bahan Alami</h3>
+        <p>
+          Diformulasikan dari ekstrak herbal pilihan yang aman dan menyehatkan
+          kulit.
+        </p>
+      </div>
+      <div class="card" style="text-align: center">
+        <i
+          class="fas fa-shield-alt"
+          style="font-size: 40px; color: #7be0d6; margin-bottom: 15px"
+        ></i>
+        <h3>Tanpa Bahan Berbahaya</h3>
+        <p>
+          Bebas dari merkuri dan bahan kimia berbahaya sehingga aman digunakan
+          setiap hari.
+        </p>
+      </div>
+      <div class="card" style="text-align: center">
+        <i
+          class="fas fa-heart"
+          style="font-size: 40px; color: #7be0d6; margin-bottom: 15px"
+        ></i>
+        <h3>Aman untuk Ibu Hamil & Menyusui</h3>
+        <p>
+          Diformulasikan dengan bahan lembut yang aman bagi ibu hamil dan
+          menyusui.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section id="testimoni" class="section section-alt testimoni">
+  <div class="container">
+    <h2 class="section-title">Apa Kata Mereka?</h2>
+    <div class="grid">
+      <div class="card">
+        <img
+          src="https://picsum.photos/100"
+          alt="Siti"
+          class="img-responsive"
+        />
+        <p>"Kulit glowing banget!"</p>
+        <strong>- Siti</strong>
+      </div>
+      <div class="card">
+        <img
+          src="https://picsum.photos/101"
+          alt="Rina"
+          class="img-responsive"
+        />
+        <p>"Jerawat berkurang drastis."</p>
+        <strong>- Rina</strong>
+      </div>
+      <div class="card">
+        <img
+          src="https://picsum.photos/102"
+          alt="Dewi"
+          class="img-responsive"
+        />
+        <p>"Aman & nyaman dipakai."</p>
+        <strong>- Dewi</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE AFTER -->
+<section class="section section-soft before-after">
+  <div class="container">
+    <h2 style="text-align: center">Before And After</h2>
+    <div class="grid">
+      <img
+        src="https://togaya.biz.id/gambarbebas/20260407-104245_Testimoni-Hurin1.webp"
+        alt="Before After 1"
+        class="img-responsive"
+      />
+      <img
+        src="https://togaya.biz.id/gambarbebas/20260407-104245_Testimoni-Hurin2.webp"
+        alt="Before After 2"
+        class="img-responsive"
+      />
+      <img
+        src="https://togaya.biz.id/gambarbebas/20260407-105205_Testimoni-Hurin4.webp"
+        alt="Before After 3"
+        class="img-responsive"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section section-alt">
+  <div class="container" style="text-align: center">
+    <h2>Hubungi Sekarang</h2>
+    <p>Hurin In, Jadikan Muslimah Secantik Bidadari</p>
+    <a href="https://wa.me/6285893632563" class="btn">Order via WhatsApp</a>
+  </div>
+</section>
