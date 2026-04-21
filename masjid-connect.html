@@ -114,6 +114,11 @@
         pointer-events: none;
         transform: translateX(-60px);
       }
+      .slide.out-right {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(60px);
+      }
 
       /* bg image */
       .slide-bg {
@@ -1317,21 +1322,25 @@
         /* only animate prev slide if not initial state */
         if (prev >= 0 && prev < all.length && prev !== cur) {
           all[prev].classList.remove('active');
-          all[prev].classList.add(cur > prev ? 'out-left' : '');
+          /* determine direction: forward or backward */
+          const direction = cur > prev ? 'out-left' : 'out-right';
+          all[prev].classList.add(direction);
+
           setTimeout(() => {
             if (
               prev >= 0 &&
               prev < all.length &&
-              all[prev].classList.contains('out-left')
+              (all[prev].classList.contains('out-left') ||
+                all[prev].classList.contains('out-right'))
             ) {
-              all[prev].classList.remove('out-left');
+              all[prev].classList.remove('out-left', 'out-right');
               all[prev].className = 'slide';
             }
           }, 400);
         }
 
         if (cur >= 0 && cur < all.length) {
-          all[cur].classList.remove('out-left');
+          all[cur].classList.remove('out-left', 'out-right');
           all[cur].classList.add('active');
 
           /* reset anim children so they replay */
