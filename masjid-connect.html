@@ -1,840 +1,4 @@
 <!doctype html>
-<html class="no-js" lang="">
-  <head>
-    <title>Buku Masjid</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-
-    <meta property="og:title" content="" />
-    <meta property="og:type" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:image:alt" content="" />
-
-    <link rel="icon" href="favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-
-    <link rel="manifest" href="site.webmanifest" />
-    <meta name="theme-color" content="#fafafa" />
-
-    <!-- Bootstrap 5 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- Tabler -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
-    />
-
-    <!--FONTS-->
-    <link
-      href="https://cdn.jsdelivr.net/gh/repalash/gilroy-free-webfont@fonts/Gilroy-Extrabold.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/gh/repalash/gilroy-free-webfont@fonts/Gilroy-Light.css"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Animate -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-
-    <!-- Bukumasjid -->
-    <link rel="stylesheet" href="css/bukumasjid.css" />
-
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PDPFNX1GSJ"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'G-PDPFNX1GSJ');
-    </script>
-  </head>
-  <style>
-    @keyframes glow {
-      to {
-        opacity: 0;
-      }
-    }
-  </style>
-  <body>
-    <div
-      class="d-sm-none position-fixed bottom-0 text-center w-100"
-      style="
-        padding: 60px 30px 30px 30px;
-        z-index: 20;
-        background: #ffffff;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(229, 234, 229, 1) 40%,
-          rgba(241, 244, 241, 1) 57%,
-          rgba(249, 250, 249, 1) 80%,
-          rgba(255, 255, 255, 1) 99%
-        );
-      "
-    >
-      <a href="register.php"
-        ><button
-          class="btn bg-primary fs-5 w-100"
-          type="button"
-          style="padding: 15px 20px"
-        >
-          Daftarkan Masjid Anda
-        </button></a
-      >
-    </div>
-    <section class="hero-home">
-      <div class="bm-grad" id="starContainer">
-        <div class="d-sm-none p-3">
-          <img src="img/bm_logo_white.svg" style="opacity: 0" />
-          <a
-            class="btn position-relative z-2 float-end"
-            data-bs-toggle="offcanvas"
-            href="#offcanvasStart"
-            role="button"
-            aria-controls="offcanvasStart"
-          >
-            <i class="ti ti-baseline-density-medium"></i>
-          </a>
-        </div>
-        <div
-          class="offcanvas offcanvas-start"
-          tabindex="-1"
-          id="offcanvasStart"
-          aria-labelledby="offcanvasStartLabel"
-          aria-modal="true"
-          role="dialog"
-        >
-          <div class="text-end p-3">
-            <button
-              type="button"
-              class="btn-close text-reset float-end"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div
-            class="offcanvas-body pt-0 d-flex align-items-stretch flex-column bd-highlight"
-          >
-            <div class="fs-4 sidebar-menu bd-highlight text-start px-3">
-              <ul>
-                <a href="index.php"><li class="pb-2">Beranda</li></a>
-                <a href="team.php"><li class="pb-2">Tim</li></a>
-                <a href="cloud.php"><li class="pb-2">Harga</li></a>
-                <a href="donasi.php"><li class="pb-2">Donasi</li></a>
-                <a href="kontak.php"><li class="pb-2">Kontak</li></a>
-                <a href="mitra.php"><li class="pb-2">Mitra</li></a>
-                <a href="https://docs.bukumasjid.com"
-                  ><li class="py-2 border-top mt-2">Docs</li></a
-                >
-                <a href="https://docs.bukumasjid.com/blog"
-                  ><li class="pb-2">Blog</li></a
-                >
-                <a href="jammasjid.php"><li class="pb-2">Jam Masjid</li></a>
-                <a href="mitra.php"><li class="pb-2">Mitra Buku Masjid</li></a>
-                <!-- <a href="#"><li class="py-2 border-top mt-2">Syarat & Ketentuan</li></a> -->
-                <!-- <a href="#"><li class="pb-2">FAQ</li></a> -->
-              </ul>
-            </div>
-            <div class="mt-auto bd-highlight">
-              <a href="https://demo.bukumasjid.com/" target="_blank">
-                <button class="btn w-100 btn-outline-primary">
-                  Coba Demo
-                </button></a
-              >
-              <div class="mt-4">
-                <div class="d-flex justify-content-center">
-                  <div class="pe-2"><i class="ti">&#xf7e6;</i> bukumasjid</div>
-                  <div class="ps-2"><i class="ti">&#xf7eb;</i> bukumasjid</div>
-                </div>
-                <div class="d-flex justify-content-center">
-                  <div class="pe-2"><i class="ti">&#xec26;</i> bukumasjid</div>
-                  <div class="ps-2"><i class="ti">&#xec20;</i> bukumasjid</div>
-                </div>
-              </div>
-              <div class="mt-4">
-                <div class="text-center">(c) 2024 Bukumasjid</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="d-none d-sm-block header container-md px-5 pt-5">
-          <div class="row align-items-center position-relative">
-            <!--<div class="d-none d-lg-block col-lg-2 col-xl-3"><img src="img/bm_logo_white.svg"></div> -->
-            <img
-              src="img/bm_logo_white.svg"
-              class="position-absolute"
-              style="width: 150px"
-            />
-            <div class="col text-center animate__animated animate__backInDown">
-              <div
-                class="nav-desktop d-inline-flex justify-content-center mx-auto"
-              >
-                <a class="nav-link active" aria-current="page" href="index.php"
-                  >Beranda</a
-                >
-                <a class="nav-link" href="team.php">Tim</a>
-                <a class="nav-link" href="cloud.php">Harga</a>
-                <a class="nav-link" href="pengguna.php">Masjid</a>
-                <a class="nav-link" href="donasi.php">Donasi</a>
-                <a class="nav-link" href="kontak.php">Kontak</a>
-                <a class="nav-link" href="mitra.php">Mitra</a>
-                <a class="nav-link">|</a>
-                <a class="nav-link" href="https://docs.bukumasjid.com"
-                  >Panduan</a
-                >
-                <a class="nav-link" href="https://docs.bukumasjid.com/blog"
-                  >Blog</a
-                >
-                <a class="nav-link" href="register.php">Daftar</a>
-                <a
-                  class="nav-link"
-                  href="https://demo.bukumasjid.com"
-                  target="_blank"
-                  ><span class="badge btn-outline-primary">Coba Demo</span></a
-                >
-              </div>
-            </div>
-            <!-- <div class="d-none d-lg-block col-lg-2 col-xl-3 text-end">
-                      </div> -->
-          </div>
-        </div>
-        <div class="container-md px-md-5 position-relative">
-          <img
-            src="img/home/img_activity1.png"
-            class="activity1 d-none d-md-inline"
-          />
-          <div class="text-center bismillah">
-            <img
-              src="img/home/text_bismillah.svg"
-              id="text-bismillah"
-              class="animate__animated animate__fadeIn"
-            />
-          </div>
-          <div class="text-center pt-md-5">
-            <img
-              src="img/home/img_txt_buku.svg"
-              class="text-buku animate__animated animate__fadeIn animate__delay-1s"
-            />
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="container-md px-5 pb-5 position-relative">
-          <img
-            src="img/home/img_activity2.png"
-            class="activity2 d-none d-md-inline"
-          />
-          <img src="img/home/img_tree.png" class="tree d-none d-md-inline" />
-          <div class="position-relative" style="z-index: 2">
-            <img
-              src="img/home/img_txt_masjid.svg"
-              class="text-masjid animate__animated animate__fadeIn animate__delay-2s"
-            />
-          </div>
-          <div
-            class="d-grid d-md-block animate__animated animate__fadeIn animate__delay-3s"
-          >
-            <a href="https://demo.bukumasjid.com" target="_blank"
-              ><button class="btn bg-secondary me-md-2 mb-2" type="button">
-                <i class="ti">&#xea89;</i> Coba Demo
-              </button></a
-            >
-            <a href="register.php"
-              ><button class="btn bg-primary me-md-2 mb-2" type="button">
-                <i class="ti"> &#xeb04;</i> Daftar Sekarang
-              </button></a
-            >
-            <a href="https://wa.me/6282350355470" target="_blank"
-              ><button class="btn bg-success me-md-2 mb-2" type="button">
-                <i class="ti">&#xec74;</i> Hubungi Kami
-              </button></a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="mb-md-5 pb-md-5">
-      <div class="grey-area">
-        <div class="container-md">
-          <div id="bm-problem" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#bm-problem"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#bm-problem"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#bm-problem"
-                data-bs-slide-to="2"
-                aria-label="Slide 3"
-              ></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div
-                  class="container-md d-md-flex justify-content-center align-items-end"
-                >
-                  <div class="text-center text-md-end">
-                    <img src="img/home/img_problem_01.png" class="w-75" />
-                  </div>
-                  <div class="display-5 p-5 my-md-5" style="font-weight: 400">
-                    Butuh waktu lama<br class="d-none d-md-block" />
-                    <span class="txt-primary"
-                      >untuk membuat<br class="d-none d-md-block" />
-                      laporan kas masjid?</span
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div
-                  class="container-md d-md-flex justify-content-center align-items-end"
-                >
-                  <div class="d-md-none text-center">
-                    <img src="img/home/img_problem_02.png" class="w-75" />
-                  </div>
-                  <div class="display-5 p-5 my-md-5" style="font-weight: 400">
-                    <span class="txt-primary"
-                      >Butuh insight<br class="d-none d-md-block" />
-                      untuk distribusi</span
-                    ><br class="d-none d-md-block" />
-                    infaq & sodaqoh?
-                  </div>
-                  <div class="d-none d-md-block text-end">
-                    <img src="img/home/img_problem_02.png" class="w-75" />
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div
-                  class="container-md d-md-flex justify-content-center align-items-end"
-                >
-                  <div class="text-center text-md-end">
-                    <img src="img/home/img_problem_03.png" class="w-75" />
-                  </div>
-                  <div class="display-5 p-5 my-md-5" style="font-weight: 400">
-                    <span class="txt-primary"
-                      >Data Jamaah serta<br class="d-none d-md-block" />
-                      Donatur</span
-                    >
-                    berantakan dan<br class="d-none d-md-block" />
-                    tidak lengkap ?
-                  </div>
-                </div>
-              </div>
-            </div>
-            <i
-              class="ti display-5 carousel-control-prev"
-              data-bs-target="#bm-problem"
-              data-bs-slide="prev"
-              style="color: #4a4a4a; cursor: pointer"
-              >&#xea60;</i
-            >
-            <i
-              class="ti display-5 carousel-control-next"
-              data-bs-target="#bm-problem"
-              data-bs-slide="next"
-              style="color: #4a4a4a; cursor: pointer"
-              >&#xea61;</i
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div
-        class="container-md display-3 heading txt-primary lh-1 text-center p-5 mb-md-5"
-      >
-        <span class="txt-default">Buku Masjid</span> menjadi solusi<br
-          class="d-sm-inline"
-        />
-        polemik seputar keuangan<br class="d-sm-inline" />
-        & kegiatan masjid
-      </div>
-      <div class="container-md px-md-5">
-        <div class="row px-md-5">
-          <div class="col-sm px-5 py-3">
-            <img src="img/home/icon_easy.svg" class="mb-3" />
-            <h4>Mudah Diakses</h4>
-            Akses dari manapun selama ada internet. Lewat Ponsel, Tablet,
-            Laptop, PC.
-          </div>
-          <div class="col-sm px-5 py-3">
-            <img src="img/home/icon_fast.svg" class="mb-3" />
-            <h4>Ringkas</h4>
-            Tidak perlu makan banyak waktu untuk membuat laporan bulanan.
-          </div>
-          <div class="col-sm px-5 py-3">
-            <img src="img/home/icon_view.svg" class="mb-3" />
-            <h4>Transparan</h4>
-            Semua transaksi tercatat dengan baik sehingga mudah bagi pengurus
-            masjid atau jamaah untuk melihat kas masjid.
-          </div>
-        </div>
-        <div class="row px-md-5">
-          <div class="col-sm px-5 py-3">
-            <img src="img/home/icon_secure.svg" class="mb-3" />
-            <h4>Aman</h4>
-            Semua data hanya dapat dilihat dan dikelola oleh DKM admin masjid
-            itu sendiri.
-          </div>
-          <div class="col-sm px-5 py-3">
-            <img src="img/home/icon_flexible.svg" class="mb-3" />
-            <h4>Flexible</h4>
-            Buku Masjid dapat digunakan untuk berbagai macam kegiatan masjid
-            yang membutuhkan pencatatan keuangan.
-          </div>
-          <div class="col-sm px-5 py-3">
-            <img src="img/home/icon_jadwal.svg" class="mb-3" />
-            <h4>Jadwal Khatib dan Ceramah</h4>
-            Pengumuman jadwal Khatib Jum'at dan Penceramah tidak hanya di papan
-            pengumuman, tetapi juga bisa melalui web.
-          </div>
-        </div>
-      </div>
-      <div class="preview">
-        <div
-          class="container-md d-flex justify-content-center position-relative"
-          style="z-index: 1"
-        >
-          <div class="d-none d-md-inline browser">
-            <div class="screen">
-              <div
-                id="bm-uidesktop"
-                class="carousel slide"
-                data-bs-ride="carousel"
-              >
-                <div class="carousel-indicators" style="bottom: -50px">
-                  <button
-                    type="button"
-                    data-bs-target="#bm-uidesktop"
-                    data-bs-slide-to="0"
-                    class="active"
-                    aria-current="true"
-                    aria-label="Slide 1"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#bm-uidesktop"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#bm-uidesktop"
-                    data-bs-slide-to="2"
-                    aria-label="Slide 3"
-                  ></button>
-                </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div>
-                      <img src="img/home/screen_desktop01.png" />
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div>
-                      <img src="img/home/screen_desktop02.png" />
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div>
-                      <img src="img/home/screen_desktop03.png" />
-                    </div>
-                  </div>
-                </div>
-                <i
-                  class="ti display-5 carousel-control-prev z-4"
-                  data-bs-target="#bm-uidesktop"
-                  data-bs-slide="prev"
-                  style="color: #4a4a4a; cursor: pointer"
-                  >&#xea60;</i
-                >
-                <i
-                  class="ti display-5 carousel-control-next z-4"
-                  data-bs-target="#bm-uidesktop"
-                  data-bs-slide="next"
-                  style="color: #4a4a4a; cursor: pointer"
-                  >&#xea61;</i
-                >
-              </div>
-            </div>
-            <img src="img/home/img_browser2.svg" class="window" />
-          </div>
-          <div class="phone">
-            <div class="screen">
-              <div
-                id="bm-uimobile"
-                class="carousel slide"
-                data-bs-ride="carousel"
-              >
-                <div class="carousel-indicators" style="bottom: -50px">
-                  <button
-                    type="button"
-                    data-bs-target="#bm-uimobile"
-                    data-bs-slide-to="0"
-                    class="active"
-                    aria-current="true"
-                    aria-label="Slide 1"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#bm-uimobile"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#bm-uimobile"
-                    data-bs-slide-to="2"
-                    aria-label="Slide 3"
-                  ></button>
-                </div>
-                <div class="carousel-inner" style="border-radius: 40px">
-                  <div class="carousel-item active">
-                    <div>
-                      <img src="img/home/screen_mobile01.png" />
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div>
-                      <img src="img/home/screen_mobile02.png" />
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div>
-                      <img src="img/home/screen_mobile03.png" />
-                    </div>
-                  </div>
-                </div>
-                <!-- <i class="ti display-5 carousel-control-prev z-4" data-bs-target="#bm-uimobile" data-bs-slide="prev" style="color: #4a4a4a;cursor: pointer">&#xea60;</i>
-              <i class="ti display-5 carousel-control-next z-4" data-bs-target="#bm-uimobile" data-bs-slide="next" style="color: #4a4a4a;cursor: pointer">&#xea61;</i> -->
-              </div>
-            </div>
-            <img src="img/home/img_iphone_03.svg" class="device" />
-          </div>
-          <img
-            src="img/home/img_person.png"
-            class="d-none d-md-inline person"
-          />
-        </div>
-      </div>
-    </section>
-    <!-- JAM MASJID -------------------------------------->
-    <section class="grey-area jm-section">
-      <div class="container-md">
-        <div class="row">
-          <div class="col-md fs-5 content-light p-5 p-md-3 my-md-5">
-            <div class="display-5 heading txt-primary lh-1 pb-3 pb-md-5">
-              Jam Masjid
-            </div>
-            <div class="pe-md-5 me-md-5">
-              Jam masjid digital hadir untuk membantu kelancaran ibadah jemaah.
-              Dengan menampilkan jadwal shalat lima waktu secara otomatis,
-              disesuaikan dengan lokasi masjid. Dengan desain yang modern dan
-              tampilan yang informatif, jam masjid digital telah menjadi bagian
-              tak terpisahkan dari masjid modern.
-            </div>
-            <div class="pt-4 pt-md-5">
-              <a href="jammasjid.php"
-                ><button class="btn bg-primary me-md-2 mb-2" type="button">
-                  <i class="ti">&#xf318;</i>Tentang Jam Masjid
-                </button></a
-              >
-            </div>
-          </div>
-          <div class="col-md position-relative ms-md-5">
-            <img
-              src="img/jammasjid/img-jam-pilar.png"
-              class="w-100 jm-pilar top-50 start-50"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="mt-md-5">
-      <div class="sebaran-about container-md px-5">
-        <div class="row row-cols-1 row-cols-md-2">
-          <div class="display-3 heading txt-primary lh-1 col pb-5 pb-md-0">
-            Jadikan <span class="txt-default">Buku Masjid</span> sebagai panduan
-            untuk memakmurkan Masjid
-          </div>
-          <div class="fs-2 heading-light lh-sm col">
-            “Sesungguhnya yang memakmurkan masjid-masjid Allah hanyalah
-            orang-orang yang beriman kepada Allah dan hari akhir, serta tetap
-            mendirikan shalat, menunaikan zakat dan tidak takut (kepada
-            siapapun) selain kepada Allah”
-            <br /><br />
-            <span class="fs-4 fw-bold">QS. At-Taubah ayat 18</span>
-          </div>
-        </div>
-      </div>
-      <div class="sebaran-map container-md p-5">
-        <div class="d-block d-md-none text-center pb-5">
-          <div class="display-5 txt-primary fw-bolder">Sebaran Pengguna</div>
-          <div class="fs-4">Buku Masjid Cloud</div>
-        </div>
-        <div class="sebaran-stat">
-          <div
-            class="row row-cols-2 row-cols-md-4 d-flex justify-content-center"
-          >
-            <div class="col stat">
-              <div class="display-1 txt-primary number">35</div>
-              <div>Masjid dan Mushalla</div>
-            </div>
-            <div class="col stat">
-              <div class="display-1 txt-primary number">21</div>
-              <div>Pondok, Rumah Quran & Yayasan</div>
-            </div>
-            <div class="col stat">
-              <div class="display-1 txt-primary number">2</div>
-              <div>Lembaga & Panti Asuhan</div>
-            </div>
-            <div class="col stat">
-              <div class="display-1 txt-primary number">2</div>
-              <div>Media & Wirausaha</div>
-            </div>
-          </div>
-        </div>
-        <div class="d-none d-md-block text-center pt-5 mt-5">
-          <div class="display-5 txt-primary fw-bolder">Sebaran Pengguna</div>
-          <div class="fs-4">Buku Masjid Cloud</div>
-        </div>
-        <div class="map text-center">
-          <img src="img/home/img_sebaran.png" class="d-none d-md-block" />
-          <a href="pengguna.php"
-            ><button class="btn bg-primary me-md-2 mb-2" type="button">
-              Pengguna Buku Masjid
-            </button></a
-          >
-        </div>
-        <div class="testimonial" style="pointer-events: none">
-          <div class="stat">
-            <div class="display-5 txt-primary fw-bolder">Testimonial</div>
-            <div class="fs-md-5 heading-light lh-md5 py-4 py-md-3">
-              "Saya sangat puas menggunakan aplikasi keuangan BukuMasjid,com
-              ini. Antarmuka yang intuitif membuatnya mudah digunakan. Fitur
-              transparansi keuangan sangat membantu meningkatkan kepercayaan
-              jamaah dan donatur. Ketika saya mengalami sedikit kesulitan, tim
-              dukungan teknis langsung merespons dan memperbaiki masalahnya.
-              Aplikasi ini sangat recommended!"
-            </div>
-            <span class="fs-6 fs-md-4 fw-bold"
-              >Aji - Bendahara Masjid Taqwa Suronatan</span
-            >
-          </div>
-        </div>
-        <!-- <div class="text-center p-5">
-        <div class="display-5 txt-primary fw-bolder">Testimonial</div>
-        <div class="fs-4 heading-light lh-md p-5">"Saya sangat puas menggunakan aplikasi keuangan BukuMasjid,com ini. Antarmuka yang intuitif membuatnya mudah digunakan. Fitur transparansi keuangan sangat membantu meningkatkan kepercayaan jamaah dan donatur. Ketika saya mengalami sedikit kesulitan, tim dukungan teknis langsung merespons dan memperbaiki masalahnya. Aplikasi ini sangat recommended!"</div>
-        <span class="fs-4 fw-bold">Aji -  Bendahara Masjid Taqwa Suronatan</span>
-      </div> -->
-      </div>
-      <div class="sebaran-code container-md text-center">
-        <div class="display-3 heading txt-primary lh-1">
-          <span class="txt-default">Buku Masjid</span>
-          <br class="d-none d-sm-block" />adalah Solusi Tata Kelola
-          <br class="d-none d-sm-block" />Keuangan Masjid!
-        </div>
-        <!-- <div class="pt-3 pb-4">Open-source MIT Licensed.</div> -->
-        <div class="d-grid d-md-block pt-5">
-          <a href="cloud.php"
-            ><button class="btn bg-primary me-md-2 mb-2" type="button">
-              <i class="ti">&#xea89;</i> Free Trial
-            </button></a
-          >
-          <a href="https://wa.me/6282350355470" target="_blank"
-            ><button class="btn bg-success me-md-2 mb-2" type="button">
-              <i class="ti">&#xec74;</i> Hubungi Kami
-            </button></a
-          >
-          <!--<a href="register.php"><button class="btn bg-accent mb-2" type="button"><i class="ti">&#xeb04;</i> Daftar Sekarang</button></a> -->
-          <!-- <a href="https://wa.me/6282350355470" target="_blank"><button class="btn bg-accent mb-2" type="button"><i class="ti">&#xeaed;</i> Hubungi Kami</button></a> -->
-        </div>
-      </div>
-    </section>
-    <section class="support py-5" id="sponsors">
-      <div class="container-md">
-        <div class="text-center txt-primary h3">Sponsor</div>
-        <div class="row justify-content-center">
-          <a
-            href="https://pondokteknologi.com"
-            target="_blank"
-            class="col-6 col-sm-3 logo text-center p-3 text-decoration-none"
-          >
-            <img src="img/home/logo_pondok.png" class="w-75" />
-            <div class="text-center pt-3 fs-6">Pondok Teknologi</div>
-          </a>
-          <a
-            href="https://pondokit.com"
-            target="_blank"
-            class="col-6 col-sm-3 logo text-center p-3 text-decoration-none"
-          >
-            <img src="img/home/logo_pondokit.png" class="w-75" />
-            <div class="text-center pt-3 fs-6">Pondok IT</div>
-          </a>
-          <a
-            href="https://mushaira.id"
-            target="_blank"
-            class="col-6 col-sm-3 logo text-center p-3 text-decoration-none"
-          >
-            <img src="img/home/logo_mushaira.png" class="w-75" />
-            <div class="text-center pt-3 fs-6">Mushaira</div>
-          </a>
-          <a
-            href="https://stimi-bjm.ac.id"
-            target="_blank"
-            class="col-6 col-sm-3 logo text-center p-3 text-decoration-none"
-          >
-            <img src="img/home/logo_stimi.png" class="w-75" />
-            <div class="text-center pt-3 fs-6">STIMI Banjarmasin</div>
-          </a>
-          <a
-            href="https://lynk.id/almauncenter"
-            target="_blank"
-            class="col-6 col-sm-3 logo text-center p-3 text-decoration-none"
-          >
-            <img src="img/home/logo_lksa.png" class="w-75" />
-            <div class="text-center pt-3 fs-6">LKSA Al Ma'un Center</div>
-          </a>
-          <a
-            href="https://jetorbit.com"
-            target="_blank"
-            class="col-6 col-sm-3 logo text-center p-3 text-decoration-none"
-          >
-            <img src="img/home/logo_jetorbit.png" class="w-75" />
-            <div class="text-center pt-3 fs-6">Jetorbit</div>
-          </a>
-          <a
-            href="https://jetorbit.com"
-            target="_blank"
-            class="col-6 col-sm-3 logo text-center p-3 text-decoration-none"
-          >
-            <img src="img/home/logo_alikhlas.png" class="w-75" />
-            <div class="text-center pt-3 fs-6">Masjid Al Ikhlas PIK</div>
-          </a>
-        </div>
-      </div>
-    </section>
-    <section class="footer">
-      <div class="text-center">
-        <h2 class="text-3xl">Jazakumullah Khairan</h2>
-      </div>
-      <div class="p-2">
-        <div class="d-flex justify-content-center">
-          <div class="d-sm-flex">
-            <a href="https://www.facebook.com/bukumasjid" target="_blank"
-              ><div class="text-center px-3">
-                <i class="ti">&#xf7e6;</i> bukumasjid
-              </div></a
-            >
-            <a href="https://x.com/bukumasjid" target="_blank"
-              ><div class="text-center px-3">
-                <i class="ti">&#xfc0f;</i> bukumasjid
-              </div></a
-            >
-          </div>
-          <div class="d-sm-flex">
-            <a href="https://t.me/bukumasjid_id" target="_blank"
-              ><div class="text-center px-3">
-                <i class="ti">&#xec26;</i> bukumasjid
-              </div></a
-            >
-            <a href="https://www.instagram.com/bukumasjid" target="_blank"
-              ><div class="text-center px-3">
-                <i class="ti">&#xec20;</i> bukumasjid
-              </div></a
-            >
-          </div>
-          <div class="d-sm-flex">
-            <a href="https://github.com/buku-masjid/buku-masjid" target="_blank"
-              ><div class="text-center px-3">
-                <i class="ti">&#xec1c;</i> buku-masjid
-              </div></a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="text-center p-2">
-        <a href="tnc.php" class="text-decoration-none text-muted"
-          >Syarat & Ketentuan</a
-        >
-        |
-        <a href="privacy-policy.php" class="text-decoration-none text-muted"
-          >Kebijakan Privasi</a
-        >
-        |
-        <a href="faq.php" class="text-decoration-none text-muted">FAQ</a>
-      </div>
-      <div class="text-center p-2">(c) 2025 Bukumasjid</div>
-    </section>
-    <script type="text/javascript" src="js/star.js"></script>
-    <script>
-      function addStarsToContainer() {
-        const container = document.getElementById('starContainer');
-        staticStars(container);
-      }
-
-      function clearContainer() {
-        const container = document.getElementById('starContainer');
-        container.innerHTML = '';
-      }
-
-      function addFallingStars() {
-        const container = document.getElementById('starContainer');
-        fallingStars(container);
-      }
-
-      addStarsToContainer();
-
-      // Prevent auto-initialization for this demo
-      // The star.js file will still auto-initialize on body by default
-    </script>
-  </body>
-</html>
-<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -958,6 +122,7 @@
         z-index: 0;
         background-size: cover;
         background-position: center;
+        background-color: var(--card-solid);
       }
       .slide-bg::after {
         content: '';
@@ -966,16 +131,18 @@
         background: linear-gradient(
           to top,
           var(--bg) 0%,
-          rgba(11, 18, 32, 0.78) 40%,
-          rgba(11, 18, 32, 0.55) 100%
+          rgba(11, 18, 32, 0.82) 35%,
+          rgba(11, 18, 32, 0.65) 80%,
+          rgba(11, 18, 32, 0.4) 100%
         );
+        z-index: 1;
       }
 
       .slide-inner {
         position: relative;
-        z-index: 1;
+        z-index: 2;
         width: 100%;
-        max-width: 1080px;
+        max-width: 1100px;
       }
 
       /* ───── NAV BAR ───── */
@@ -1003,33 +170,38 @@
       }
 
       .nav-btn {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
         border-radius: 10px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.06);
         color: var(--text);
         cursor: pointer;
         display: grid;
         place-items: center;
-        font-size: 14px;
-        transition: background 0.18s;
+        font-size: 15px;
+        transition: all 0.2s ease;
+        font-weight: 600;
       }
       .nav-btn:hover:not(:disabled) {
-        background: rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.16);
+        transform: translateY(-1px);
+        border-color: rgba(255, 255, 255, 0.2);
       }
       .nav-btn:disabled {
-        opacity: 0.3;
-        cursor: default;
+        opacity: 0.35;
+        cursor: not-allowed;
+        background: rgba(255, 255, 255, 0.03);
       }
 
       #counter {
         font-weight: 700;
-        font-size: 13px;
+        font-size: 14px;
         color: var(--muted);
-        min-width: 52px;
+        min-width: 64px;
         text-align: center;
         font-variant-numeric: tabular-nums;
+        letter-spacing: 0.3px;
       }
 
       /* dots */
@@ -1059,40 +231,46 @@
 
       /* ───── TYPOGRAPHY ───── */
       .slide-title {
-        font-size: clamp(22px, 3.5vw, 42px);
+        font-size: clamp(28px, 4.8vw, 56px);
         font-weight: 900;
         line-height: 1.15;
         letter-spacing: -0.3px;
-        margin-bottom: 10px;
+        margin-bottom: 14px;
       }
       .slide-sub {
-        font-size: clamp(14px, 1.6vw, 18px);
+        font-size: clamp(16px, 2vw, 22px);
         font-weight: 600;
         color: var(--muted);
-        line-height: 1.65;
-        margin-bottom: 28px;
-        max-width: 760px;
+        line-height: 1.7;
+        margin-bottom: 32px;
+        max-width: 800px;
       }
 
       /* ───── HERO SLIDE ───── */
       .hero-wrap {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 40px 20px;
       }
 
       .hero-badge-top {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        background: rgba(17, 27, 46, 0.55);
-        backdrop-filter: blur(10px);
-        border: 1px solid var(--line);
+        background: rgba(17, 27, 46, 0.75);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 999px;
-        padding: 10px 18px;
-        margin-bottom: 24px;
+        padding: 12px 20px;
+        margin-bottom: 28px;
       }
       .hero-badge-top .logo-box {
-        width: 32px;
-        height: 32px;
+        width: 36px;
+        height: 36px;
         border-radius: 10px;
         background: linear-gradient(
           135deg,
@@ -1102,59 +280,64 @@
         border: 1px solid rgba(255, 255, 255, 0.15);
         display: grid;
         place-items: center;
-        font-size: 16px;
+        font-size: 18px;
       }
       .hero-badge-top span {
         font-weight: 700;
-        font-size: 13px;
-        color: var(--muted);
+        font-size: 14px;
+        color: var(--text);
+        letter-spacing: 0.3px;
       }
 
       .hero-title {
-        font-size: clamp(26px, 4.5vw, 58px);
+        font-size: clamp(32px, 5.5vw, 72px);
         font-weight: 900;
         line-height: 1.1;
         letter-spacing: -0.5px;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
       }
       .hero-title .accent {
         color: var(--green);
       }
 
       .hero-desc {
-        font-size: clamp(14px, 1.6vw, 18px);
+        font-size: clamp(16px, 2vw, 22px);
         font-weight: 600;
         color: var(--muted);
-        line-height: 1.7;
-        margin-bottom: 28px;
-        max-width: 760px;
+        line-height: 1.75;
+        margin-bottom: 32px;
+        max-width: 800px;
         margin-left: auto;
         margin-right: auto;
       }
       .hero-desc strong {
         color: var(--text);
+        font-weight: 700;
       }
 
       .badge-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 12px;
         justify-content: center;
+        row-gap: 14px;
       }
       .badge-pill {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: rgba(17, 27, 46, 0.55);
-        backdrop-filter: blur(8px);
-        border: 1px solid var(--line);
+        background: rgba(17, 27, 46, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 999px;
-        padding: 10px 16px;
+        padding: 11px 18px;
         font-weight: 700;
-        font-size: 13px;
+        font-size: 14px;
+        color: var(--text);
       }
       .badge-pill i {
         color: var(--green);
+        font-size: 15px;
       }
 
       /* ───── GLASS CARD ───── */
@@ -1238,48 +421,50 @@
 
       .card h4 {
         font-weight: 800;
-        font-size: 15px;
-        margin-bottom: 10px;
+        font-size: 16px;
+        margin-bottom: 12px;
+        color: var(--text);
       }
       .card ul {
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 8px;
       }
       .card ul li {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 600;
         color: var(--muted);
         display: flex;
         gap: 8px;
+        line-height: 1.5;
       }
       .card ul li::before {
         content: '•';
         color: var(--green);
         flex-shrink: 0;
-        margin-top: 1px;
+        margin-top: 2px;
       }
       .card p {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 600;
         color: var(--muted);
-        line-height: 1.65;
+        line-height: 1.7;
       }
 
       /* step number */
       .step-num {
-        width: 38px;
-        height: 38px;
+        width: 42px;
+        height: 42px;
         border-radius: 12px;
         background: rgba(96, 165, 250, 0.15);
         border: 1px solid rgba(96, 165, 250, 0.28);
         display: grid;
         place-items: center;
         font-weight: 900;
-        font-size: 18px;
+        font-size: 20px;
         color: var(--blue);
-        margin-bottom: 12px;
+        margin-bottom: 14px;
       }
 
       /* callout row */
@@ -1295,8 +480,9 @@
       }
       .callout-row h4 {
         font-weight: 800;
-        font-size: 15px;
-        margin-bottom: 5px;
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: var(--text);
       }
 
       /* CTA buttons */
@@ -1311,29 +497,41 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 12px 18px;
+        padding: 13px 20px;
         border-radius: 14px;
         border: 1px solid var(--line);
         background: rgba(255, 255, 255, 0.06);
         color: var(--text);
         font-weight: 800;
-        font-size: 13px;
+        font-size: 14px;
         cursor: pointer;
         transition:
           background 0.18s,
-          border-color 0.18s;
+          border-color 0.18s,
+          transform 0.15s;
         text-decoration: none;
       }
-      .btn:hover {
-        background: rgba(255, 255, 255, 0.12);
+      .btn:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.14);
+        transform: translateY(-2px);
+      }
+      .btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
       }
       .btn.green {
         background: rgba(34, 197, 94, 0.18);
         border-color: rgba(34, 197, 94, 0.35);
       }
+      .btn.green:hover:not(:disabled) {
+        background: rgba(34, 197, 94, 0.28);
+      }
       .btn.blue {
         background: rgba(96, 165, 250, 0.18);
         border-color: rgba(96, 165, 250, 0.35);
+      }
+      .btn.blue:hover:not(:disabled) {
+        background: rgba(96, 165, 250, 0.28);
       }
 
       /* ───── TUJUAN SLIDE ───── */
@@ -1345,11 +543,12 @@
 
       /* ───── FOOTER TEXT ───── */
       .footer-txt {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 600;
         color: var(--muted);
-        margin-top: 18px;
-        line-height: 1.7;
+        margin-top: 24px;
+        line-height: 1.8;
+        letter-spacing: 0.2px;
       }
 
       /* ───── ANIMATIONS ───── */
@@ -1406,13 +605,17 @@
           grid-template-columns: 1fr;
         }
         .slide {
-          padding: 16px 14px 68px;
+          padding: 16px 14px 72px;
         }
         .hero-title {
-          font-size: 26px;
+          font-size: 28px;
         }
         .slide-title {
-          font-size: 22px;
+          font-size: 24px;
+        }
+        .hero-wrap {
+          min-height: auto;
+          padding: 24px 14px;
         }
       }
     </style>
@@ -2110,22 +1313,29 @@
 
       function render(prev) {
         const all = slides();
-        all[prev].classList.remove('active');
-        all[prev].classList.add(cur > prev ? 'out-left' : '');
-        if (cur !== prev)
+
+        if (prev >= 0 && prev < all.length) {
+          all[prev].classList.remove('active');
+          all[prev].classList.add(cur > prev ? 'out-left' : '');
           setTimeout(() => {
-            all[prev].className = 'slide';
+            if (prev >= 0 && prev < all.length) {
+              all[prev].classList.remove('out-left');
+              all[prev].className = 'slide';
+            }
           }, 400);
+        }
 
-        all[cur].classList.remove('out-left');
-        all[cur].classList.add('active');
+        if (cur >= 0 && cur < all.length) {
+          all[cur].classList.remove('out-left');
+          all[cur].classList.add('active');
 
-        /* reset anim children so they replay */
-        all[cur].querySelectorAll('.anim').forEach((el) => {
-          el.style.animation = 'none';
-          el.offsetHeight; /* reflow */
-          el.style.animation = '';
-        });
+          /* reset anim children so they replay */
+          all[cur].querySelectorAll('.anim').forEach((el) => {
+            el.style.animation = 'none';
+            void el.offsetHeight; /* reflow */
+            el.style.animation = '';
+          });
+        }
 
         /* dots */
         dotsEl.querySelectorAll('.dot').forEach((d, i) => {
@@ -2137,20 +1347,28 @@
           cur + 1 + ' / ' + TOTAL;
 
         /* prev/next disabled state */
-        document.getElementById('btnPrev').disabled = cur === 0;
-        document.getElementById('btnNext').disabled = cur === TOTAL - 1;
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+
+        btnPrev.disabled = cur === 0;
+        btnNext.disabled = cur === TOTAL - 1;
       }
 
       function go(dir) {
         const prev = cur;
         cur = Math.max(0, Math.min(TOTAL - 1, cur + dir));
-        if (cur !== prev) render(prev);
+        if (cur !== prev) {
+          render(prev);
+        }
       }
 
       function goTo(idx) {
+        idx = Math.max(0, Math.min(TOTAL - 1, parseInt(idx, 10)));
         const prev = cur;
         cur = idx;
-        if (cur !== prev) render(prev);
+        if (cur !== prev) {
+          render(prev);
+        }
       }
 
       /* keyboard */
