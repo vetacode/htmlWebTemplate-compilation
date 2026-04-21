@@ -1314,11 +1314,16 @@
       function render(prev) {
         const all = slides();
 
-        if (prev >= 0 && prev < all.length) {
+        /* only animate prev slide if not initial state */
+        if (prev >= 0 && prev < all.length && prev !== cur) {
           all[prev].classList.remove('active');
           all[prev].classList.add(cur > prev ? 'out-left' : '');
           setTimeout(() => {
-            if (prev >= 0 && prev < all.length) {
+            if (
+              prev >= 0 &&
+              prev < all.length &&
+              all[prev].classList.contains('out-left')
+            ) {
               all[prev].classList.remove('out-left');
               all[prev].className = 'slide';
             }
