@@ -101,6 +101,7 @@
           opacity 0.38s ease,
           transform 0.38s ease;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
         scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
       }
@@ -165,6 +166,7 @@
         background: rgba(11, 18, 32, 0.75);
         backdrop-filter: blur(14px);
         border-top: 1px solid var(--line);
+        gap: 8px;
       }
 
       #nav .nav-left,
@@ -258,8 +260,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        width: 100%;
         min-height: 100vh;
         padding: 40px 20px;
+        box-sizing: border-box;
       }
 
       .hero-badge-top {
@@ -603,24 +607,242 @@
           grid-template-columns: 1fr;
         }
       }
+      @media (max-width: 768px) {
+        #nav {
+          height: 54px;
+          padding: 0 12px;
+          gap: 4px;
+        }
+        .nav-btn {
+          width: 36px;
+          height: 36px;
+          font-size: 14px;
+        }
+        #counter {
+          font-size: 12px;
+          min-width: 56px;
+        }
+        .slide {
+          padding: 20px 16px 80px;
+        }
+        .slide-inner {
+          max-width: 100%;
+        }
+        .hero-wrap {
+          min-height: auto;
+          padding: 24px 16px;
+          justify-content: flex-start;
+          padding-top: 32px;
+        }
+        .hero-badge-top {
+          padding: 10px 16px;
+          margin-bottom: 20px;
+        }
+        .hero-badge-top span {
+          font-size: 13px;
+        }
+        .hero-title {
+          font-size: clamp(26px, 6vw, 48px);
+          margin-bottom: 18px;
+        }
+        .hero-desc {
+          font-size: clamp(14px, 4vw, 18px);
+          margin-bottom: 24px;
+        }
+        .badge-row {
+          gap: 10px;
+          row-gap: 12px;
+        }
+        .badge-pill {
+          padding: 10px 14px;
+          font-size: 13px;
+        }
+        .slide-title {
+          font-size: clamp(24px, 5vw, 42px);
+          margin-bottom: 12px;
+        }
+        .slide-sub {
+          font-size: clamp(14px, 3.5vw, 18px);
+          margin-bottom: 24px;
+        }
+        .card {
+          padding: 16px;
+        }
+        .card h4 {
+          font-size: 15px;
+          margin-bottom: 10px;
+        }
+        .card ul li {
+          font-size: 13px;
+          gap: 6px;
+        }
+        .card p {
+          font-size: 13px;
+        }
+        .icon-box {
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+          margin-bottom: 12px;
+        }
+        .step-num {
+          width: 38px;
+          height: 38px;
+          font-size: 18px;
+        }
+        .callout-row h4 {
+          font-size: 15px;
+          margin-bottom: 6px;
+        }
+        .footer-txt {
+          font-size: 13px;
+          margin-top: 20px;
+          line-height: 1.7;
+        }
+      }
       @media (max-width: 560px) {
+        #nav {
+          height: 52px;
+          padding: 0 10px;
+          gap: 4px;
+        }
+        .nav-btn {
+          width: 34px;
+          height: 34px;
+          font-size: 13px;
+        }
+        #counter {
+          font-size: 11px;
+          min-width: 48px;
+        }
+        #dots {
+          gap: 4px;
+        }
+        .dot {
+          width: 5px;
+          height: 5px;
+        }
+        .dot.active {
+          width: 18px;
+        }
+        .slide {
+          padding: 16px 12px 76px;
+        }
+        .slide-inner {
+          max-width: 100%;
+        }
         .grid-2,
         .grid-3,
         .grid-4 {
           grid-template-columns: 1fr;
+          gap: 12px;
         }
-        .slide {
-          padding: 16px 14px 72px;
-        }
-        .hero-title {
-          font-size: 28px;
-        }
-        .slide-title {
-          font-size: 24px;
+        .tujuan-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
         }
         .hero-wrap {
           min-height: auto;
-          padding: 24px 14px;
+          padding: 20px 12px;
+          justify-content: flex-start;
+          padding-top: 24px;
+        }
+        .hero-badge-top {
+          padding: 9px 14px;
+          margin-bottom: 16px;
+          gap: 8px;
+        }
+        .hero-badge-top .logo-box {
+          width: 32px;
+          height: 32px;
+          font-size: 16px;
+        }
+        .hero-badge-top span {
+          font-size: 12px;
+        }
+        .hero-title {
+          font-size: clamp(22px, 5.5vw, 36px);
+          margin-bottom: 14px;
+          line-height: 1.2;
+        }
+        .hero-desc {
+          font-size: clamp(13px, 3.5vw, 16px);
+          margin-bottom: 20px;
+          line-height: 1.6;
+        }
+        .badge-row {
+          gap: 8px;
+          row-gap: 10px;
+        }
+        .badge-pill {
+          padding: 9px 12px;
+          font-size: 12px;
+          gap: 6px;
+        }
+        .badge-pill i {
+          font-size: 13px;
+        }
+        .slide-title {
+          font-size: clamp(20px, 5vw, 32px);
+          margin-bottom: 10px;
+        }
+        .slide-sub {
+          font-size: clamp(13px, 3vw, 16px);
+          margin-bottom: 20px;
+          max-width: 100%;
+        }
+        .card {
+          padding: 14px;
+        }
+        .card h4 {
+          font-size: 14px;
+          margin-bottom: 9px;
+        }
+        .card ul li {
+          font-size: 12px;
+          gap: 6px;
+          line-height: 1.4;
+        }
+        .card p {
+          font-size: 12px;
+          line-height: 1.6;
+        }
+        .icon-box {
+          width: 38px;
+          height: 38px;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+        .step-num {
+          width: 36px;
+          height: 36px;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+        .callout-row {
+          gap: 10px;
+        }
+        .callout-row h4 {
+          font-size: 14px;
+          margin-bottom: 5px;
+        }
+        .callout-row p {
+          font-size: 12px;
+          line-height: 1.6;
+        }
+        .btn-row {
+          gap: 8px;
+          margin-top: 14px;
+        }
+        .btn {
+          padding: 11px 16px;
+          font-size: 12px;
+          gap: 6px;
+        }
+        .footer-txt {
+          font-size: 12px;
+          margin-top: 16px;
+          line-height: 1.6;
         }
       }
     </style>
