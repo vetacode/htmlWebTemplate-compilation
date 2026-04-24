@@ -1,0 +1,1480 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Glory Car Rental</title>
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons: FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Tailwind Config untuk Warna Brand Glory -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            },
+            colors: {
+              glory: {
+                50: '#f0f4ff',
+                100: '#dbe4ff',
+                200: '#bac8ff',
+                300: '#91a7ff',
+                400: '#748ffc',
+                500: '#1a3a6b' /* Brand Color: Navy */,
+                600: '#152d54',
+                700: '#0f2240',
+                800: '#0a1830',
+                900: '#060f1f',
+                950: '#030914',
+              },
+              gold: {
+                400: '#E2B94F',
+                500: '#C8A24D' /* Accent Color: Gold */,
+                600: '#A8872E',
+                700: '#8A6E23',
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* --- GLOBAL STYLES & ANIMATIONS --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+        background: #ffffff;
+        color: #1e293b;
+        overflow-x: hidden;
+      }
+
+      /* Hero Slider Animations */
+      .hero-slider {
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 0;
+      }
+      .hero-slide.active {
+        opacity: 1;
+        z-index: 10;
+      }
+      .hero-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.05);
+        transition: transform 8s ease-out;
+      }
+      .hero-slide.active img {
+        transform: scale(1);
+      }
+
+      /* Text Slide Animations */
+      .hero-slide .slide-content {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+      }
+      .hero-slide.active .slide-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .hero-slide .slide-subtitle {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+      }
+      .hero-slide.active .slide-subtitle {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .hero-slide .slide-cta {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.8s;
+      }
+      .hero-slide.active .slide-cta {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c8a24d;
+        border-radius: 3px;
+      }
+
+      /* Hover Effects */
+      .service-card {
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid #e2e8f0;
+      }
+      .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 60px -15px rgba(26, 58, 107, 0.15);
+        border-color: #c8a24d;
+      }
+      .service-card:hover .service-icon-wrap {
+        background: #1a3a6b;
+      }
+      .service-card:hover .service-icon-wrap i {
+        color: #c8a24d;
+      }
+
+      .fleet-card {
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .fleet-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.12);
+      }
+      .fleet-card:hover .fleet-img {
+        transform: scale(1.08);
+      }
+      .fleet-img {
+        transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* Buttons */
+      .btn-primary {
+        background: #c8a24d;
+        color: #fff;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-primary::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: #a8872e;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .btn-primary:hover::before {
+        opacity: 1;
+      }
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 24px -4px rgba(200, 162, 77, 0.4);
+      }
+
+      /* Navbar Scroll State */
+      .nav-scrolled {
+        background: rgba(255, 255, 255, 0.97) !important;
+        backdrop-filter: blur(16px) !important;
+        box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06) !important;
+      }
+      .nav-scrolled .nav-logo-text {
+        color: #1a3a6b !important;
+      }
+      .nav-scrolled .nav-link {
+        color: #475569 !important;
+      }
+      .nav-scrolled .nav-link.active-link {
+        color: #c8a24d !important;
+      }
+      .nav-scrolled .nav-hamburger span {
+        background: #1a3a6b !important;
+      }
+
+      /* Mobile Menu */
+      .mobile-overlay {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+      }
+      .mobile-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .mobile-panel {
+        transform: translateX(100%);
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .mobile-panel.open {
+        transform: translateX(0);
+      }
+
+      /* Scroll Reveal */
+      .reveal-up {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* WA Float */
+      .wa-float {
+        animation: waFloat 3s ease-in-out infinite;
+      }
+      @keyframes waFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+
+      /* Map Filter (Dark Mode) */
+      .map-dark-theme {
+        filter: grayscale(100%) invert(92%) contrast(83%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =========================================
+       NAVIGASI (MODULAR - Copy Paste ini ke halaman lain)
+       ========================================= -->
+    <!-- Top Bar Info -->
+    <div
+      class="nav-top fixed top-0 left-0 right-0 z-50 bg-glory-900/90 backdrop-blur-sm transition-all duration-300"
+      id="topBar"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 md:px-6 py-2 flex items-center justify-between"
+      >
+        <div class="hidden md:flex items-center gap-6">
+          <a
+            href="tel:08131534654"
+            class="flex items-center gap-1.5 text-white/70 hover:text-gold-400 transition-colors text-xs"
+          >
+            <i class="fas fa-phone-alt"></i> 0813-1534-654
+          </a>
+          <span class="text-white/20">|</span>
+          <span class="flex items-center gap-1.5 text-white/70 text-xs">
+            <i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia
+          </span>
+        </div>
+        <div class="flex items-center gap-4 ml-auto">
+          <span class="text-white/50 text-xs hidden sm:inline">Follow us:</span>
+          <a
+            href="#"
+            class="text-white/50 hover:text-gold-400 transition-colors"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="#"
+            class="text-white/50 hover:text-gold-400 transition-colors"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="#"
+            class="text-white/50 hover:text-gold-400 transition-colors"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navbar -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-40 transition-all duration-500"
+      id="navbar"
+      style="top: 32px"
+    >
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-between h-16 md:h-20">
+          <!-- Logo -->
+          <!-- PERUBAHAN URL HOME MENJADI /glorycarrental -->
+          <a
+            href="https://ciptadigital.biz.id/glorycarrental"
+            class="flex items-center gap-2.5"
+          >
+            <div
+              class="w-9 h-9 bg-gold-500 rounded-lg flex items-center justify-center"
+            >
+              <span class="text-white font-bold text-sm">G</span>
+            </div>
+            <div class="nav-logo-text">
+              <span
+                class="text-base font-bold text-white tracking-tight block leading-none"
+                >Glory</span
+              >
+              <span class="text-[9px] tracking-[0.2em] text-white/50 uppercase"
+                >Car Rental</span
+              >
+            </div>
+          </a>
+
+          <!-- Desktop Menu -->
+          <div class="hidden lg:flex items-center gap-8">
+            <!-- Halaman Home Aktif (active-link) -->
+            <!-- PERUBAHAN URL HOME MENJADI /glorycarrental -->
+            <a
+              href="https://ciptadigital.biz.id/glorycarrental"
+              class="nav-link active-link text-sm font-medium text-white/90 hover:text-gold-400 transition-colors relative"
+            >
+              Home
+              <span
+                class="absolute -bottom-1 left-0 w-full h-0.5 bg-gold-500 rounded-full"
+              ></span>
+            </a>
+            <a
+              href="https://ciptadigital.biz.id/about"
+              class="nav-link text-sm font-medium text-white/60 hover:text-gold-400 transition-colors"
+              >About</a
+            >
+            <a
+              href="https://ciptadigital.biz.id/gallery"
+              class="nav-link text-sm font-medium text-white/60 hover:text-gold-400 transition-colors"
+              >Gallery</a
+            >
+            <a
+              href="https://ciptadigital.biz.id/kontak"
+              class="nav-link text-sm font-medium text-white/60 hover:text-gold-400 transition-colors"
+              >Kontak</a
+            >
+          </div>
+
+          <!-- CTA & Hamburger -->
+          <div class="flex items-center gap-3">
+            <a
+              href="https://wa.me/628131534654?text=Halo%20Glory%20Car%20Rental,%20saya%20ingin%20memesan%20mobil"
+              target="_blank"
+              class="nav-cta hidden md:inline-flex btn-primary px-5 py-2.5 rounded-lg text-xs font-semibold tracking-wide"
+            >
+              <span class="flex items-center gap-1.5"
+                ><i class="fab fa-whatsapp"></i> Pesan Sekarang</span
+              >
+            </a>
+            <button
+              id="hamburgerBtn"
+              class="lg:hidden nav-hamburger w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+            >
+              <span
+                class="block w-5 h-[2px] bg-white rounded-full transition-all duration-300"
+                id="hb1"
+              ></span>
+              <span
+                class="block w-5 h-[2px] bg-white rounded-full transition-all duration-300"
+                id="hb2"
+              ></span>
+              <span
+                class="block w-3.5 h-[2px] bg-white rounded-full transition-all duration-300 ml-auto"
+                id="hb3"
+              ></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div
+      class="mobile-overlay fixed inset-0 z-50 bg-black/40"
+      id="mobileOverlay"
+    ></div>
+    <div
+      class="mobile-panel fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white z-50 shadow-2xl"
+      id="mobilePanel"
+    >
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-10">
+          <div class="flex items-center gap-2.5">
+            <div
+              class="w-9 h-9 bg-gold-500 rounded-lg flex items-center justify-center"
+            >
+              <span class="text-white font-bold text-sm">G</span>
+            </div>
+            <span class="text-base font-bold text-glory-500">Glory</span>
+          </div>
+          <button
+            id="closeMobile"
+            class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            <i class="fas fa-times text-glory-600"></i>
+          </button>
+        </div>
+        <div class="flex flex-col gap-1">
+          <!-- PERUBAHAN URL HOME MENJADI /glorycarrental -->
+          <a
+            href="https://ciptadigital.biz.id/glorycarrental"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gold-600 bg-gold-500/5"
+            ><i class="fas fa-home"></i> Home</a
+          >
+          <a
+            href="https://ciptadigital.biz.id/about"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
+            ><i class="fas fa-info-circle"></i> About</a
+          >
+          <a
+            href="https://ciptadigital.biz.id/gallery"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
+            ><i class="fas fa-images"></i> Gallery</a
+          >
+          <a
+            href="https://ciptadigital.biz.id/kontak"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
+            ><i class="fas fa-envelope"></i> Kontak</a
+          >
+        </div>
+      </div>
+    </div>
+    <!-- =========================================
+       END NAVIGASI
+       ========================================= -->
+
+    <!-- HERO SLIDER (Khusus Halaman Home) -->
+    <section
+      class="hero-slider relative w-full h-screen min-h-[600px] max-h-[900px]"
+    >
+      <!-- Slide 1: Luxury -->
+      <div class="hero-slide active" data-slide="0">
+        <img
+          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920&auto=format&fit=crop"
+          alt="Glory Car Rental - Sedan Mewah"
+          class="img-responsive"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-glory-950/90 via-glory-900/60 to-transparent"
+        ></div>
+        <div class="absolute inset-0 flex items-center">
+          <div class="max-w-7xl mx-auto px-4 md:px-6 w-full">
+            <div class="max-w-2xl">
+              <div
+                class="slide-subtitle inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-6"
+              >
+                <span class="w-2 h-2 rounded-full bg-gold-500"></span>
+                <span class="text-xs font-medium text-white/80 tracking-wide"
+                  >Premium Car Rental Jakarta</span
+                >
+              </div>
+              <h1
+                class="slide-content text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight"
+              >
+                Solusi Sewa Mobil <br /><span class="text-gold-400"
+                  >Mewah Terpercaya</span
+                >
+              </h1>
+              <p
+                class="slide-subtitle mt-5 text-base text-white/70 leading-relaxed max-w-lg"
+              >
+                Nikmati perjalanan premium dengan armada terbaik kami. Layanan
+                profesional untuk kebutuhan bisnis, wedding, dan perjalanan
+                eksklusif Anda.
+              </p>
+              <div class="slide-cta flex flex-wrap gap-3 mt-8">
+                <a
+                  href="https://wa.me/628131534654"
+                  target="_blank"
+                  class="btn-primary px-7 py-3 rounded-lg text-sm inline-flex items-center gap-2"
+                >
+                  <span
+                    >Pesan Sekarang <i class="fas fa-arrow-right text-xs"></i
+                  ></span>
+                </a>
+                <a
+                  href="https://ciptadigital.biz.id/gallery"
+                  class="border border-white text-white font-semibold px-7 py-3 rounded-lg text-sm inline-flex items-center gap-2 hover:bg-white hover:text-glory-900 transition-colors"
+                  >Lihat Armada</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Wedding -->
+      <div class="hero-slide" data-slide="1">
+        <img
+          src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1920&auto=format&fit=crop"
+          alt="Wedding Car"
+          class="img-responsive"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-glory-950/90 via-glory-900/60 to-transparent"
+        ></div>
+        <div class="absolute inset-0 flex items-center">
+          <div class="max-w-7xl mx-auto px-4 md:px-6 w-full">
+            <div class="max-w-2xl">
+              <div
+                class="slide-subtitle inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-6"
+              >
+                <span class="w-2 h-2 rounded-full bg-gold-500"></span>
+                <span class="text-xs font-medium text-white/80 tracking-wide"
+                  >Wedding & Event Specialist</span
+                >
+              </div>
+              <h1
+                class="slide-content text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight"
+              >
+                Momen Spesial, <br /><span class="text-gold-400"
+                  >Kendaraan Istimewa</span
+                >
+              </h1>
+              <p
+                class="slide-subtitle mt-5 text-base text-white/70 leading-relaxed max-w-lg"
+              >
+                Dekorasi mobil pengantin eksklusif, sopir berpakaian formal, dan
+                pengalaman yang tak terlupakan di hari bahagia Anda.
+              </p>
+              <div class="slide-cta flex flex-wrap gap-3 mt-8">
+                <a
+                  href="https://wa.me/628131534654"
+                  target="_blank"
+                  class="btn-primary px-7 py-3 rounded-lg text-sm inline-flex items-center gap-2"
+                >
+                  <span
+                    >Paket Wedding <i class="fas fa-arrow-right text-xs"></i
+                  ></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Corporate -->
+      <div class="hero-slide" data-slide="2">
+        <img
+          src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1920&auto=format&fit=crop"
+          alt="Corporate Car"
+          class="img-responsive"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-glory-950/90 via-glory-900/60 to-transparent"
+        ></div>
+        <div class="absolute inset-0 flex items-center">
+          <div class="max-w-7xl mx-auto px-4 md:px-6 w-full">
+            <div class="max-w-2xl">
+              <div
+                class="slide-subtitle inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-6"
+              >
+                <span class="w-2 h-2 rounded-full bg-gold-500"></span>
+                <span class="text-xs font-medium text-white/80 tracking-wide"
+                  >Corporate Solution</span
+                >
+              </div>
+              <h1
+                class="slide-content text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight"
+              >
+                Partner Resmi <br /><span class="text-gold-400"
+                  >Perusahaan Anda</span
+                >
+              </h1>
+              <p
+                class="slide-subtitle mt-5 text-base text-white/70 leading-relaxed max-w-lg"
+              >
+                Layanan rental korporat dengan kontrak fleksibel, invoice
+                profesional, dan pengelolaan armada terpadu.
+              </p>
+              <div class="slide-cta flex flex-wrap gap-3 mt-8">
+                <a
+                  href="https://wa.me/628131534654"
+                  target="_blank"
+                  class="btn-primary px-7 py-3 rounded-lg text-sm inline-flex items-center gap-2"
+                >
+                  <span
+                    >Solusi Korporat <i class="fas fa-arrow-right text-xs"></i
+                  ></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="absolute bottom-8 left-0 right-0 z-20">
+        <div
+          class="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between"
+        >
+          <div class="flex items-center gap-3" id="sliderDots">
+            <button
+              class="w-8 h-1 bg-white/30 rounded-full transition-all slider-dot active"
+              data-slide="0"
+            ></button>
+            <button
+              class="w-8 h-1 bg-white/30 rounded-full transition-all slider-dot"
+              data-slide="1"
+            ></button>
+            <button
+              class="w-8 h-1 bg-white/30 rounded-full transition-all slider-dot"
+              data-slide="2"
+            ></button>
+          </div>
+          <div class="hidden md:flex items-center gap-3">
+            <button
+              class="w-10 h-10 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-glory-900 transition-all"
+              id="prevSlide"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button
+              class="w-10 h-10 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-glory-900 transition-all"
+              id="nextSlide"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYANAN KAMI -->
+    <section class="py-20 md:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal-up">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-glory-500/5 border border-glory-500/10 mb-5"
+          >
+            <span
+              class="text-[11px] font-semibold tracking-[0.15em] uppercase text-glory-500"
+              >Layanan Kami</span
+            >
+          </div>
+          <h2
+            class="text-3xl md:text-4xl font-extrabold text-glory-900 tracking-tight"
+          >
+            Solusi Lengkap untuk Setiap Kebutuhan
+          </h2>
+          <p class="mt-4 text-sm text-gray-500 leading-relaxed">
+            Dari perjalanan harian hingga event spesial, kami menyediakan
+            layanan rental mobil yang disesuaikan dengan kebutuhan Anda.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Service Cards -->
+          <div
+            class="service-card rounded-2xl p-6 bg-white reveal-up"
+            style="transition-delay: 0.05s"
+          >
+            <div
+              class="service-icon-wrap w-12 h-12 rounded-xl bg-glory-50 flex items-center justify-center mb-5 transition-all duration-400"
+            >
+              <i class="fas fa-ring text-glory-500 text-xl"></i>
+            </div>
+            <h3 class="text-base font-bold text-glory-900 mb-2">
+              Wedding Package
+            </h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-4">
+              Mobil pengantin mewah dengan dekorasi eksklusif dan sopir
+              berpakaian formal.
+            </p>
+            <!-- Bagian yang diubah: "Selengkapnya" menjadi link WA -->
+            <a
+              href="https://wa.me/628131534654?text=Halo%20Glory%20Car%20Rental,%20saya%20ingin%20bertanya%20tentang%20Wedding%20Package"
+              target="_blank"
+              class="flex items-center gap-1 text-gold-600 text-sm font-semibold hover:underline"
+              >Selengkapnya <i class="fas fa-arrow-right text-xs"></i
+            ></a>
+          </div>
+
+          <div
+            class="service-card rounded-2xl p-6 bg-white reveal-up"
+            style="transition-delay: 0.1s"
+          >
+            <div
+              class="service-icon-wrap w-12 h-12 rounded-xl bg-glory-50 flex items-center justify-center mb-5 transition-all duration-400"
+            >
+              <i class="fas fa-briefcase text-glory-500 text-xl"></i>
+            </div>
+            <h3 class="text-base font-bold text-glory-900 mb-2">
+              Corporate Rental
+            </h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-4">
+              Solusi armada perusahaan dengan kontrak jangka panjang dan invoice
+              profesional.
+            </p>
+            <!-- Bagian yang diubah -->
+            <a
+              href="https://wa.me/628131534654?text=Halo%20Glory%20Car%20Rental,%20saya%20ingin%20bertanya%20tentang%20Corporate%20Rental"
+              target="_blank"
+              class="flex items-center gap-1 text-gold-600 text-sm font-semibold hover:underline"
+              >Selengkapnya <i class="fas fa-arrow-right text-xs"></i
+            ></a>
+          </div>
+
+          <div
+            class="service-card rounded-2xl p-6 bg-white reveal-up"
+            style="transition-delay: 0.15s"
+          >
+            <div
+              class="service-icon-wrap w-12 h-12 rounded-xl bg-glory-50 flex items-center justify-center mb-5 transition-all duration-400"
+            >
+              <i class="fas fa-plane text-glory-500 text-xl"></i>
+            </div>
+            <h3 class="text-base font-bold text-glory-900 mb-2">
+              Wisata & Tour
+            </h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-4">
+              Jelajahi destinasi dengan nyaman, sopir berpengalaman sebagai
+              guide sekaligus.
+            </p>
+            <!-- Bagian yang diubah -->
+            <a
+              href="https://wa.me/628131534654?text=Halo%20Glory%20Car%20Rental,%20saya%20ingin%20bertanya%20tentang%20Wisata%20%26%20Tour"
+              target="_blank"
+              class="flex items-center gap-1 text-gold-600 text-sm font-semibold hover:underline"
+              >Selengkapnya <i class="fas fa-arrow-right text-xs"></i
+            ></a>
+          </div>
+
+          <div
+            class="service-card rounded-2xl p-6 bg-white reveal-up"
+            style="transition-delay: 0.2s"
+          >
+            <div
+              class="service-icon-wrap w-12 h-12 rounded-xl bg-glory-50 flex items-center justify-center mb-5 transition-all duration-400"
+            >
+              <i class="fas fa-car text-glory-500 text-xl"></i>
+            </div>
+            <h3 class="text-base font-bold text-glory-900 mb-2">Sewa Harian</h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-4">
+              Fleksibel sewa per hari, dengan atau tanpa sopir. Proses cepat dan
+              mudah.
+            </p>
+            <!-- Bagian yang diubah -->
+            <a
+              href="https://wa.me/628131534654?text=Halo%20Glory%20Car%20Rental,%20saya%20ingin%20bertanya%20tentang%20Sewa%20Harian"
+              target="_blank"
+              class="flex items-center gap-1 text-gold-600 text-sm font-semibold hover:underline"
+              >Selengkapnya <i class="fas fa-arrow-right text-xs"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARMADA UNGGULAN -->
+    <section class="py-20 md:py-28 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div
+          class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-14"
+        >
+          <div class="reveal-up">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-glory-500/5 border border-glory-500/10 mb-5"
+            >
+              <span
+                class="text-[11px] font-semibold tracking-[0.15em] uppercase text-glory-500"
+                >Armada Unggulan</span
+              >
+            </div>
+            <h2
+              class="text-3xl md:text-4xl font-extrabold text-glory-900 tracking-tight"
+            >
+              Pilihan Mobil Premium Kami
+            </h2>
+            <p class="mt-3 text-sm text-gray-500 leading-relaxed max-w-lg">
+              Armada terawat dengan standar kualitas tertinggi, siap menemani
+              perjalanan Anda.
+            </p>
+          </div>
+          <a
+            href="https://ciptadigital.biz.id/gallery"
+            class="border border-glory-500 text-glory-500 px-6 py-2.5 rounded-lg text-xs font-semibold tracking-wide inline-flex items-center gap-2 self-start md:self-auto hover:bg-glory-500 hover:text-white transition-all reveal-up"
+          >
+            Lihat Semua Armada <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Mercedes -->
+          <div
+            class="fleet-card rounded-2xl overflow-hidden bg-white shadow-sm reveal-up"
+            style="transition-delay: 0.05s"
+          >
+            <div class="relative aspect-[16/10] overflow-hidden group">
+              <img
+                src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop"
+                alt="Mercedes-Benz S-Class"
+                class="fleet-img w-full h-full object-cover img-responsive"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-md bg-gold-500 text-[10px] font-bold text-white tracking-wider uppercase"
+              >
+                Best Seller
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="text-base font-bold text-glory-900">
+                    Mercedes-Benz S-Class
+                  </h3>
+                  <p class="text-xs text-gray-400 mt-1">
+                    Sedan Mewah · Otomatis · 4 Kursi
+                  </p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <div class="text-lg font-extrabold text-gold-600">
+                    Rp 3.5jt
+                  </div>
+                  <div class="text-[10px] text-gray-400">/ hari</div>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between mt-4 pt-4 border-t border-gray-100"
+              >
+                <div class="flex items-center gap-4 text-xs text-gray-400">
+                  <span class="flex items-center gap-1"
+                    ><i class="fas fa-user text-[10px]"></i> 4 Orang</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i class="fas fa-cog text-[10px]"></i> Otomatis</span
+                  >
+                </div>
+                <a
+                  href="https://wa.me/628131534654"
+                  target="_blank"
+                  class="px-4 py-1.5 rounded-md border border-glory-500 text-xs font-semibold text-glory-500 hover:bg-gold-500 hover:text-white transition-colors"
+                  >Pesan</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Alphard -->
+          <div
+            class="fleet-card rounded-2xl overflow-hidden bg-white shadow-sm reveal-up"
+            style="transition-delay: 0.1s"
+          >
+            <div class="relative aspect-[16/10] overflow-hidden group">
+              <img
+                src="https://images.unsplash.com/photo-1606611013016-969c19ba27bb?q=80&w=800&auto=format&fit=crop"
+                alt="Toyota Alphard"
+                class="fleet-img w-full h-full object-cover img-responsive"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-md bg-glory-500 text-[10px] font-bold text-white tracking-wider uppercase"
+              >
+                Populer
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="text-base font-bold text-glory-900">
+                    Toyota Alphard
+                  </h3>
+                  <p class="text-xs text-gray-400 mt-1">
+                    MPV Mewah · Otomatis · 7 Kursi
+                  </p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <div class="text-lg font-extrabold text-gold-600">
+                    Rp 2.8jt
+                  </div>
+                  <div class="text-[10px] text-gray-400">/ hari</div>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between mt-4 pt-4 border-t border-gray-100"
+              >
+                <div class="flex items-center gap-4 text-xs text-gray-400">
+                  <span class="flex items-center gap-1"
+                    ><i class="fas fa-user text-[10px]"></i> 7 Orang</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i class="fas fa-cog text-[10px]"></i> Otomatis</span
+                  >
+                </div>
+                <a
+                  href="https://wa.me/628131534654"
+                  target="_blank"
+                  class="px-4 py-1.5 rounded-md border border-glory-500 text-xs font-semibold text-glory-500 hover:bg-gold-500 hover:text-white transition-colors"
+                  >Pesan</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- BMW -->
+          <div
+            class="fleet-card rounded-2xl overflow-hidden bg-white shadow-sm reveal-up"
+            style="transition-delay: 0.15s"
+          >
+            <div class="relative aspect-[16/10] overflow-hidden group">
+              <img
+                src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop"
+                alt="BMW 7 Series"
+                class="fleet-img w-full h-full object-cover img-responsive"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-md bg-glory-500 text-[10px] font-bold text-white tracking-wider uppercase"
+              >
+                Premium
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="text-base font-bold text-glory-900">
+                    BMW 7 Series
+                  </h3>
+                  <p class="text-xs text-gray-400 mt-1">
+                    Sedan Mewah · Otomatis · 4 Kursi
+                  </p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <div class="text-lg font-extrabold text-gold-600">
+                    Rp 3.2jt
+                  </div>
+                  <div class="text-[10px] text-gray-400">/ hari</div>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between mt-4 pt-4 border-t border-gray-100"
+              >
+                <div class="flex items-center gap-4 text-xs text-gray-400">
+                  <span class="flex items-center gap-1"
+                    ><i class="fas fa-user text-[10px]"></i> 4 Orang</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i class="fas fa-cog text-[10px]"></i> Otomatis</span
+                  >
+                </div>
+                <a
+                  href="https://wa.me/628131534654"
+                  target="_blank"
+                  class="px-4 py-1.5 rounded-md border border-glory-500 text-xs font-semibold text-glory-500 hover:bg-gold-500 hover:text-white transition-colors"
+                  >Pesan</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY GLORY -->
+    <section class="py-20 md:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="relative reveal-up">
+            <div class="rounded-2xl overflow-hidden aspect-[4/3]">
+              <img
+                src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop"
+                alt="Interior Mobil Mewah"
+                class="w-full h-full object-cover img-responsive"
+              />
+            </div>
+            <div
+              class="absolute -bottom-6 -right-3 md:right-6 bg-white rounded-2xl shadow-xl border border-gray-100 p-5"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center"
+                >
+                  <i class="fas fa-star text-gold-500 text-xl"></i>
+                </div>
+                <div>
+                  <div class="text-2xl font-extrabold text-glory-900">
+                    4.9/5
+                  </div>
+                  <div class="text-xs text-gray-400">Rating Pelanggan</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal-up">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-glory-500/5 border border-glory-500/10 mb-5"
+            >
+              <span
+                class="text-[11px] font-semibold tracking-[0.15em] uppercase text-glory-500"
+                >Mengapa Glory</span
+              >
+            </div>
+            <h2
+              class="text-3xl md:text-4xl font-extrabold text-glory-900 tracking-tight leading-tight"
+            >
+              Lebih dari Sekadar<br />Rental Mobil
+            </h2>
+            <p class="mt-4 text-sm text-gray-500 leading-relaxed">
+              Kami tidak hanya menyewakan mobil — kami memberikan pengalaman.
+              Setiap detail dirancang untuk kenyamanan dan kepuasan Anda.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+              <div
+                class="flex items-start gap-3 p-4 rounded-xl bg-gray-50 hover:border-gold-500 border border-transparent transition-all"
+              >
+                <div
+                  class="w-10 h-10 rounded-lg bg-white border border-gray-100 flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="fas fa-shield-alt text-glory-600"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-glory-900">
+                    Asuransi Lengkap
+                  </h4>
+                  <p class="text-xs text-gray-400 mt-1">
+                    Seluruh armada terlindungi asuransi all-risk.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-start gap-3 p-4 rounded-xl bg-gray-50 hover:border-gold-500 border border-transparent transition-all"
+              >
+                <div
+                  class="w-10 h-10 rounded-lg bg-white border border-gray-100 flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="fas fa-clock text-glory-600"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-glory-900">Tepat Waktu</h4>
+                  <p class="text-xs text-gray-400 mt-1">
+                    Layanan 24/7, pengantaran selalu on-time.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-start gap-3 p-4 rounded-xl bg-gray-50 hover:border-gold-500 border border-transparent transition-all"
+              >
+                <div
+                  class="w-10 h-10 rounded-lg bg-white border border-gray-100 flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="fas fa-heart text-glory-600"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-glory-900">
+                    Armada Terawat
+                  </h4>
+                  <p class="text-xs text-gray-400 mt-1">
+                    Maintenance rutin, mobil selalu prima.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-start gap-3 p-4 rounded-xl bg-gray-50 hover:border-gold-500 border border-transparent transition-all"
+              >
+                <div
+                  class="w-10 h-10 rounded-lg bg-white border border-gray-100 flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="fas fa-hand-holding-usd text-glory-600"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-glory-900">
+                    Harga Transparan
+                  </h4>
+                  <p class="text-xs text-gray-400 mt-1">
+                    Tanpa biaya tersembunyi, apa adanya.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONI -->
+    <section class="py-20 md:py-28 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal-up">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-glory-500/5 border border-glory-500/10 mb-5"
+          >
+            <span
+              class="text-[11px] font-semibold tracking-[0.15em] uppercase text-glory-500"
+              >Testimoni</span
+            >
+          </div>
+          <h2
+            class="text-3xl md:text-4xl font-extrabold text-glory-900 tracking-tight"
+          >
+            Apa Kata Pelanggan Kami
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-gold-500 transition-all shadow-sm reveal-up"
+            style="transition-delay: 0.05s"
+          >
+            <div class="flex items-center gap-1 mb-4 text-gold-500">
+              <i class="fas fa-star text-xs"></i
+              ><i class="fas fa-star text-xs"></i
+              ><i class="fas fa-star text-xs"></i
+              ><i class="fas fa-star text-xs"></i
+              ><i class="fas fa-star text-xs"></i>
+            </div>
+            <p class="text-sm text-gray-500 leading-relaxed mb-5">
+              "Mobil Alphard-nya bersih terawat, sopirnya sangat ramah dan
+              on-time. Sungguh pengalaman yang menyenangkan untuk pernikahan
+              kami!"
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-100">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                  alt="Andi Pratama"
+                  class="w-full h-full object-cover img-responsive"
+                />
+              </div>
+              <div>
+                <div class="text-sm font-bold text-glory-900">Andi Pratama</div>
+                <div class="text-xs text-gray-400">Wedding Package</div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-gold-500 transition-all shadow-sm reveal-up"
+            style="transition-delay: 0.1s"
+          >
+            <div class="flex items-center gap-1 mb-4 text-gold-500">
+              <i class="fas fa-star text-xs"></i
+              ><i class="fas fa-star text-xs"></i
+              ><i class="fas fa-star text-xs"></i
+              ><i class="fas fa-star text-xs"></i
+              ><i class="fas fa-star text-xs"></i>
+            </div>
+            <p class="text-sm text-gray-500 leading-relaxed mb-5">
+              "Sudah 2 tahun langganan untuk kebutuhan kantor. Harga kompetitif,
+              proses administrasi mudah, dan selalu responsif."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-100">
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
+                  alt="Budi Santoso"
+                  class="w-full h-full object-cover img-responsive"
+                />
+              </div>
+              <div>
+                <div class="text-sm font-bold text-glory-900">Budi Santoso</div>
+                <div class="text-xs text-gray-400">CEO, PT Maju Bersama</div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-gold-500 transition-all shadow-sm reveal-up"
+            style="transition-delay: 0.15s"
+          >
+            <div class="flex items-center gap-1 mb-4 text-gold-500">
+              <i class="fas fa-star text-xs"></i
+              ><i class="fas fa-star text-xs"></i
+              ><i class="fas fa-star text-xs"></i
+              ><i class="fas fa-star text-xs"></i
+              ><i class="fas fa-star text-xs"></i>
+            </div>
+            <p class="text-sm text-gray-500 leading-relaxed mb-5">
+              "Pakai Mercedes buat antar tamu VVIP, klien sangat terkesan. Glory
+              Car Rental memang pilihan tepat."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-100">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face"
+                  alt="Diana Putri"
+                  class="w-full h-full object-cover img-responsive"
+                />
+              </div>
+              <div>
+                <div class="text-sm font-bold text-glory-900">Diana Putri</div>
+                <div class="text-xs text-gray-400">Event Organizer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+       FOOTER & MAPS (MODULAR - Copy Paste ini ke halaman lain)
+       ========================================= -->
+    <footer class="bg-glory-950 pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10"
+        >
+          <div>
+            <!-- PERUBAHAN URL HOME MENJADI /glorycarrental -->
+            <a
+              href="https://ciptadigital.biz.id/glorycarrental"
+              class="flex items-center gap-2.5 mb-5"
+            >
+              <div
+                class="w-9 h-9 bg-gold-500 rounded-lg flex items-center justify-center"
+              >
+                <span class="text-white font-bold text-sm">G</span>
+              </div>
+              <div>
+                <span class="text-base font-bold text-white block leading-none"
+                  >Glory</span
+                >
+                <span
+                  class="text-[9px] tracking-[0.2em] text-white/40 uppercase"
+                  >Car Rental</span
+                >
+              </div>
+            </a>
+            <p class="text-sm text-white/30 leading-relaxed max-w-xs">
+              Solusi sewa mobil mewah terpercaya di Jakarta. Armada premium,
+              pelayanan profesional.
+            </p>
+          </div>
+          <div>
+            <h4
+              class="text-xs font-bold tracking-[0.15em] uppercase text-white/60 mb-5"
+            >
+              Navigasi
+            </h4>
+            <ul class="space-y-3">
+              <!-- PERUBAHAN URL HOME MENJADI /glorycarrental -->
+              <li>
+                <a
+                  href="https://ciptadigital.biz.id/glorycarrental"
+                  class="text-sm text-white/30 hover:text-gold-400 transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://ciptadigital.biz.id/about"
+                  class="text-sm text-white/30 hover:text-gold-400 transition-colors"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://ciptadigital.biz.id/gallery"
+                  class="text-sm text-white/30 hover:text-gold-400 transition-colors"
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://ciptadigital.biz.id/kontak"
+                  class="text-sm text-white/30 hover:text-gold-400 transition-colors"
+                  >Kontak</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="text-xs font-bold tracking-[0.15em] uppercase text-white/60 mb-5"
+            >
+              Layanan
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <span class="text-sm text-white/30">Wedding Package</span>
+              </li>
+              <li>
+                <span class="text-sm text-white/30">Corporate Rental</span>
+              </li>
+              <li><span class="text-sm text-white/30">Wisata & Tour</span></li>
+              <li><span class="text-sm text-white/30">Sewa Harian</span></li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="text-xs font-bold tracking-[0.15em] uppercase text-white/60 mb-5"
+            >
+              Kontak
+            </h4>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-2.5">
+                <i class="fas fa-phone text-gold-500 mt-1"></i>
+                <div>
+                  <a
+                    href="tel:08131534654"
+                    class="text-sm text-white/50 hover:text-gold-400 transition-colors"
+                    >0813-1534-654</a
+                  >
+                  <div class="text-[11px] text-white/20 mt-0.5">
+                    WhatsApp & Telepon
+                  </div>
+                </div>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fas fa-map-marker-alt text-gold-500 mt-1"></i>
+                <div>
+                  <span class="text-sm text-white/50"
+                    >Jl. Jend. Sudirman Kav 52-53 No.88</span
+                  >
+                  <div class="text-[11px] text-white/20 mt-0.5">
+                    Senayan, Kebayoran Baru, Jakarta Selatan
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Embedded Google Map (Lokasi Spesifik) -->
+        <div
+          class="w-full h-64 md:h-80 mt-8 rounded-xl overflow-hidden border border-white/5"
+        >
+          <div class="embed-responsive embed-responsive-4by3">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2766669469283!2d106.8072318!3d-6.2240524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1516d6a8aaf%3A0xd2105fd25fa20318!2sJl.%20Jend.%20Sudirman%20Kav%2052-53%20No.88%2C%20RT.5%2FRW.3%2C%20Senayan%2C%20Kec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012190!5e0!3m2!1sid!2sid!4v1712834567890!5m2!1sid!2sid"
+              class="w-full h-full map-dark-theme border-0 embed-responsive-item"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-3 pt-8 mt-8"
+        >
+          <p class="text-xs text-white/20">
+            © 2025 Glory Car Rental. All rights reserved.
+          </p>
+          <p class="text-xs text-white/20">Premium Luxury Car Rental Jakarta</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- FLOATING WA BUTTON -->
+    <a
+      href="https://wa.me/628131534654?text=Halo%20Glory%20Car%20Rental,%20saya%20ingin%20bertanya"
+      target="_blank"
+      class="wa-float fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-colors duration-300 group"
+    >
+      <i class="fab fa-whatsapp text-white text-2xl"></i>
+      <span
+        class="absolute right-full mr-3 px-3 py-1.5 rounded-lg bg-glory-900 text-xs text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-lg"
+      >
+        Chat WhatsApp
+        <span
+          class="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-glory-900"
+        ></span>
+      </span>
+    </a>
+    <!-- =========================================
+       END FOOTER
+       ========================================= -->
+
+    <!-- JAVASCRIPT -->
+    <script>
+      // --- SLIDER LOGIC ---
+      const slides = document.querySelectorAll('.hero-slide');
+      const dots = document.querySelectorAll('.slider-dot');
+      let currentSlide = 0,
+        sliderTimer;
+
+      function goToSlide(i) {
+        slides.forEach((s) => s.classList.remove('active'));
+        dots.forEach((d) => d.classList.remove('active'));
+        slides[i].classList.add('active');
+        dots[i].classList.add('active');
+        currentSlide = i;
+        resetTimer();
+      }
+
+      function nextSlide() {
+        goToSlide((currentSlide + 1) % slides.length);
+      }
+      function prevSlide() {
+        goToSlide((currentSlide - 1 + slides.length) % slides.length);
+      }
+      function resetTimer() {
+        clearInterval(sliderTimer);
+        sliderTimer = setInterval(nextSlide, 6000);
+      }
+
+      // Auto Start
+      resetTimer();
+
+      // Slider Controls
+      document.getElementById('nextSlide')?.addEventListener('click', () => {
+        nextSlide();
+        resetTimer();
+      });
+      document.getElementById('prevSlide')?.addEventListener('click', () => {
+        prevSlide();
+        resetTimer();
+      });
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+      });
+
+      // --- NAVBAR SCROLL EFFECT ---
+      const navbar = document.getElementById('navbar');
+      const topBar = document.getElementById('topBar');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('nav-scrolled');
+          topBar.style.transform = 'translateY(-100%)'; // Hide top bar
+          navbar.style.top = '0';
+        } else {
+          navbar.classList.remove('nav-scrolled');
+          topBar.style.transform = 'translateY(0)';
+          navbar.style.top = '32px';
+        }
+      });
+
+      // --- MOBILE MENU TOGGLE ---
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileOverlay = document.getElementById('mobileOverlay');
+      const mobilePanel = document.getElementById('mobilePanel');
+      const closeMobile = document.getElementById('closeMobile');
+
+      function toggleMenu() {
+        mobileOverlay.classList.toggle('open');
+        mobilePanel.classList.toggle('open');
+      }
+
+      hamburgerBtn?.addEventListener('click', toggleMenu);
+      closeMobile?.addEventListener('click', toggleMenu);
+      mobileOverlay?.addEventListener('click', toggleMenu);
+
+      // --- SCROLL REVEAL ANIMATION ---
+      const revealElements = document.querySelectorAll('.reveal-up');
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      revealElements.forEach((el) => revealObserver.observe(el));
+    </script>
+  </body>
+</html>
