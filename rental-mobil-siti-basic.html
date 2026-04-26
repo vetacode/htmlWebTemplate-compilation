@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Siti Maemunah</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content mt-4">
+        <!doctype html>
+        <html lang="id">
+          <head>
+            <meta charset="UTF-8" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
+            <title>Brodocar</title>
+            <!-- ================= ICON ================= -->
+            <link
+              rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+            />
+            <style>
+              /* ================= GLOBAL ================= */
+              :root {
+                --merah: #e53935;
+                --hijau: #43a047;
+                --kuning: #fdd835;
+                --bg: #ffffff;
+                --text: #000000;
+              }
+
+              body.dark {
+                --bg: #121212;
+                --text: #ffffff;
+              }
+
+              body {
+                margin: 0;
+                font-family: Arial;
+                background: var(--bg);
+                color: var(--text);
+              }
+
+              img {
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+              }
+
+              /* ================= NAVBAR ================= */
+              .navbar {
+                display: flex;
+                justify-content: space-between;
+                padding: 15px;
+                background: var(--merah);
+                color: #fff;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+              }
+
+              .navbar a {
+                color: white;
+                margin-left: 15px;
+                text-decoration: none;
+              }
+
+              /* efek kedap kedip */
+              .navbar a:hover {
+                animation: blink 0.6s infinite;
+              }
+
+              @keyframes blink {
+                50% {
+                  opacity: 0.4;
+                }
+              }
+
+              /* ================= HERO ================= */
+              .hero {
+                padding: 60px 20px;
+                text-align: center;
+                background: var(--kuning);
+              }
+
+              /* ================= SECTION ================= */
+              .section {
+                padding: 40px 20px;
+              }
+
+              /* ================= GRID MOBIL ================= */
+              .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+              }
+
+              /* ================= TESTIMONI ================= */
+              .testimoni {
+                display: flex;
+                overflow-x: auto;
+                gap: 20px;
+              }
+
+              .testimoni div {
+                min-width: 250px;
+              }
+
+              /* ================= FLOATING WA ================= */
+              .wa {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #25d366;
+                color: white;
+                padding: 15px;
+                border-radius: 50%;
+                font-size: 22px;
+              }
+
+              /* ================= FOOTER ================= */
+              footer {
+                background: #222;
+                color: white;
+                padding: 40px 20px;
+              }
+
+              .footer-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+              }
+
+              /* ================= RESPONSIVE ================= */
+              @media (max-width: 768px) {
+                .navbar {
+                  flex-direction: column;
+                }
+              }
+            </style>
+          </head>
+          <body>
+            <!-- ================= NAVBAR ================= -->
+            <div class="navbar">
+              <!-- Brand -->
+              <div><b>Brodocar</b></div>
+              <!-- Menu -->
+              <div>
+                <a href="#home">Home</a>
+                <a href="#mobil">Mobil</a>
+                <a href="#testimoni">Testimoni</a>
+                <a href="#contact">Kontak</a>
+              </div>
+            </div>
+            <!-- ================= HERO ================= -->
+            <div class="hero" id="home">
+              <h1>Rental & Jual Mobil Premium</h1>
+              <p>Brodocar solusi kendaraan terbaik</p>
+            </div>
+            <!-- ================= LIST MOBIL ================= -->
+            <div class="section" id="mobil">
+              <h2>Unit Mobil</h2>
+              <div class="grid">
+                <!-- Alphard -->
+                <div>
+                  <img
+                    src="https://images.unsplash.com/photo-1558101847-e017d5e414a4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  />
+                  <h3>Toyota Alphard</h3>
+                </div>
+
+                <!-- Pajero -->
+                <div>
+                  <img
+                    src="https://images.unsplash.com/photo-1594978100646-ccd2ae32b711?q=80&w=1351&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  />
+                  <h3>Mitsubishi Pajero</h3>
+                </div>
+
+                <!-- Rush -->
+                <div>
+                  <img
+                    src="https://images.unsplash.com/photo-1639922195938-611119f7f307?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  />
+                  <h3>Toyota Rush</h3>
+                </div>
+
+                <!-- Fortuner -->
+                <div>
+                  <img
+                    src="https://images.unsplash.com/photo-1619767886645-0ae16581bf6b?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  />
+                  <h3>Toyota Fortuner</h3>
+                </div>
+
+                <!-- Hiace -->
+                <div>
+                  <img
+                    src="https://images.unsplash.com/photo-1650807486050-a142ea418b19?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  />
+                  <h3>Toyota Hiace</h3>
+                </div>
+
+                <!-- HRV -->
+                <div>
+                  <img
+                    src="https://images.unsplash.com/photo-1605164598404-87061bb91a16?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  />
+                  <h3>Honda HRV</h3>
+                </div>
+              </div>
+            </div>
+            <!-- ================= TESTIMONI ================= -->
+            <div class="section" id="testimoni">
+              <h2>Testimoni</h2>
+              <div class="testimoni">
+                <!-- Testi 1 -->
+                <div>
+                  <img src="https://source.unsplash.com/200x200/?person" />
+                  <p>"Mobil bersih & nyaman"</p>
+                </div>
+
+                <!-- Testi 2 -->
+                <div>
+                  <img src="https://source.unsplash.com/200x200/?man" />
+                  <p>"Pelayanan cepat"</p>
+                </div>
+
+                <!-- Testi 3 -->
+                <div>
+                  <img src="https://source.unsplash.com/200x200/?woman" />
+                  <p>"Harga terjangkau"</p>
+                </div>
+              </div>
+            </div>
+            <!-- ================= CONTACT ================= -->
+            <div class="section" id="contact">
+              <h2>Kontak</h2>
+              <p><i class="fa fa-phone"></i> 08123456789</p>
+              <p><i class="fa fa-location-dot"></i> Indonesia</p>
+            </div>
+            <!-- ================= FOOTER ================= -->
+            <footer>
+              <div class="footer-grid">
+                <!-- Tentang -->
+                <div>
+                  <h3>Brodocar</h3>
+                  <p>Rental mobil terpercaya</p>
+                </div>
+
+                <!-- Menu -->
+                <div>
+                  <h3>Menu</h3>
+                  <p>Home</p>
+                  <p>Mobil</p>
+                  <p>Kontak</p>
+                </div>
+
+                <!-- Sosial -->
+                <div>
+                  <h3>Sosial Media</h3>
+                  <p><i class="fab fa-facebook"></i> Facebook</p>
+                  <p><i class="fab fa-instagram"></i> Instagram</p>
+                </div>
+              </div>
+              <p style="text-align: center; margin-top: 20px">
+                © 2026 Brodocar
+              </p>
+            </footer>
+            <!-- ================= FLOATING WA ================= --><a
+              href="https://wa.me/628123456789"
+              class="wa"
+            >
+              <i class="fab fa-whatsapp"></i> </a
+            ><!-- ================= SCRIPT ================= -->
+            <script>
+              // ================= AUTO DARK MODE =================
+              if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark');
+              }
+            </script>
+          </body>
+        </html>
+      </div>
+    </div>
+  </body>
+</html>

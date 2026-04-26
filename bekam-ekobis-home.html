@@ -1,0 +1,335 @@
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>SIAMO HOLISTIC THERAPHY</title>
+
+<meta
+  name="description"
+  content="Siamo Holistic Therapy layanan bekam, massage, dan terapi kesehatan di Kota Palu."
+/>
+<meta name="robots" content="index, follow" />
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<style>
+  /* GLOBAL */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAVBAR */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #16a34a;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    transition: 0.3s;
+  }
+
+  /* NAV HOVER */
+  .nav-links a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    transition: 0.3s;
+  }
+
+  .nav-links a:hover {
+    opacity: 0.8;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: 0.3s;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  .nav-links i {
+    margin-right: 5px;
+  }
+
+  /* BRAND */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* BACKGROUND */
+  .hero-bg {
+    background: url('https://ekobis.my.id/gambarbebas/20260424-113631_back%20ground2.jpeg')
+      center/cover no-repeat;
+    width: 100%;
+    height: 300px;
+    animation: zoomBg 8s ease-in-out infinite alternate;
+  }
+
+  /* BG ANIMATION */
+  @keyframes zoomBg {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.05);
+    }
+  }
+
+  /* SECTION */
+  .section {
+    padding: 60px 5%;
+    animation: fadeUp 1s ease;
+  }
+
+  /* FADE UP */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* CTA */
+  .cta-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .cta {
+    background: #25d366;
+    padding: 12px 25px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  /* CTA HOVER */
+  .cta:hover {
+    transform: scale(1.05);
+    background: #1ebe5d;
+  }
+
+  /* IMAGE */
+  .img-center {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .img-center img {
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: 0.4s;
+  }
+
+  .img-center img:hover {
+    transform: scale(1.05);
+  }
+
+  /* TITLE */
+  .title-green {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #16a34a;
+    margin-bottom: 30px;
+  }
+
+  /* GRID */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .grid-3 img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+  }
+
+  .grid-3 img:hover {
+    transform: translateY(-5px) scale(1.03);
+  }
+
+  /* DESC */
+  .desc {
+    margin-top: 30px;
+    text-align: left;
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #16a34a;
+    color: white;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .footer-cta {
+    display: inline-block;
+    margin-top: 10px;
+    background: #25d366;
+    padding: 12px 25px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .footer-cta:hover {
+    transform: scale(1.05);
+    background: #1ebe5d;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  }
+</style>
+
+<!-- HEADER -->
+<div class="navbar">
+  <div class="brand">
+    <img
+      src="https://ekobis.my.id/gambarbebas/20260424-103633_FOTO%20PROFILE.jpg"
+      alt="Logo"
+      class="img-responsive"
+    />
+    <b>SIAMO HOLISTIC</b>
+  </div>
+
+  <div class="nav-links">
+    <a href="https://ekobis.my.id/home-bekam"
+      ><i class="fa-solid fa-house"></i>Home</a
+    >
+    <a href="https://ekobis.my.id/about-bekam"
+      ><i class="fa-solid fa-circle-info"></i>About</a
+    >
+    <a href="https://ekobis.my.id/services-bekam"
+      ><i class="fa-solid fa-spa"></i>Services</a
+    >
+    <a href="https://ekobis.my.id/testymonials-bekam"
+      ><i class="fa-solid fa-star"></i>Testimoni</a
+    >
+    <a href="https://ekobis.my.id/contact-bekam"
+      ><i class="fa-solid fa-phone"></i>Contact</a
+    >
+  </div>
+</div>
+
+<!-- BACKGROUND -->
+<div class="hero-bg"></div>
+
+<!-- SESI 2 -->
+<section class="section" style="text-align: center">
+  <h2>Ingin Konsultasi atau Reservasi Terapi?</h2>
+
+  <div class="cta-row">
+    <a href="https://wa.me/6285241120104" class="cta">
+      <i class="fa-brands fa-whatsapp"></i> Chat & Reservasi Sekarang
+    </a>
+  </div>
+
+  <div class="img-center">
+    <img
+      src="https://ekobis.my.id/gambarbebas/20260424-113720_475307123_486294004529576_6457695552704748239_n.jpg"
+      alt="Terapi"
+      class="img-responsive"
+    />
+  </div>
+</section>
+
+<!-- SESI 3 -->
+<section class="section">
+  <h2 class="title-green">A Full Service Experience</h2>
+
+  <div class="grid-3">
+    <img
+      src="https://ekobis.my.id/gambarbebas/20260425-120936_bekam%202.jpeg"
+      alt="Bekam"
+      class="img-responsive"
+    />
+    <img
+      src="https://ekobis.my.id/gambarbebas/20260425-120946_sport%20message.jpeg"
+      alt="Massage"
+      class="img-responsive"
+    />
+    <img
+      src="https://ekobis.my.id/gambarbebas/20260425-120950_bone%20setting.jpeg"
+      alt="Bone Setting"
+      class="img-responsive"
+    />
+  </div>
+
+  <p class="desc">
+    Siamo holistic therapy adalah jasa layanan kesehatan Tradisional / manual
+    therapy di Kota Palu, telah mendapatkan izin operasional dari dinas
+    kesehatan kota palu No. Izin STPT : 400.7.16.1/76.459/DINKES/2024 alamat di
+    jalan garuda 28 perumahan graha nusantara, Siamo holistic therapy memberikan
+    beberapa jenis layanan kepada pasien berdasarkan kompetensi terapis yang
+    sudah profesional & bersertifikat dibidangnya, adapun prioritas layanan di
+    siamo holistic therapy adalah therapy Bekam, Sport massage/pijat kebugaran,
+    Kretek & massage cedera olahraga.
+  </p>
+</section>
+
+<!-- SESI 4 -->
+<footer>
+  <p>© 2026 SIAMO HOLISTIC THERAPHY</p>
+
+  <a href="https://wa.me/6285241120104" class="footer-cta">
+    <i class="fa-brands fa-whatsapp"></i> Chat & Reservasi Sekarang
+  </a>
+</footer>
