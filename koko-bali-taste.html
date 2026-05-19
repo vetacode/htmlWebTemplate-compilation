@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KOKO-BALI-TASTE | Bali-Italian Fusion</title>
+    <meta
+      name="description"
+      content="Experience Bali culinary excellence in a nostalgic Italian atmosphere. Koko-Bali-Taste offers a unique fusion menu."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* CSS Variables */
+      :root {
+        --color-cream: #f5f1eb;
+        --color-brown-dark: #6b5d4f;
+        --color-brown-darker: #8b7355;
+        --color-warm: #d4a574;
+        --color-warm-dark: #c9956f;
+        --color-text: #2c2724;
+
+        --font-heading: 'Playfair Display', serif;
+        --font-body: 'Lato', sans-serif;
+
+        --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      /* Reset & Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background-color: var(--color-cream);
+        color: var(--color-text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        color: var(--color-brown-darker);
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: var(--transition-smooth);
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .section-padding {
+        padding: 5rem 0;
+      }
+
+      @media (min-width: 768px) {
+        .section-padding {
+          padding: 8rem 0;
+        }
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.8s ease-out,
+          transform 0.8s ease-out;
+      }
+
+      .fade-in.appear {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Button */
+      .btn {
+        display: inline-block;
+        background-color: var(--color-brown-dark);
+        color: var(--color-cream);
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        border: 1px solid var(--color-brown-dark);
+        cursor: pointer;
+        transition: var(--transition-smooth);
+        text-transform: uppercase;
+        font-family: var(--font-body);
+        font-weight: 700;
+      }
+
+      .btn:hover {
+        background-color: transparent;
+        color: var(--color-brown-dark);
+      }
+
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(245, 241, 235, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(139, 115, 85, 0.2);
+        transition: var(--transition-smooth);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 5rem;
+      }
+
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-brown-darker);
+        letter-spacing: 0.05em;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        color: var(--color-brown-dark);
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--color-warm-dark);
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: block;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0.5rem;
+        z-index: 1001;
+      }
+
+      .hamburger-line {
+        display: block;
+        width: 25px;
+        height: 2px;
+        margin: 5px auto;
+        background-color: var(--color-brown-dark);
+        transition: var(--transition-smooth);
+      }
+
+      /* Mobile Menu Active State */
+      .nav-active .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 5rem;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-cream);
+        padding: 2rem 0;
+        border-bottom: 1px solid rgba(139, 115, 85, 0.2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-active .nav-links li {
+        margin: 1rem 0;
+        text-align: center;
+      }
+
+      .hamburger.active .hamburger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active .hamburger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      @media (min-width: 768px) {
+        .hamburger {
+          display: none;
+        }
+        .nav-links {
+          display: flex;
+        }
+        .nav-active .nav-links {
+          position: static;
+          flex-direction: row;
+          background: transparent;
+          padding: 0;
+          border: none;
+          box-shadow: none;
+        }
+      }
+
+      /* Hero Section */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 5rem; /* Account for header */
+        background: linear-gradient(
+          135deg,
+          var(--color-cream) 0%,
+          #e8e0d5 100%
+        );
+        overflow: hidden;
+      }
+
+      /* Decorative background elements */
+      .hero::before,
+      .hero::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        background: var(--color-warm);
+        opacity: 0.1;
+        z-index: 0;
+      }
+
+      .hero::before {
+        width: 600px;
+        height: 600px;
+        top: -200px;
+        left: -200px;
+      }
+
+      .hero::after {
+        width: 400px;
+        height: 400px;
+        bottom: -100px;
+        right: -100px;
+        background: var(--color-brown-darker);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        padding: 0 1.5rem;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-subtitle {
+        font-family: var(--font-body);
+        font-size: 1.125rem;
+        font-weight: 300;
+        color: var(--color-brown-dark);
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @media (min-width: 768px) {
+        .hero-title {
+          font-size: 5rem;
+        }
+        .hero-subtitle {
+          font-size: 1.25rem;
+        }
+      }
+
+      /* Section Headers */
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .section-divider {
+        width: 60px;
+        height: 3px;
+        background-color: var(--color-warm);
+        margin: 0 auto;
+      }
+
+      /* About Section */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-text p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+      }
+
+      .about-badge {
+        display: inline-block;
+        font-family: var(--font-heading);
+        font-style: italic;
+        font-size: 1.25rem;
+        color: var(--color-warm-dark);
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--color-warm);
+        padding-bottom: 0.5rem;
+      }
+
+      .about-image {
+        position: relative;
+        aspect-ratio: 4/5;
+        background-color: var(--color-brown-dark);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      /* Simulated image placeholder with pure CSS */
+      .about-image::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          45deg,
+          var(--color-brown-dark),
+          var(--color-brown-darker)
+        );
+        opacity: 0.8;
+      }
+
+      @media (min-width: 768px) {
+        .about-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 5rem;
+        }
+
+        .about-text {
+          padding-right: 2rem;
+        }
+      }
+
+      /* Menu Section */
+      .menu-section {
+        background-color: #fffaf4;
+      }
+
+      .menu-category {
+        margin-bottom: 4rem;
+      }
+
+      .menu-category-title {
+        font-size: 1.75rem;
+        color: var(--color-brown-dark);
+        margin-bottom: 2rem;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-family: var(--font-body);
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      @media (min-width: 768px) {
+        .menu-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 3rem;
+        }
+      }
+
+      .menu-item {
+        border-bottom: 1px dotted rgba(107, 93, 79, 0.4);
+        padding-bottom: 1.5rem;
+      }
+
+      .menu-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 0.5rem;
+      }
+
+      .menu-item-title {
+        font-size: 1.25rem;
+        color: var(--color-text);
+      }
+
+      .menu-item-price {
+        font-family: var(--font-body);
+        font-weight: 700;
+        color: var(--color-warm-dark);
+        font-size: 1.1rem;
+      }
+
+      .menu-item-desc {
+        font-size: 0.95rem;
+        color: #666;
+        font-style: italic;
+      }
+
+      /* Contact Section */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+
+      @media (min-width: 768px) {
+        .contact-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .contact-info-block {
+        margin-bottom: 2rem;
+      }
+
+      .contact-info-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: var(--color-brown-dark);
+      }
+
+      .contact-info-text {
+        font-size: 1.1rem;
+      }
+
+      /* Form Styles */
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid rgba(107, 93, 79, 0.3);
+        background-color: transparent;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: var(--color-text);
+        transition: var(--transition-smooth);
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--color-warm-dark);
+        background-color: #fff;
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--color-brown-darker);
+        color: var(--color-cream);
+        padding: 4rem 0 2rem;
+        text-align: center;
+      }
+
+      .footer-logo {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--color-warm);
+      }
+
+      .footer-address {
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+        opacity: 0.8;
+      }
+
+      .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-social a {
+        color: var(--color-cream);
+        opacity: 0.7;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .footer-social a:hover {
+        opacity: 1;
+        color: var(--color-warm);
+      }
+
+      .footer-bottom {
+        padding-top: 2rem;
+        border-top: 1px solid rgba(245, 241, 235, 0.1);
+        font-size: 0.85rem;
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="container nav-container">
+        <a href="#home" class="logo">KOKO-BALI-TASTE</a>
+
+        <nav id="nav">
+          <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <button class="hamburger" aria-label="Toggle Navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-content fade-in">
+          <h1 class="hero-title">KOKO-BALI-TASTE</h1>
+          <p class="hero-subtitle">
+            Experience Bali culinary excellence in a nostalgic Italian
+            atmosphere
+          </p>
+          <a href="#menu" class="btn">View Menu</a>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about section-padding">
+        <div class="container">
+          <div class="section-header fade-in">
+            <h2 class="section-title">Our Story</h2>
+            <div class="section-divider"></div>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text fade-in">
+              <span class="about-badge">Established 2026</span>
+              <p>
+                We believe that dining is an emotional experience. At
+                Koko-Bali-Taste, we bring together the vibrant, complex spices
+                of traditional Balinese cooking with the rustic, comforting
+                techniques of classic Italian culinary arts.
+              </p>
+              <p>
+                Our restaurant philosophy centers on respect for ingredients and
+                cultures. Every dish tells a story of two worlds colliding
+                harmoniously on the plate. Whether you are enjoying a casual
+                evening or celebrating a milestone, our warm atmosphere invites
+                you to slow down and savor every bite.
+              </p>
+              <a href="#contact" class="btn" style="margin-top: 1rem"
+                >Book a Table</a
+              >
+            </div>
+            <div class="about-image fade-in" style="transition-delay: 0.2s">
+              <!-- Pure CSS decorative box acting as image placeholder -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu Section -->
+      <section id="menu" class="menu-section section-padding">
+        <div class="container">
+          <div class="section-header fade-in">
+            <h2 class="section-title">Culinary Fusion</h2>
+            <div class="section-divider"></div>
+          </div>
+
+          <!-- Appetizers -->
+          <div class="menu-category fade-in">
+            <h3 class="menu-category-title">Appetizers</h3>
+            <div class="menu-grid">
+              <div class="menu-item">
+                <div class="menu-item-header">
+                  <h4 class="menu-item-title">Bruschetta Sambal Matah</h4>
+                  <span class="menu-item-price">Rp 65k</span>
+                </div>
+                <p class="menu-item-desc">
+                  Toasted rustic bread topped with traditional raw Balinese
+                  shallot and lemongrass salsa, confit tomatoes, and extra
+                  virgin olive oil.
+                </p>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-header">
+                  <h4 class="menu-item-title">Sate Lilit Arancini</h4>
+                  <span class="menu-item-price">Rp 85k</span>
+                </div>
+                <p class="menu-item-desc">
+                  Crispy risotto balls stuffed with spiced minced seafood,
+                  served over a bed of mild coconut-turmeric purée.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mains -->
+          <div class="menu-category fade-in">
+            <h3 class="menu-category-title">Main Courses</h3>
+            <div class="menu-grid">
+              <div class="menu-item">
+                <div class="menu-item-header">
+                  <h4 class="menu-item-title">Babi Guling Carbonara</h4>
+                  <span class="menu-item-price">Rp 145k</span>
+                </div>
+                <p class="menu-item-desc">
+                  Handmade fettuccine tossed in a rich egg yolk sauce, finished
+                  with crispy bits of traditional Balinese roast pork skin and
+                  pecorino.
+                </p>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-header">
+                  <h4 class="menu-item-title">Betutu Osso Buco</h4>
+                  <span class="menu-item-price">Rp 210k</span>
+                </div>
+                <p class="menu-item-desc">
+                  Slow-braised veal shank marinated in rich betutu spices,
+                  served with saffron risotto and crispy cassava leaves.
+                </p>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-header">
+                  <h4 class="menu-item-title">Jimbaran Seafood Linguine</h4>
+                  <span class="menu-item-price">Rp 165k</span>
+                </div>
+                <p class="menu-item-desc">
+                  Fresh local catch, tiger prawns, and clams tossed in a
+                  sweet-spicy Jimbaran style glaze with garlic white wine
+                  reduction.
+                </p>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-header">
+                  <h4 class="menu-item-title">
+                    Eggplant Parmigiana Bumbu Rajang
+                  </h4>
+                  <span class="menu-item-price">Rp 120k</span>
+                </div>
+                <p class="menu-item-desc">
+                  Layered baked eggplant with mozzarella, parmesan, and a robust
+                  Balinese chopped spice tomato sauce.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desserts -->
+          <div class="menu-category fade-in">
+            <h3 class="menu-category-title">Desserts</h3>
+            <div class="menu-grid">
+              <div class="menu-item">
+                <div class="menu-item-header">
+                  <h4 class="menu-item-title">Tiramisu Pandan</h4>
+                  <span class="menu-item-price">Rp 75k</span>
+                </div>
+                <p class="menu-item-desc">
+                  Classic mascarpone layered with ladyfingers soaked in
+                  Kintamani espresso and sweet pandan extract.
+                </p>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-header">
+                  <h4 class="menu-item-title">Gelato Jajanan Bali</h4>
+                  <span class="menu-item-price">Rp 55k</span>
+                </div>
+                <p class="menu-item-desc">
+                  House-churned black sticky rice and coconut palm sugar gelato
+                  served with crispy tuile.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact section-padding">
+        <div class="container">
+          <div class="section-header fade-in">
+            <h2 class="section-title">Visit Us</h2>
+            <div class="section-divider"></div>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-details fade-in">
+              <div class="contact-info-block">
+                <h3 class="contact-info-title">Reservations & Inquiries</h3>
+                <p class="contact-info-text">
+                  <a href="tel:+6285257227778">+62 852-5722-7778</a>
+                </p>
+                <p class="contact-info-text">
+                  <a href="mailto:contact@kokoresto.com"
+                    >contact@kokoresto.com</a
+                  >
+                </p>
+              </div>
+
+              <div class="contact-info-block" style="margin-top: 3rem">
+                <h3 class="contact-info-title">Location</h3>
+                <p class="contact-info-text">
+                  Jl. Pusat Kuliner Koko<br />Bali - Indonesia
+                </p>
+              </div>
+
+              <div class="contact-info-block" style="margin-top: 3rem">
+                <h3 class="contact-info-title">Opening Hours</h3>
+                <p class="contact-info-text">
+                  Everyday<br />11:00 AM - 11:00 PM
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="contact-form-container fade-in"
+              style="transition-delay: 0.2s"
+            >
+              <form
+                id="contactForm"
+                onsubmit="
+                  event.preventDefault();
+                  alert('Thank you for your message. We will respond shortly.');
+                  this.reset();
+                "
+              >
+                <div class="form-group">
+                  <label for="name" class="form-label">Full Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    class="form-control"
+                    required
+                    placeholder="Jane Doe"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    required
+                    placeholder="jane@example.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="message" class="form-label"
+                    >Message or Request</label
+                  >
+                  <textarea
+                    id="message"
+                    class="form-control"
+                    required
+                    placeholder="I would like to reserve a table for..."
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <h2 class="footer-logo">KOKO-BALI-TASTE</h2>
+        <p class="footer-address">
+          Jl. Pusat Kuliner Koko, Sukses - Selalu, Bali - Indonesia 11472
+        </p>
+
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="TripAdvisor">TripAdvisor</a>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 by Koko-holiday. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 1. Mobile Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('#nav');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          nav.classList.toggle('nav-active');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            nav.classList.remove('nav-active');
+          });
+        });
+
+        // 2. Header Scroll Effect & Active Link Highlight
+        const header = document.getElementById('header');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+          // Header style on scroll
+          if (window.scrollY > 50) {
+            header.style.padding = '0';
+            header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+          } else {
+            header.style.padding = '0.5rem 0';
+            header.style.boxShadow = 'none';
+          }
+
+          // Active section highlighting
+          let current = '';
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            // Check if scroll position is past the section top minus header offset
+            if (pageYOffset >= sectionTop - 200) {
+              current = section.getAttribute('id');
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+              link.classList.add('active');
+            }
+          });
+        });
+
+        // 3. Intersection Observer for Scroll Animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+          threshold: 0.15,
+          rootMargin: '0px 0px -50px 0px',
+        };
+
+        const appearOnScroll = new IntersectionObserver(function (
+          entries,
+          observer,
+        ) {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add('appear');
+            observer.unobserve(entry.target);
+          });
+        }, appearOptions);
+
+        fadeElements.forEach((element) => {
+          appearOnScroll.observe(element);
+        });
+      });
+    </script>
+  </body>
+</html>
