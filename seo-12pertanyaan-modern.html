@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>12 Pertanyaan Dasar SEO Modern</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #f7f3eb;
+        --bg2: #fffdf9;
+
+        --white: #ffffff;
+
+        --gold: #c7a96b;
+        --gold2: #e8cf98;
+        --gold3: #fff1cc;
+
+        --text: #1f1b16;
+        --muted: #746b5d;
+
+        --line: rgba(199, 169, 107, 0.18);
+
+        --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+        --radius: 30px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(231, 199, 136, 0.22),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(199, 169, 107, 0.16),
+            transparent 30%
+          ),
+          linear-gradient(180deg, var(--bg), var(--bg2));
+
+        color: var(--text);
+
+        line-height: 1.75;
+
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: min(1450px, 92%);
+        margin: auto;
+      }
+
+      /* HERO */
+
+      .hero {
+        padding: 110px 0 90px;
+        text-align: center;
+        position: relative;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 12px 22px;
+
+        border-radius: 999px;
+
+        background: rgba(255, 255, 255, 0.75);
+
+        border: 1px solid var(--line);
+
+        color: var(--gold);
+
+        font-weight: 700;
+
+        margin-bottom: 28px;
+
+        backdrop-filter: blur(12px);
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 6vw, 6rem);
+
+        line-height: 1.05;
+
+        margin-bottom: 30px;
+
+        letter-spacing: -3px;
+      }
+
+      .hero h1 span {
+        background: linear-gradient(135deg, #8e6a2c, #c7a96b, #f0ddb0);
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero p {
+        max-width: 980px;
+
+        margin: auto;
+
+        color: var(--muted);
+
+        font-size: 1.14rem;
+      }
+
+      /* SECTION */
+
+      .section {
+        padding: 40px 0 120px;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 70px;
+      }
+
+      .section-title h2 {
+        font-size: 3rem;
+        margin-bottom: 18px;
+      }
+
+      .section-title p {
+        max-width: 900px;
+        margin: auto;
+        color: var(--muted);
+      }
+
+      /* GRID */
+
+      .grid {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+
+        gap: 30px;
+      }
+
+      /* CARD */
+
+      .card {
+        position: relative;
+
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.95),
+          rgba(255, 255, 255, 0.88)
+        );
+
+        border: 1px solid var(--line);
+
+        border-radius: var(--radius);
+
+        padding: 38px;
+
+        overflow: hidden;
+
+        box-shadow: var(--shadow);
+
+        transition: 0.4s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+
+        border-color: rgba(199, 169, 107, 0.45);
+
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+      }
+
+      .card::before {
+        content: '';
+
+        position: absolute;
+
+        inset: 0;
+
+        background: linear-gradient(
+          140deg,
+          rgba(231, 199, 136, 0.16),
+          transparent 35%
+        );
+
+        pointer-events: none;
+      }
+
+      /* NUMBER */
+
+      .number-icon {
+        width: 78px;
+        height: 78px;
+
+        border-radius: 24px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 26px;
+
+        background: linear-gradient(135deg, #f5e7c5, #fff8ea);
+
+        border: 1px solid rgba(199, 169, 107, 0.2);
+
+        box-shadow: 0 15px 40px rgba(199, 169, 107, 0.16);
+      }
+
+      .number-icon i,
+      .number-icon span {
+        font-size: 2rem;
+        color: #9f7b3d;
+        font-weight: 800;
+      }
+
+      /* LABEL */
+
+      .label {
+        display: inline-block;
+
+        padding: 8px 16px;
+
+        border-radius: 999px;
+
+        margin-bottom: 20px;
+
+        font-size: 0.8rem;
+
+        font-weight: 700;
+
+        letter-spacing: 0.4px;
+      }
+
+      .label.gold {
+        background: rgba(199, 169, 107, 0.12);
+
+        color: #9b742d;
+
+        border: 1px solid rgba(199, 169, 107, 0.2);
+      }
+
+      /* TEXT */
+
+      .card h3 {
+        font-size: 1.55rem;
+
+        line-height: 1.3;
+
+        margin-bottom: 18px;
+      }
+
+      .card p {
+        color: var(--muted);
+      }
+
+      .highlight {
+        margin-top: 22px;
+
+        padding-top: 22px;
+
+        border-top: 1px solid rgba(199, 169, 107, 0.15);
+      }
+
+      .highlight strong {
+        color: #7d5d22;
+      }
+
+      /* FOUNDATION */
+
+      .foundation {
+        margin-top: 120px;
+      }
+
+      .foundation-box {
+        position: relative;
+
+        overflow: hidden;
+
+        padding: 70px;
+
+        border-radius: 40px;
+
+        background: linear-gradient(135deg, #fff8eb, #fffdf7);
+
+        border: 1px solid rgba(199, 169, 107, 0.18);
+
+        box-shadow: var(--shadow);
+      }
+
+      .foundation-box::before {
+        content: '';
+
+        position: absolute;
+
+        width: 500px;
+        height: 500px;
+
+        border-radius: 50%;
+
+        background: radial-gradient(
+          circle,
+          rgba(231, 199, 136, 0.22),
+          transparent 70%
+        );
+
+        top: -180px;
+        right: -120px;
+      }
+
+      .foundation-box h2 {
+        position: relative;
+        z-index: 2;
+
+        font-size: 3rem;
+
+        margin-bottom: 30px;
+      }
+
+      .foundation-box p {
+        position: relative;
+        z-index: 2;
+
+        color: var(--muted);
+
+        margin-bottom: 22px;
+
+        max-width: 1000px;
+      }
+
+      /* TABLE */
+
+      .foundation-grid {
+        position: relative;
+        z-index: 2;
+
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+        gap: 24px;
+
+        margin-top: 40px;
+      }
+
+      .foundation-card {
+        background: rgba(255, 255, 255, 0.7);
+
+        border: 1px solid rgba(199, 169, 107, 0.16);
+
+        border-radius: 24px;
+
+        padding: 28px;
+      }
+
+      .foundation-card h4 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+      }
+
+      .foundation-card p {
+        margin: 0;
+        font-size: 0.96rem;
+      }
+
+      /* CTA */
+
+      .cta {
+        padding: 120px 0;
+      }
+
+      .cta-box {
+        position: relative;
+
+        overflow: hidden;
+
+        border-radius: 40px;
+
+        padding: 80px 60px;
+
+        background: linear-gradient(135deg, #a88444, #d9bf86, #fff0ca);
+
+        text-align: center;
+
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.14);
+      }
+
+      .cta-box::before {
+        content: '';
+
+        position: absolute;
+
+        width: 520px;
+        height: 520px;
+
+        border-radius: 50%;
+
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.28),
+          transparent 70%
+        );
+
+        top: -220px;
+        right: -150px;
+      }
+
+      .cta-box h2 {
+        position: relative;
+        z-index: 2;
+
+        font-size: clamp(2.2rem, 5vw, 4rem);
+
+        line-height: 1.15;
+
+        margin-bottom: 24px;
+
+        color: white;
+      }
+
+      .cta-box p {
+        position: relative;
+        z-index: 2;
+
+        max-width: 900px;
+
+        margin: auto auto 34px;
+
+        color: rgba(255, 255, 255, 0.92);
+
+        font-size: 1.08rem;
+      }
+
+      .cta-btn {
+        position: relative;
+        z-index: 2;
+
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+
+        padding: 18px 34px;
+
+        border-radius: 18px;
+
+        text-decoration: none;
+
+        font-weight: 800;
+
+        color: #8a6425;
+
+        background: white;
+
+        transition: 0.35s ease;
+
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-3px) scale(1.02);
+      }
+
+      .cta-btn i {
+        font-size: 1.2rem;
+      }
+
+      footer {
+        text-align: center;
+
+        padding: 20px 20px 70px;
+
+        color: #8c806e;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding-top: 80px;
+        }
+
+        .card {
+          padding: 30px;
+        }
+
+        .foundation-box {
+          padding: 40px 28px;
+        }
+
+        .cta-box {
+          padding: 60px 28px;
+        }
+
+        .hero h1 {
+          letter-spacing: -2px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HERO -->
+
+    <section class="hero">
+      <div class="container">
+        <div class="badge">
+          <i class="fa-solid fa-crown"></i>
+          Modern SEO Business Framework • 2026
+        </div>
+
+        <h1>
+          12 Pertanyaan Dasar<br />
+          <span>Untuk Membangun</span><br />
+          Bisnis Jasa SEO
+        </h1>
+
+        <p>
+          Framework modern untuk membangun bisnis jasa SEO yang tidak hanya
+          fokus pada ranking keyword, tetapi juga positioning, authority,
+          workflow, conversion, dan sustainability jangka panjang di era AI
+          Search dan Google modern.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION -->
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Framework SEO Modern</h2>
+
+          <p>
+            12 pertanyaan fundamental untuk membangun agency SEO, personal
+            branding SEO, atau bisnis SEO modern yang scalable dan profitable.
+          </p>
+        </div>
+
+        <div class="grid">
+          <!-- CARD 1 -->
+          <div class="card">
+            <div class="number-icon">
+              <i class="fa-solid fa-1"></i>
+            </div>
+
+            <div class="label gold">Positioning</div>
+
+            <h3>Siapa Target Market Anda?</h3>
+
+            <p>
+              Semakin spesifik niche SEO Anda, semakin mudah membangun
+              positioning, authority, dan proses closing.
+            </p>
+
+            <div class="highlight">
+              <p>
+                <strong>Contoh:</strong><br />
+                SEO Klinik • SEO Property • SEO Umroh • SEO Kontraktor
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="card">
+            <div class="number-icon">
+              <i class="fa-solid fa-2"></i>
+            </div>
+
+            <div class="label gold">Problem Solving</div>
+
+            <h3>Masalah Apa yang Ingin Diselesaikan?</h3>
+
+            <p>
+              SEO bukan menjual ranking keyword. SEO menjual solusi bisnis:
+              leads, trust, visibility, dan growth.
+            </p>
+
+            <div class="highlight">
+              <p>
+                <strong>Fokus:</strong><br />
+                Dampak bisnis yang benar-benar dirasakan klien.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="card">
+            <div class="number-icon">
+              <i class="fa-solid fa-3"></i>
+            </div>
+
+            <div class="label gold">Value Proposition</div>
+
+            <h3>Hasil Utama Apa yang Dijanjikan?</h3>
+
+            <p>
+              Hindari positioning terlalu umum. Fokus pada hasil yang spesifik
+              dan measurable.
+            </p>
+
+            <div class="highlight">
+              <p>
+                <strong>Contoh:</strong><br />
+                Leads organik • Dominasi keyword lokal • Inquiry WhatsApp
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+          <div class="card">
+            <div class="number-icon">
+              <i class="fa-solid fa-4"></i>
+            </div>
+
+            <div class="label gold">Revenue SEO</div>
+
+            <h3>Keyword Apa yang Menghasilkan Uang?</h3>
+
+            <p>
+              Tidak semua traffic bernilai bisnis. Prioritaskan keyword dengan
+              commercial dan transactional intent.
+            </p>
+
+            <div class="highlight">
+              <p>
+                <strong>Insight:</strong><br />
+                Traffic besar tanpa buyer intent sering tidak profitable.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 5 -->
+          <div class="card">
+            <div class="number-icon">
+              <i class="fa-solid fa-5"></i>
+            </div>
+
+            <div class="label gold">Competitor Research</div>
+
+            <h3>Kompetitor Anda Siapa?</h3>
+
+            <p>
+              Analisa kompetitor membantu memahami struktur content, backlink,
+              CTA, dan strategi authority mereka.
+            </p>
+
+            <div class="highlight">
+              <p>
+                <strong>Pelajari:</strong><br />
+                Internal linking • Google Maps • Content structure
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 6 -->
+          <div class="card">
+            <div class="number-icon">
+              <i class="fa-solid fa-6"></i>
+            </div>
+
+            <div class="label gold">Unique Selling Point</div>
+
+            <h3>Apa Keunggulan Unik Anda?</h3>
+
+            <p>Tanpa USP yang jelas, bisnis SEO akan terjebak perang harga.</p>
+
+            <div class="highlight">
+              <p>
+                <strong>Contoh USP:</strong><br />
+                SEO lokal • AI workflow • SEO niche tertentu
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 7 -->
+          <div class="card">
+            <div class="number-icon">
+              <i class="fa-solid fa-7"></i>
+            </div>
+
+            <div class="label gold">SEO Services</div>
+
+            <h3>Layanan Apa yang Ditawarkan?</h3>
+
+            <p>
+              Fokus dulu pada layanan inti yang paling dibutuhkan market sebelum
+              terlalu melebar.
+            </p>
+
+            <div class="highlight">
+              <p>
+                <strong>Prioritas:</strong><br />
+                Audit • Content SEO • Local SEO • Technical SEO
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 8 -->
+          <div class="card">
+            <div class="number-icon">
+              <i class="fa-solid fa-8"></i>
+            </div>
+
+            <div class="label gold">Workflow System</div>
+
+            <h3>Bagaimana Workflow SEO Anda?</h3>
+
+            <p>
+              SOP dan workflow yang jelas meningkatkan trust dan membuat
+              delivery lebih scalable.
+            </p>
+
+            <div class="highlight">
+              <p>
+                <strong>Workflow:</strong><br />
+                Audit • Research • Content • Internal Link • Reporting
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 9 -->
+          <div class="card">
+            <div class="number-icon">
+              <i class="fa-solid fa-9"></i>
+            </div>
+
+            <div class="label gold">KPI & Result</div>
+
+            <h3>Bagaimana Mengukur Keberhasilan?</h3>
+
+            <p>
+              SEO modern harus berbasis KPI bisnis, bukan hanya ranking keyword.
+            </p>
+
+            <div class="highlight">
+              <p>
+                <strong>KPI:</strong><br />
+                Leads • Conversion • CTR • Inquiry WhatsApp
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 10 -->
+          <div class="card">
+            <div class="number-icon">
+              <span>10</span>
+            </div>
+
+            <div class="label gold">Lead Generation</div>
+
+            <h3>Bagaimana Cara Mendapatkan Client?</h3>
+
+            <p>
+              SEO agency harus mampu membuktikan kemampuan marketing melalui
+              branding dan content.
+            </p>
+
+            <div class="highlight">
+              <p>
+                <strong>Channel:</strong><br />
+                Content marketing • Referral • Personal branding
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 11 -->
+          <div class="card">
+            <div class="number-icon">
+              <span>11</span>
+            </div>
+
+            <div class="label gold">Pricing Strategy</div>
+
+            <h3>Bagaimana Sistem Pricing Anda?</h3>
+
+            <p>
+              Hindari pricing terlalu murah dan janji ranking instan. SEO adalah
+              aset jangka panjang.
+            </p>
+
+            <div class="highlight">
+              <p>
+                <strong>Model:</strong><br />
+                Retainer • Project • Bundle SEO + Website
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 12 -->
+          <div class="card">
+            <div class="number-icon">
+              <span>12</span>
+            </div>
+
+            <div class="label gold">Trust Building</div>
+
+            <h3>Bagaimana Cara Membangun Trust?</h3>
+
+            <p>
+              Industri SEO sangat bergantung pada trust, transparansi, dan bukti
+              hasil nyata.
+            </p>
+
+            <div class="highlight">
+              <p>
+                <strong>Trust Signal:</strong><br />
+                Testimoni • Portfolio • Case study • Reporting
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOUNDATION -->
+
+        <div class="foundation">
+          <div class="foundation-box">
+            <h2>4 Fondasi Utama Bisnis SEO</h2>
+
+            <p>
+              Bisnis jasa SEO modern sebenarnya berdiri di atas kombinasi
+              positioning, systems, authority, dan business result.
+            </p>
+
+            <div class="foundation-grid">
+              <div class="foundation-card">
+                <h4>Positioning</h4>
+
+                <p>Menentukan niche dan target market yang jelas.</p>
+              </div>
+
+              <div class="foundation-card">
+                <h4>System</h4>
+
+                <p>Workflow, SOP, dan delivery process yang scalable.</p>
+              </div>
+
+              <div class="foundation-card">
+                <h4>Authority</h4>
+
+                <p>Branding, trust, topical authority, dan visibility.</p>
+              </div>
+
+              <div class="foundation-card">
+                <h4>Result</h4>
+
+                <p>Leads, conversion, inquiry, dan business impact.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box">
+          <h2>
+            Ingin Membangun<br />
+            Bisnis SEO Modern?
+          </h2>
+
+          <p>
+            Pelajari bagaimana membangun positioning, workflow SEO modern,
+            AI-assisted SEO, authority building, dan conversion-focused SEO
+            untuk era Google & AI Search 2026.
+          </p>
+
+          <a
+            href="https://wa.me/6281384072641?text=Halo%20saya%20ingin%20belajar%20SEO%20Modern"
+            target="_blank"
+            class="cta-btn"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            Konsultasi via WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Diamant Digital • CariSolusi • SEO Modern Framework • Business Strategy •
+      2026
+    </footer>
+  </body>
+</html>
