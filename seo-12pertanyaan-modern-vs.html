@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perbandingan 12 Pertanyaan Bisnis vs SEO Modern</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #07111f;
+        --bg2: #0d1b2d;
+        --card: #10233d;
+        --card2: #132b4a;
+        --line: rgba(255, 255, 255, 0.08);
+        --text: #eaf3ff;
+        --muted: #9fb3cc;
+        --blue: #4da3ff;
+        --cyan: #66d9ff;
+        --green: #4fffb0;
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+        --radius: 26px;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background:
+          radial-gradient(circle at top left, #12335d 0%, transparent 30%),
+          radial-gradient(circle at bottom right, #0f4c81 0%, transparent 25%),
+          linear-gradient(135deg, var(--bg), var(--bg2));
+        color: var(--text);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: min(1450px, 92%);
+        margin: auto;
+      }
+
+      .hero {
+        padding: 90px 0 70px;
+        text-align: center;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 10px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--cyan);
+        font-size: 0.9rem;
+        margin-bottom: 24px;
+        backdrop-filter: blur(10px);
+      }
+
+      h1 {
+        font-size: clamp(2.7rem, 6vw, 5rem);
+        line-height: 1.1;
+        font-weight: 800;
+        margin-bottom: 28px;
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        max-width: 980px;
+        margin: auto;
+        color: var(--muted);
+        font-size: 1.15rem;
+      }
+
+      .section-title {
+        margin-bottom: 40px;
+      }
+
+      .section-title h2 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+      }
+
+      .section-title p {
+        color: var(--muted);
+        max-width: 900px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 28px;
+      }
+
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          rgba(255, 255, 255, 0.02)
+        );
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 34px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+        position: relative;
+        overflow: hidden;
+        transition: 0.35s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(102, 217, 255, 0.25);
+      }
+
+      .card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          140deg,
+          rgba(77, 163, 255, 0.08),
+          transparent 35%
+        );
+        pointer-events: none;
+      }
+
+      .number {
+        width: 58px;
+        height: 58px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 1.2rem;
+        margin-bottom: 22px;
+        background: linear-gradient(135deg, #1f4f86, #2563eb);
+        color: white;
+        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
+      }
+
+      .card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+      }
+
+      .label {
+        display: inline-block;
+        padding: 7px 14px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        margin-bottom: 18px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+      }
+
+      .label.business {
+        background: rgba(79, 255, 176, 0.12);
+        color: var(--green);
+        border: 1px solid rgba(79, 255, 176, 0.2);
+      }
+
+      .label.seo {
+        background: rgba(102, 217, 255, 0.12);
+        color: var(--cyan);
+        border: 1px solid rgba(102, 217, 255, 0.2);
+      }
+
+      .compare {
+        margin-top: 18px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .compare strong {
+        color: white;
+      }
+
+      .card p {
+        color: var(--muted);
+      }
+
+      .divider {
+        height: 1px;
+        width: 100%;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 255, 255, 0.15),
+          transparent
+        );
+        margin: 90px 0;
+      }
+
+      .conclusion {
+        margin: 100px 0 120px;
+      }
+
+      .conclusion-box {
+        background: linear-gradient(
+          135deg,
+          rgba(77, 163, 255, 0.14),
+          rgba(255, 255, 255, 0.03)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 36px;
+        padding: 60px;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .conclusion-box::before {
+        content: '';
+        position: absolute;
+        width: 420px;
+        height: 420px;
+        background: radial-gradient(
+          circle,
+          rgba(77, 163, 255, 0.22),
+          transparent 70%
+        );
+        top: -120px;
+        right: -120px;
+      }
+
+      .conclusion-box h2 {
+        font-size: 3rem;
+        margin-bottom: 28px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .conclusion-box p {
+        color: var(--muted);
+        margin-bottom: 22px;
+        position: relative;
+        z-index: 2;
+        font-size: 1.08rem;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin-top: 42px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .summary-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        padding: 28px;
+      }
+
+      .summary-card h4 {
+        margin-bottom: 12px;
+        font-size: 1.2rem;
+      }
+
+      .summary-card p {
+        margin: 0;
+        font-size: 0.98rem;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px 20px 70px;
+        color: #7e97b7;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding-top: 70px;
+        }
+
+        .card {
+          padding: 28px;
+        }
+
+        .conclusion-box {
+          padding: 34px;
+        }
+
+        .conclusion-box h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="container">
+        <div class="badge">
+          Framework Comparison • Business Strategy vs SEO Modern
+        </div>
+
+        <h1>
+          Perbandingan Dua Framework<br />
+          “12 Pertanyaan Bisnis”
+        </h1>
+
+        <p>
+          Analisis mendalam mengenai relevansi antara framework 12 Pertanyaan
+          Dasar Bisnis dengan framework operasional SEO modern. Halaman ini
+          menunjukkan bagaimana pondasi bisnis yang kuat sebenarnya menjadi inti
+          utama dalam membangun sistem SEO yang sustainable, profitable, dan
+          tahan terhadap perubahan algoritma modern.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Perbandingan Konsep</h2>
+          <p>
+            Framework pertama berfokus pada operasional jasa SEO dan execution
+            strategy. Framework kedua lebih berfokus pada pondasi bisnis,
+            market, value, sistem, dan sustainability jangka panjang.
+          </p>
+        </div>
+
+        <div class="grid">
+          <!-- CARD 1 -->
+          <div class="card">
+            <div class="number">1</div>
+
+            <div class="label business">Business Foundation</div>
+
+            <h3>Apa Masalahnya?</h3>
+
+            <p>
+              Framework bisnis memulai semuanya dari masalah nyata pelanggan.
+              Ini sangat relevan dengan SEO modern karena Google sekarang
+              semakin fokus pada helpful content, user satisfaction, dan problem
+              solving.
+            </p>
+
+            <div class="compare">
+              <p>
+                <strong>Relasi dengan SEO:</strong><br />
+                Mirip dengan konsep “Masalah Apa yang Ingin Diselesaikan” dalam
+                jasa SEO dan keyword intent modern.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="card">
+            <div class="number">2</div>
+
+            <div class="label business">Audience & Niche</div>
+
+            <h3>Siapa yang Memiliki Masalah?</h3>
+
+            <p>
+              SEO modern sangat bergantung pada niche specificity dan topical
+              authority. Website generik semakin sulit bersaing dibanding
+              website yang fokus pada segmen tertentu.
+            </p>
+
+            <div class="compare">
+              <p>
+                <strong>Relasi dengan SEO:</strong><br />
+                Sangat identik dengan konsep target market dan niche SEO.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="card">
+            <div class="number">3</div>
+
+            <div class="label seo">Conversion SEO</div>
+
+            <h3>Apa Solusinya?</h3>
+
+            <p>
+              Di era SEO modern, traffic tanpa solusi tidak cukup. Google
+              semakin mengutamakan website yang benar-benar membantu user, bukan
+              hanya mengejar ranking keyword.
+            </p>
+
+            <div class="compare">
+              <p>
+                <strong>SEO Modern:</strong><br />
+                Content harus memberikan solusi jelas, actionable, dan
+                meningkatkan engagement.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+          <div class="card">
+            <div class="number">4</div>
+
+            <div class="label business">Market Validation</div>
+
+            <h3>Seberapa Besar Pasarnya?</h3>
+
+            <p>
+              Banyak website mendapatkan traffic besar tetapi market kecil atau
+              tidak profitable. SEO modern harus mempertimbangkan economics dan
+              buyer intent.
+            </p>
+
+            <div class="compare">
+              <p>
+                <strong>Relasi SEO:</strong><br />
+                Sangat terkait dengan keyword economics dan commercial intent.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 5 -->
+          <div class="card">
+            <div class="number">5</div>
+
+            <div class="label seo">Modern Landscape</div>
+
+            <h3>Faktor Apa yang Mempengaruhi Bisnis?</h3>
+
+            <p>
+              SEO sekarang dipengaruhi AI Overview, Reddit dominance, social
+              search, zero-click search, dan entity-based ranking.
+            </p>
+
+            <div class="compare">
+              <p>
+                <strong>Kesimpulan:</strong><br />
+                Framework bisnis lebih adaptif terhadap perubahan ekosistem
+                digital modern.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 6 -->
+          <div class="card">
+            <div class="number">6</div>
+
+            <div class="label business">Authority & Trust</div>
+
+            <h3>Mengapa Pelanggan Memilih Anda?</h3>
+
+            <p>
+              Ini adalah inti dari EEAT dan branding modern. Website yang tidak
+              memiliki diferensiasi akan sulit membangun authority di Google.
+            </p>
+
+            <div class="compare">
+              <p>
+                <strong>SEO Relation:</strong><br />
+                Sangat terkait dengan USP, brand search, dan trust signal.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 7 -->
+          <div class="card">
+            <div class="number">7</div>
+
+            <div class="label seo">Funnel & CRO</div>
+
+            <h3>Bagaimana Cara Menjual Produk?</h3>
+
+            <p>
+              SEO modern tidak berhenti di traffic. Funnel, CTA, landing page,
+              WhatsApp conversion, dan CRO menjadi bagian penting.
+            </p>
+
+            <div class="compare">
+              <p>
+                <strong>Modern SEO:</strong><br />
+                SEO sekarang adalah acquisition system, bukan sekadar ranking
+                system.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 8 -->
+          <div class="card">
+            <div class="number">8</div>
+
+            <div class="label business">Retention</div>
+
+            <h3>Bagaimana Menjaga Pelanggan?</h3>
+
+            <p>
+              Repeat customer, referral, dan branded search memberikan dampak
+              besar terhadap pertumbuhan bisnis dan authority website.
+            </p>
+
+            <div class="compare">
+              <p>
+                <strong>Insight:</strong><br />
+                Bisnis dengan retention kuat biasanya lebih stabil di SEO.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 9 -->
+          <div class="card">
+            <div class="number">9</div>
+
+            <div class="label seo">Revenue Focus</div>
+
+            <h3>Bagaimana Menaikkan Pendapatan?</h3>
+
+            <p>
+              Agency SEO modern mulai menjual ROI, pipeline, dan lead generation
+              — bukan hanya ranking keyword.
+            </p>
+
+            <div class="compare">
+              <p>
+                <strong>Perubahan Besar:</strong><br />
+                SEO bergeser dari traffic-centric menjadi revenue-centric.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 10 -->
+          <div class="card">
+            <div class="number">10</div>
+
+            <div class="label business">Efficiency</div>
+
+            <h3>Bagaimana Mengelola Biaya?</h3>
+
+            <p>
+              AI membantu scaling content dan automation, tetapi human editing
+              dan quality control tetap penting.
+            </p>
+
+            <div class="compare">
+              <p>
+                <strong>SEO Modern:</strong><br />
+                Cost efficiency menjadi faktor penting dalam content production.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 11 -->
+          <div class="card">
+            <div class="number">11</div>
+
+            <div class="label seo">Asset Building</div>
+
+            <h3>Apa Sumber Daya Utama Bisnis?</h3>
+
+            <p>
+              Dalam SEO modern, aset utama bisa berupa topical authority,
+              content library, email list, data pelanggan, AI workflow, dan
+              domain authority.
+            </p>
+
+            <div class="compare">
+              <p>
+                <strong>Kesimpulan:</strong><br />
+                SEO modern lebih mirip membangun media asset dibanding sekadar
+                website.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 12 -->
+          <div class="card">
+            <div class="number">12</div>
+
+            <div class="label business">Team & Systems</div>
+
+            <h3>Bagaimana Mengembangkan Tim?</h3>
+
+            <p>
+              SEO modern semakin kompleks: technical SEO, content, automation,
+              CRO, outreach, dan AI workflow.
+            </p>
+
+            <div class="compare">
+              <p>
+                <strong>Reality:</strong><br />
+                Scale besar hampir mustahil tanpa sistem dan tim yang jelas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- CONCLUSION -->
+        <section class="conclusion">
+          <div class="conclusion-box">
+            <h2>Kesimpulan Utama</h2>
+
+            <p>
+              Framework “12 Pertanyaan Bisnis” sebenarnya lebih fundamental,
+              lebih strategis, dan lebih relevan untuk SEO modern dibanding
+              framework SEO tradisional yang hanya fokus pada ranking dan
+              keyword.
+            </p>
+
+            <p>
+              SEO modern tahun 2025–2026 telah berubah menjadi sistem bisnis
+              digital: menggabungkan audience understanding, authority, funnel,
+              conversion, retention, dan operational efficiency.
+            </p>
+
+            <p>
+              Karena itu, framework bisnis menjadi pondasi utama, sedangkan
+              framework SEO operasional berfungsi sebagai layer execution di
+              atas pondasi tersebut.
+            </p>
+
+            <div class="summary-grid">
+              <div class="summary-card">
+                <h4>Framework Bisnis</h4>
+                <p>
+                  Fokus pada market, positioning, value, systems,
+                  sustainability, dan profitability.
+                </p>
+              </div>
+
+              <div class="summary-card">
+                <h4>Framework SEO</h4>
+                <p>
+                  Fokus pada execution: keyword, content, technical SEO,
+                  authority, dan traffic acquisition.
+                </p>
+              </div>
+
+              <div class="summary-card">
+                <h4>Kombinasi Terbaik</h4>
+                <p>
+                  Gunakan framework bisnis sebagai fondasi, lalu jalankan SEO
+                  sebagai growth engine.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <footer>
+      Modern SEO Framework • Business Strategy × SEO Systems • 2026
+    </footer>
+  </body>
+</html>
