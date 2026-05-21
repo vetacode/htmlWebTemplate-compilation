@@ -11,6 +11,8 @@
       rel="stylesheet"
     />
 
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
       * {
         margin: 0;
@@ -424,8 +426,25 @@
       }
 
       .lead-icon {
-        font-size: 2.6rem;
-        margin-bottom: 20px;
+        width: 72px;
+        height: 72px;
+        border-radius: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          rgba(77, 163, 255, 0.18),
+          rgba(102, 217, 255, 0.08)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 24px;
+      }
+
+      .lead-icon svg {
+        width: 34px;
+        height: 34px;
+        color: #66d9ff;
       }
 
       .lead-card h3 {
@@ -446,15 +465,26 @@
       }
 
       .lead-card ul li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
         color: #d6e5ff;
-        margin-bottom: 12px;
+        margin-bottom: 14px;
         font-size: 0.96rem;
       }
 
+      .lead-card ul li svg {
+        width: 16px;
+        height: 16px;
+        color: #4fffb0;
+        flex-shrink: 0;
+      }
+
       .lead-btn {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         justify-content: center;
+        gap: 10px;
         width: 100%;
         padding: 16px 22px;
         border-radius: 18px;
@@ -469,6 +499,11 @@
       .lead-btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 18px 45px rgba(37, 99, 235, 0.45);
+      }
+
+      .lead-btn svg {
+        width: 18px;
+        height: 18px;
       }
 
       @media (max-width: 768px) {
@@ -858,7 +893,9 @@
           <div class="lead-grid">
             <!-- CARD 1 -->
             <div class="lead-card">
-              <div class="lead-icon">📘</div>
+              <div class="lead-icon">
+                <i data-lucide="book-open"></i>
+              </div>
 
               <h3>SEO Business Framework</h3>
 
@@ -868,10 +905,25 @@
               </p>
 
               <ul>
-                <li>✔ Topical Authority</li>
-                <li>✔ Entity SEO</li>
-                <li>✔ SEO Funnel Strategy</li>
-                <li>✔ AI SEO Workflow</li>
+                <li>
+                  <i data-lucide="check"></i>
+                  Topical Authority
+                </li>
+
+                <li>
+                  <i data-lucide="check"></i>
+                  Entity SEO
+                </li>
+
+                <li>
+                  <i data-lucide="check"></i>
+                  SEO Funnel Strategy
+                </li>
+
+                <li>
+                  <i data-lucide="check"></i>
+                  AI SEO Workflow
+                </li>
               </ul>
 
               <a
@@ -879,6 +931,7 @@
                 target="_blank"
                 class="lead-btn"
               >
+                <i data-lucide="arrow-right"></i>
                 Ambil Framework
               </a>
             </div>
@@ -887,7 +940,9 @@
             <div class="lead-card featured">
               <div class="popular-tag">MOST POPULAR</div>
 
-              <div class="lead-icon">🚀</div>
+              <div class="lead-icon">
+                <i data-lucide="rocket"></i>
+              </div>
 
               <h3>Free Mini Audit SEO</h3>
 
@@ -897,10 +952,25 @@
               </p>
 
               <ul>
-                <li>✔ Website Analysis</li>
-                <li>✔ Keyword Opportunity</li>
-                <li>✔ SEO Weakness Mapping</li>
-                <li>✔ Conversion Insight</li>
+                <li>
+                  <i data-lucide="check"></i>
+                  Website Analysis
+                </li>
+
+                <li>
+                  <i data-lucide="check"></i>
+                  Keyword Opportunity
+                </li>
+
+                <li>
+                  <i data-lucide="check"></i>
+                  SEO Weakness Mapping
+                </li>
+
+                <li>
+                  <i data-lucide="check"></i>
+                  Conversion Insight
+                </li>
               </ul>
 
               <a
@@ -908,13 +978,16 @@
                 target="_blank"
                 class="lead-btn"
               >
+                <i data-lucide="message-circle"></i>
                 Request Audit Gratis
               </a>
             </div>
 
             <!-- CARD 3 -->
             <div class="lead-card">
-              <div class="lead-icon">⚡</div>
+              <div class="lead-icon">
+                <i data-lucide="bot"></i>
+              </div>
 
               <h3>AI SEO Workflow</h3>
 
@@ -924,10 +997,25 @@
               </p>
 
               <ul>
-                <li>✔ Prompt Framework</li>
-                <li>✔ Content Scaling</li>
-                <li>✔ SEO Automation</li>
-                <li>✔ Human Editing System</li>
+                <li>
+                  <i data-lucide="check"></i>
+                  Prompt Framework
+                </li>
+
+                <li>
+                  <i data-lucide="check"></i>
+                  Content Scaling
+                </li>
+
+                <li>
+                  <i data-lucide="check"></i>
+                  SEO Automation
+                </li>
+
+                <li>
+                  <i data-lucide="check"></i>
+                  Human Editing System
+                </li>
               </ul>
 
               <a
@@ -935,6 +1023,7 @@
                 target="_blank"
                 class="lead-btn"
               >
+                <i data-lucide="sparkles"></i>
                 Pelajari Workflow
               </a>
             </div>
@@ -944,7 +1033,11 @@
     </section>
 
     <footer>
-      Modern SEO Framework • Business Strategy × SEO Systems • 2026
+      by Diamant Digital • Modern SEO Framework & System • Business Strategy •
+      2026
     </footer>
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>
