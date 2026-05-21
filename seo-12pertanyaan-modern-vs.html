@@ -299,6 +299,187 @@
           font-size: 2rem;
         }
       }
+
+      /* CTA */
+      .lead-section {
+        padding: 40px 0 120px;
+      }
+
+      .lead-wrapper {
+        position: relative;
+        overflow: hidden;
+        border-radius: 42px;
+        padding: 70px 50px;
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(77, 163, 255, 0.18),
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(0, 255, 255, 0.12),
+            transparent 30%
+          ),
+          linear-gradient(145deg, #0b1730, #13294a, #0d1d35);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+      }
+
+      .lead-wrapper::before {
+        content: '';
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(77, 163, 255, 0.12),
+          transparent 70%
+        );
+        top: -180px;
+        right: -120px;
+      }
+
+      .lead-header {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 55px;
+      }
+
+      .lead-badge {
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #66d9ff;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        margin-bottom: 22px;
+      }
+
+      .lead-header h2 {
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        line-height: 1.15;
+        margin-bottom: 22px;
+        color: white;
+        letter-spacing: -1.5px;
+      }
+
+      .lead-header p {
+        max-width: 850px;
+        margin: auto;
+        color: #a7b8d3;
+        font-size: 1.05rem;
+        line-height: 1.9;
+      }
+
+      .lead-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 28px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .lead-card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 30px;
+        padding: 36px;
+        backdrop-filter: blur(18px);
+        transition: 0.35s ease;
+      }
+
+      .lead-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(102, 217, 255, 0.3);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      .lead-card.featured {
+        background: linear-gradient(
+          180deg,
+          rgba(77, 163, 255, 0.12),
+          rgba(255, 255, 255, 0.04)
+        );
+        border: 1px solid rgba(102, 217, 255, 0.28);
+        transform: scale(1.03);
+      }
+
+      .popular-tag {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        padding: 7px 14px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #4da3ff, #66d9ff);
+        color: #07111f;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+      }
+
+      .lead-icon {
+        font-size: 2.6rem;
+        margin-bottom: 20px;
+      }
+
+      .lead-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+        color: white;
+      }
+
+      .lead-card p {
+        color: #9fb3cc;
+        line-height: 1.8;
+        margin-bottom: 22px;
+      }
+
+      .lead-card ul {
+        list-style: none;
+        margin-bottom: 30px;
+      }
+
+      .lead-card ul li {
+        color: #d6e5ff;
+        margin-bottom: 12px;
+        font-size: 0.96rem;
+      }
+
+      .lead-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 16px 22px;
+        border-radius: 18px;
+        text-decoration: none;
+        font-weight: 700;
+        background: linear-gradient(135deg, #2563eb, #4da3ff);
+        color: white;
+        transition: 0.3s ease;
+        box-shadow: 0 12px 35px rgba(37, 99, 235, 0.35);
+      }
+
+      .lead-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 45px rgba(37, 99, 235, 0.45);
+      }
+
+      @media (max-width: 768px) {
+        .lead-wrapper {
+          padding: 50px 26px;
+        }
+
+        .lead-card.featured {
+          transform: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -652,6 +833,113 @@
             </div>
           </div>
         </section>
+      </div>
+    </section>
+
+    <section class="lead-section">
+      <div class="container">
+        <div class="lead-wrapper">
+          <div class="lead-header">
+            <span class="lead-badge"> FREE RESOURCE FOR BUSINESS OWNER </span>
+
+            <h2>
+              Ingin Membangun SEO yang<br />
+              Tidak Sekadar Ranking?
+            </h2>
+
+            <p>
+              Banyak website bisa naik traffic, tetapi tidak semua bisa
+              menghasilkan leads, authority, dan pertumbuhan bisnis jangka
+              panjang. Dapatkan framework modern SEO + business strategy yang
+              lebih relevan untuk era AI Search dan Google 2026.
+            </p>
+          </div>
+
+          <div class="lead-grid">
+            <!-- CARD 1 -->
+            <div class="lead-card">
+              <div class="lead-icon">📘</div>
+
+              <h3>SEO Business Framework</h3>
+
+              <p>
+                Panduan memahami hubungan antara market, positioning, authority,
+                funnel, dan SEO modern.
+              </p>
+
+              <ul>
+                <li>✔ Topical Authority</li>
+                <li>✔ Entity SEO</li>
+                <li>✔ SEO Funnel Strategy</li>
+                <li>✔ AI SEO Workflow</li>
+              </ul>
+
+              <a
+                href="https://wa.me/6281384072641?text=Halo%20saya%20ingin%20SEO%20Business%20Framework"
+                target="_blank"
+                class="lead-btn"
+              >
+                Ambil Framework
+              </a>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="lead-card featured">
+              <div class="popular-tag">MOST POPULAR</div>
+
+              <div class="lead-icon">🚀</div>
+
+              <h3>Free Mini Audit SEO</h3>
+
+              <p>
+                Dapatkan analisa singkat website Anda: struktur SEO,
+                positioning, authority, content strategy, dan peluang growth.
+              </p>
+
+              <ul>
+                <li>✔ Website Analysis</li>
+                <li>✔ Keyword Opportunity</li>
+                <li>✔ SEO Weakness Mapping</li>
+                <li>✔ Conversion Insight</li>
+              </ul>
+
+              <a
+                href="https://wa.me/6281384072641?text=Halo%20saya%20ingin%20Mini%20Audit%20SEO"
+                target="_blank"
+                class="lead-btn"
+              >
+                Request Audit Gratis
+              </a>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="lead-card">
+              <div class="lead-icon">⚡</div>
+
+              <h3>AI SEO Workflow</h3>
+
+              <p>
+                Pelajari bagaimana AI digunakan untuk content production,
+                clustering, topical mapping, dan automation SEO.
+              </p>
+
+              <ul>
+                <li>✔ Prompt Framework</li>
+                <li>✔ Content Scaling</li>
+                <li>✔ SEO Automation</li>
+                <li>✔ Human Editing System</li>
+              </ul>
+
+              <a
+                href="https://wa.me/6281384072641?text=Halo%20saya%20ingin%20AI%20SEO%20Workflow"
+                target="_blank"
+                class="lead-btn"
+              >
+                Pelajari Workflow
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
